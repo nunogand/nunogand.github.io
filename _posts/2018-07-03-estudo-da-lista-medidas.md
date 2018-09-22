@@ -7,7 +7,7 @@ tags: [PowerBi, código, DAX]
 comments: false
 img: header_powerbi.jpg
 ---
-{% highlight Console %}
+{% highlight %}
 
 Mulheres em Idade fértil (15-49) = 
 CALCULATE (
