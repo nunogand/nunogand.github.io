@@ -7,7 +7,7 @@ tags: [PowerBi, código, DAX]
 comments: false
 img: header_powerbi.jpg
 ---
-{% highlight js %}
+{% highlight %}
 
 Mulheres em Idade fértil (15-49) = 
 CALCULATE (
@@ -19,7 +19,9 @@ CALCULATE (
             && Utentes[Idade] > 14
     )
 )
+{% endhighlight %}
 
+{% highlight %}
 População > 50 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -28,7 +30,9 @@ CALCULATE (
         Utentes[Idade] > 49
     )
 )
+{% endhighlight %}
 
+{% highlight %}
 População > 60 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -38,6 +42,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População > 65 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -47,6 +54,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População > 75 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -56,6 +66,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 0 a 14 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -65,6 +78,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 0 a 19 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -74,6 +90,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 0 a 4 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -83,6 +102,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 15 a 19 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -93,6 +115,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 15 a 39 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -103,6 +128,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 15 a 49 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -113,6 +141,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 15 a 64 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -123,6 +154,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 30 a 49 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -133,6 +167,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 40 a 64 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -143,6 +180,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 45 a 64 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -153,6 +193,9 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 População 5 a 14 anos = 
 CALCULATE (
     COUNT ( Utentes[Idade] );
@@ -163,8 +206,14 @@ CALCULATE (
     )
 )
 
+{% endhighlight %}
+
+{% highlight %}
 Utentes total = count(Utentes[Utente])
 
+{% endhighlight %}
+
+{% highlight %}
 Burgdofer = 
 IF (
     ( [População 5 a 14 anos] / [Utentes total] * 100 ) - 2,5
@@ -187,9 +236,9 @@ IF (
     "População Envelhecida";
     IF ( [Friz_cal] < 160; "População madura"; "População jovem" )
 )
+{% endhighlight %}
 
-
-
+{% highlight %}
 Grau de Envelhecimento de Sauvy = 
 IF (
     [População > 60 anos] / [População 0 a 19 anos]
@@ -199,6 +248,9 @@ IF (
     "N/A"
 )
 
+{% endhighlight %}
+
+{% highlight %}
 Indice de crianças (0-4) por mulher em idade fértil = 
 [População 0 a 4 anos] / [Mulheres em Idade fértil (15-49)]
 
@@ -219,17 +271,29 @@ Indice de envelhecimento =
 [População > 65 anos] / [População 0 a 14 anos]
     * 100
 
+{% endhighlight %}
 
+{% highlight %}
 Indice de juventude = [População 0 a 14 anos]/[População > 65 anos]*100
 
+{% endhighlight %}
+
+{% highlight %}
 Indice de juventude da população em idade activa = [População 15 a 39 anos]/[População 40 a 64 anos]*100
 
+{% endhighlight %}
+
+{% highlight %}
 Indice de longevidade = [População > 75 anos]/[População > 65 anos]*100
 
+{% endhighlight %}
 
-
+{% highlight %}
 Razao Crianças-Mulheres = [População 0 a 4 anos]/[Mulheres em Idade fértil (15-49)]*100
 
+{% endhighlight %}
+
+{% highlight %}
 Sundbarg = 
 IF (
     [População 0 a 14 anos] / [População 15 a 49 anos]
