@@ -8,6 +8,7 @@ comments: false
 img: header_powerbi.jpg
 ---
 {% highlight Console %}
+
 Mulheres em Idade fértil (15-49) = 
 CALCULATE (
     COUNT ( Utentes[Utente] );
@@ -245,4 +246,5 @@ IF (
         "População estacionária"
     )
 )
+
 {% endhighlight %}
