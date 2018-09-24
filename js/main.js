@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     $(this).addClass('is-loading').text("Loading...");
 
-    $.get('/page/' + nextPage, function (data) {
+    $.get('/flexton/page/' + nextPage, function (data) {
       var htmlData = $.parseHTML(data);
       var $articles = $(htmlData).find('article');
 
