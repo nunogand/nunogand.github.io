@@ -47,9 +47,12 @@
         color: $blue-dark;
       }
     }
-    .c-post-date,
+    .c-post-date {
+	  color: #8d7edc;
+	  font-size: 12px;}
     .c-post-words {
       font-size: 12px;
+	color: #42b983;
     }
   }
 }
