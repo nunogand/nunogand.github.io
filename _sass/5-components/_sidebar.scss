@@ -47,7 +47,7 @@
     }
   }
   .c-author__info {
-    font-family: 'Volkhov', serif;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
   }
   .c-author__name {
     font-size: 1.75em;
@@ -56,7 +56,7 @@
 	color: #F36170; 
   }
   .c-author__job {
-    font-size: 12px;
+    font-size: 90%;
     color: $gray;
     margin: 5px 0 0;
 	  color: #8d7edc;
@@ -70,7 +70,7 @@
   .c-author__about {
     max-width: 400px;
     margin: 0 auto 15px;
-    font-size: 13px;
+    font-size: 90%;
   }
 }
 
