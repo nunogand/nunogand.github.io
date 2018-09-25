@@ -90,7 +90,8 @@
       position: absolute;
       top: 50%;
       left: 0;
-      background-color: $darkest;
+      background-color: #8d7edc;
+	    
     }
     &::after {
       content: "";
@@ -101,7 +102,7 @@
       position: absolute;
       top: 50%;
       right: 0;
-      background-color: $darkest;
+      background-color: #8d7edc;
     }
   }
   .c-social__list {
