@@ -1,7 +1,7 @@
 title: nunogand
 description: Flexton (ou uma nova tentativa de criar um site)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nunogand.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "//nunogand.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author
 author-name:    nunogand
