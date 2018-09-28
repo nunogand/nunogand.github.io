@@ -15,7 +15,8 @@ layout: home
       </h2>
       <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
       {% include data.html %}
-      {% include leitura.html %}
+        <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
+          plus: 250 | divided_by: 250 | append: " minuto(s) de leitura" }}{% endunless %}</span>
     </div>
   </article>
   {% endfor %}
