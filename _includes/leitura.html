@@ -1,8 +1,0 @@
-<span class="c-post-words">
-{% capture words %}{{ post.content | number_of_words }}{% endcapture %}
-{% if words < 270 %}
-    1 min leitura
-  {% else %}
-    {{ words | divided_by:135 }} mins leitura
-{% endif %}
-</span>
