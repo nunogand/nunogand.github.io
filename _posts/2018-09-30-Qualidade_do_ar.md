@@ -8,7 +8,4 @@ img: esp8266.jpg
 tags: [Raspberry, Arduino]
 comments: false
 ---
-
-Evolução da concentração atmosférica de partículas PM 10 e PM 2.5
-
 {% include pm.html %}
