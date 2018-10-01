@@ -10,5 +10,5 @@ comments: false
 ---
 Gráfico utilizando Highcharts e os dados que enviei para o Thingspeak
 
-[jsfiddle.net/nunogand/hxodq9L6/2/embedded/result/] (jsfiddle.net/nunogand/hxodq9L6/2/embedded/result)
+[https://nunogand.github.io/graficos/qualidade_do_ar.html] (https://nunogand.github.io/graficos/qualidade_do_ar.html)
 
