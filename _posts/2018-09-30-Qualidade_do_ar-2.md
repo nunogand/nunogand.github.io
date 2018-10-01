@@ -8,6 +8,10 @@ img: esp8266.jpg
 tags: [Raspberry, Arduino]
 comments: false
 ---
+{% raw %}
 <script async src="//jsfiddle.net/nunogand/hxodq9L6/2/embed/result/"></script>
+{% endraw %}
 
+{% raw %}
 <iframe width="100%" height="300" src="//jsfiddle.net/nunogand/hxodq9L6/2/embedded/result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+{% endraw %}
