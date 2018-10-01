@@ -8,4 +8,6 @@ img: esp8266.jpg
 tags: [Raspberry, Arduino]
 comments: false
 ---
+{::options parse_block_html="true" /}
 {% include pm.html %}
+{::options parse_block_html="false" /}
