@@ -12,3 +12,4 @@ Gráfico utilizando Highcharts e os dados que enviei para o Thingspeak
 
 [https://nunogand.github.io/graficos/qualidade_do_ar.html] (https://nunogand.github.io/graficos/qualidade_do_ar.html)
 
+<iframe src="https://nunogand.github.io/graficos/qualidade_do_ar.html></iframe>
