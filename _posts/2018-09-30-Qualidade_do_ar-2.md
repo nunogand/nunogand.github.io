@@ -13,5 +13,5 @@ comments: false
 {% endraw %}
 
 {% raw %}
-<iframe width="100%" height="300" src="//jsfiddle.net/nunogand/hxodq9L6/2/embedded/result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe width="100%" height="300" src="//jsfiddle.net/nunogand/hxodq9L6/2/embedded/result/"></iframe>
 {% endraw %}
