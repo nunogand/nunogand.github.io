@@ -8,8 +8,8 @@ img: esp8266.jpg
 tags: [Raspberry, Arduino]
 comments: false
 ---
-Gráfico utilizando Highcharts e os dados que enviei para o Thingspeak
+<center>Gráfico utilizando Highcharts e os dados que enviei para o Thingspeak</center>
 
-<iframe src="https://nunogand.github.io/graficos/qualidade_do_ar.html" height="800" width="100%" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe src="https://nunogand.github.io/graficos/qualidade_do_ar.html" height="650" width="100%" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 ###### _[https://nunogand.github.io/graficos/qualidade_do_ar.html](https://nunogand.github.io/graficos/qualidade_do_ar.html)_ ######
 
