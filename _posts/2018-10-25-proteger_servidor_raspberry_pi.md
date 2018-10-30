@@ -4,7 +4,7 @@ title: "Proteger um servidor baseado em Raspbian."
 description: "Princípios básicos para proteger um servidor baseado em Raspbian."
 categories: [Raspberry]
 date: 2017-10-01
-tags: [Raspberry, Pi-Hole]
+tags: [Raspberry, Servidor, IOT]
 comments: false
 img: header_raspi.jpg
 ---
