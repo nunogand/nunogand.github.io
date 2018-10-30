@@ -155,10 +155,15 @@ Exemplo:
 Configurar o Serviço timesyncd
 
 Editar  **/etc/systemd/timesyncd.conf**;
-
+```
 [Time]
 NTP=0.pt.pool.ntp.org
 FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
 #RootDistanceMaxSec=5
 #PollIntervalMinSec=32
 #PollIntervalMaxSec=2048
+```
+
+Em falta:
+* Fail2Ban
+* Firewall
