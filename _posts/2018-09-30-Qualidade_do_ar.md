@@ -8,7 +8,7 @@ img: chart.png
 tags: [Raspberry, Arduino]
 comments: false
 ---
-### 01/11/2018: substituído por [Grafana](https://nunogand.grafana.net/dashboard/snapshot/EyePTh0G5B1qTvLYl9mnPPsP71B019yt?orgId=0&from=1541010759764&to=1541183581711)
+### 01/11/2018: substituído por [Grafana](https://nunogand.grafana.net/dashboard/snapshot/EyePTh0G5B1qTvLYl9mnPPsP71B019yt?orgId=0&from=1541010759764&to=1541183581711); dados actualizados em [Madavi](https://www.madavi.de/sensor/graph.php?sensor=esp8266-7558335-sds011)
 
 <center>Gráfico utilizando Highcharts e os dados que enviei para o Thingspeak</center>
 
