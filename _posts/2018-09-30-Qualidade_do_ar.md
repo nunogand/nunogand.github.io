@@ -15,3 +15,5 @@ comments: false
 <iframe src="https://nunogand.github.io/graficos/qualidade_do_ar.html" height="650" width="100%" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 ###### _[https://nunogand.github.io/graficos/qualidade_do_ar.html](https://nunogand.github.io/graficos/qualidade_do_ar.html)_ ######
 
+
+<iframe src="https://nunogand.grafana.net/d/K38Xbp-iz/sensores-luftdaten?refresh=5m&orgId=1" height="650" width="100%" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
