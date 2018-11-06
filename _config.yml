@@ -1,7 +1,7 @@
 title: nunogand
-description: Flexton (ou uma nova tentativa de criar um site)
+description: Apontamentos e recortes dispersos; coisas portanto...
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "//nunogand.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nunogand.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author
 author-name:    nunogand
@@ -22,7 +22,7 @@ social-vk:
 social-linkedin:
 
 # Newsletter
-mailchimp: # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
+# mailchimp: # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
 
 # Google Analytics
 google-analytics: UA-109060453-1 # Add your identifier. For example UA-99631805-1
@@ -36,6 +36,7 @@ permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 paginate: 7
 paginate_path: "/page/:num/"
