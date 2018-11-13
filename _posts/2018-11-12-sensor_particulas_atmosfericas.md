@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Smog detector - lista de material
-description: Listagem para detector de partículas em suspensão na atmosfera
-date: 2018-08-24
+title: Construção do sensor de partículas atmosféricas
+description: Instruções para construção do sensor a utilizar no projecto Luftdaten usando BME280 e WemosD1
+date: 2018-11-13
 categories: [Raspberry, Arduino]
 img: esp8266.jpg
 tags: [Raspberry, Arduino]
