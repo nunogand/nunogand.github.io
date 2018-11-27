@@ -1,0 +1,7 @@
+/*
+   X-Frame-Options: DENY
+/images/*
+  # Headers for that path:
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Cache-Control: public, max-age=604800
