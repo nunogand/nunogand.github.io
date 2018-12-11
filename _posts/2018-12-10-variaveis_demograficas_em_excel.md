@@ -8,12 +8,13 @@ tags: [Excel]
 img: header_excel.png
 published: true
 ---
-Assumindo listagem de utentes conforme:
+Assumindo listagem de utentes conforme:<center>
 
 |     A    |   B  |   C  |   D   |
 |:--------:|:----:|:----:|:-----:|
 | N Utente | Nome | Sexo | Idade |
 | 1234567 | Abcd | M/F | 123 |
+</center>
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
