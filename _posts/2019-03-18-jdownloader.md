@@ -12,7 +12,7 @@ img: header_raspi.jpg
 Instalação do JDownloader em dispositivos ARM.
 
 Script:
-`
+```
     1 - Criar a pasta para instalar o JDownloader
         examplo: "mkdir /path/JDownloader" (ou outra qualquer)
     2 - copiar o JDownloader para essa pasta
@@ -22,4 +22,4 @@ Script:
         "java -jar JDownloader.jar -norestart"
         repetir o passo 3 até o JDownloader solicitar as credenciais do MyJDownloader - para permitir controlar a consola via web
     4 - iniciar o JDownloader com "java -jar JDownloader.jar &"
-    `
+```
