@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Amostragem"
+description: "Amostragem."
+date: 2019-04-10 08:10:10
+categories: [PowerBi]
+tags: [PowerBi, código, DAX]
+img: header_powerbi.jpg
+---
+
 Tipos de amostragem
 https://towardsdatascience.com/sampling-techniques-a4e34111d808
 A Teoria das Amostragens constitui hoje um campo bastante desenvolvido e amplo da Estatística, com vários elos, como a Teoria das Probabilidades e a Inferência Estatística.
