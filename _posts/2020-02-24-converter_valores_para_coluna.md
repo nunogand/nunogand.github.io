@@ -13,6 +13,7 @@ Imaginemos um ficheiro excel (ou CSV...) com a seguinte estrutura:
 
 
 texto_header
+
 |     a     | Cat_A | Cat_B |
 |-----------|-------|-------|
 | 1234      | a     | b     |
