@@ -32,6 +32,14 @@
   <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
   <!-- Fonts -->
+  <!-- Optimização do google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="$CSS&display=swap" />
+  <link rel="stylesheet" href="$CSS&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+  <link rel="stylesheet" href="$CSS&display=swap" />
+  </noscript>
+  <!-- Fim da optimização do google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono)" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
