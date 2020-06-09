@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 gem "bundler"
 gem "jekyll"
-gem "jekyll-paginate"
 gem "github-pages"
 gem "html-proofer"
 gem "sassc"
