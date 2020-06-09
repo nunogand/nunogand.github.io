@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Elementos que devem estar em &ltHEAD&gt"
-description: "Uma lista, apanhada daqui e dali, de tudo o que pode figurar dentro da secção &ltHEAD&gt dos sites"
+title: "Experiência em Css"
+description: "Exercício CSS"
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
-date: 2017-11-08
+date: 2020-06-08
 img: header_webdesign.jpg
 ---
 <style>
