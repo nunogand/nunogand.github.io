@@ -389,8 +389,6 @@ code {
     window.parent.postMessage("resize", "*");
   }
 </script>
-</head>
-<body translate="no">
 <div class='description'>
 <h1>Solar System</h1>
 <hr>
