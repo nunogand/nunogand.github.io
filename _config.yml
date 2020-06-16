@@ -1,7 +1,10 @@
 title: nunogand
-description: Apontamentos e recortes dispersos; coisas portanto...
+tagline: Apontamentos e recortes dispersos; coisas portanto...
+description: Dicas, truques, reportes e niquices dispersos que podem ou não vir a ser úteis.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nunogand.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: https://nunogand.com # the base hostname & protocol for your site, e.g. http://example.com
+logo: https://www.nunogand.com/images/logo_main.png
+lang: pt-PT
 
 # Author
 author-name:    nunogand
@@ -12,7 +15,9 @@ author-twitter: nunogand # Add your twitter account
 about-author:   Apontamentos e recortes dispersos; coisas portanto...
 
 # Social settings
-social-twitter:   nunogand
+twitter:
+  username: nunogand
+  card: summary
 social-facebook:
 social-github:    nunogand
 social-pinterest: 
