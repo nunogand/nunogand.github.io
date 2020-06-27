@@ -12,4 +12,5 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-paginate'
   gem 'jekyll-netlify-headers'
+  gem 'jekyll_picture_tag'
 end
