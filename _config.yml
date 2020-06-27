@@ -33,7 +33,7 @@ social-linkedin:
 google-analytics: UA-109060453-1 # Add your identifier. For example UA-99631805-1
 
 # netlify HEADERS
- netlify: 
+netlify: 
   headers: 
     - 
       headers: 
