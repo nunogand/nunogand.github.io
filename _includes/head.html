@@ -8,84 +8,24 @@
 <!-- Favicon -->
 {% include favicon.html %}
 
-<span>meta</span>  
-<meta name="application-name" content="nunogand"/>
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="https://nunogand.com/images/favicon/mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="https://nunogand.com/images/favicon/mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="https://nunogand.com/images/favicon/mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="https://nunogand.com/images/favicon/mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="https://nunogand.com/images/favicon/mstile-310x310.png" />
-<span>fim meta</span>  
+<!-- Meta Tags -->
+{% include meta.html %}
+  
+<!-- Opengraph via Liquid Tags -->
+{% include opengraph.html %}
 
-<span>opengraph via plugin</span>  
-<!--open graph-->  
-<meta content="{{ site.title }}" property="og:site_name">
-{% if page.title %}
-  <meta content="{{ page.title }}" property="og:title">
-{% else %}
-  <meta content="{{ site.title }}" property="og:title">
-{% endif %}
-{% if page.title %}
-  <meta content="article" property="og:type">
-{% else %}
-  <meta content="website" property="og:type">
-{% endif %}
-{% if page.description %}
-  <meta content="{{ page.description }}" property="og:description">
-{% else %}
-  <meta content="{{ site.description }}" property="og:description">
-{% endif %}
-{% if page.url %}
-  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
-{% endif %}
-{% if page.date %}
-  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-  <meta content="{{ site.url }}/about/" property="article:author">
-{% endif %}
-{% if page.image %}
-  <meta content="/img/srcset/{{ page.image }}" property="og:image">
-{% else %}
-  <meta content="/img/logo-high-resolution.png" property="og:image">
-{% endif %}
-{% if page.categories %}
-  {% for category in page.categories limit:1 %}
-  <meta content="{{ category }}" property="article:section">
-  {% endfor %}
-{% endif %}
-{% if page.tags %}
-  {% for tag in page.tags %}
-  <meta content="{{ tag }}" property="article:tag">
-  {% endfor %}
-{% endif %}
-<!-- end opengraph-->  
-<span>fim opengraph plugin</span>
-  
-<span>seo</span>  
-  {% seo %}
-<span>fim seo</span>
-  
-<span>feed_meta</span>  
-  {% feed_meta %}
-<span>fim feed_meta</span>
-  
+<!-- jekyll-feed Plugin https://github.com/jekyll/jekyll-feed -->
+{% feed_meta %}
+
+<!-- Fonts e optimização -->
+{% include fonts.html %}
+    
+    
   <meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
   
-  <span>fonts</span>
-  <!-- Fonts -->
-  <!-- Optimização do google fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="$CSS&display=swap" />
-  <link rel="stylesheet" href="$CSS&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
-  <link rel="stylesheet" href="$CSS&display=swap" />
-  </noscript>
-  <!-- Fim da optimização do google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono)" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-<span>fim fontes</span>
+  
 
   <style>
     {% capture include_to_scssify %}
@@ -93,4 +33,7 @@
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
+
+<!-- SEO via jekyll-seo-tag plugin -->
+{% seo %}
 </head>
