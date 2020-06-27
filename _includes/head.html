@@ -100,11 +100,7 @@
 
   <style>
     {% capture include_to_scssify %}
-    
-    <span>include main.scss</span>
     {% include main.scss %}
-    <span>fim include main.scss</span>
-    
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
