@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem 'bundler', '2.1.4'
 gem 'jekyll', '4.1.1'
 gem 'html-proofer', '3.15.3'
-gem 'sassc', "2.4.0'
+gem 'sassc', '2.4.0'
 
 group :jekyll_plugins do
   gem 'jekyll-sitemap', '1.4.0'
