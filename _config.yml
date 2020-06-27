@@ -33,14 +33,14 @@ social-linkedin:
 google-analytics: UA-109060453-1 # Add your identifier. For example UA-99631805-1
 
 # netlify HEADERS
-# netlify: 
-#  headers: 
-#    - 
-#      headers: 
-#        - "X-Frame-Options: DENY"
-#        - "X-XSS-Protection: 1; mode=block"
-#      paths: 
-#        - /*
+ netlify: 
+  headers: 
+    - 
+      headers: 
+        - "X-Frame-Options: DENY"
+        - "X-XSS-Protection: 1; mode=block"
+      paths: 
+        - /*
     
 # Comment Section (Disqus)
 disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
