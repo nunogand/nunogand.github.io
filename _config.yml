@@ -35,7 +35,8 @@ google-analytics: UA-109060453-1 # Add your identifier. For example UA-99631805-
 # netlify HEADERS
 netlify:
   headers:
-    - paths:/*
+    - paths:
+      - /*
     headers:
     - X-Frame-Options: DENY
     - X-XSS-Protection: 1; mode=block
