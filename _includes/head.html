@@ -2,7 +2,8 @@
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
- <span>FAVICON</span> <!-- Favicon -->
+  
+<span>FAVICON</span> <!-- Favicon -->
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://nunogand.com/images/favicon/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://nunogand.com/images/favicon/apple-touch-icon-114x114.png" />
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://nunogand.com/images/favicon/apple-touch-icon-72x72.png" />
@@ -17,14 +18,18 @@
 <link rel="icon" type="image/png" href="https://nunogand.com/images/favicon/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="https://nunogand.com/images/favicon/favicon-128.png" sizes="128x128" />
 <span>fim FAVICON</span>
-  <meta name="application-name" content="nunogand"/>
+
+<span>meta</span>  
+<meta name="application-name" content="nunogand"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
 <meta name="msapplication-TileImage" content="https://nunogand.com/images/favicon/mstile-144x144.png" />
 <meta name="msapplication-square70x70logo" content="https://nunogand.com/images/favicon/mstile-70x70.png" />
 <meta name="msapplication-square150x150logo" content="https://nunogand.com/images/favicon/mstile-150x150.png" />
 <meta name="msapplication-wide310x150logo" content="https://nunogand.com/images/favicon/mstile-310x150.png" />
 <meta name="msapplication-square310x310logo" content="https://nunogand.com/images/favicon/mstile-310x310.png" />
-  
+<span>fim meta</span>  
+
+<span>opengraph via plugin</span>  
 <!--open graph-->  
 <meta content="{{ site.title }}" property="og:site_name">
 {% if page.title %}
@@ -65,13 +70,21 @@
   {% endfor %}
 {% endif %}
 <!-- end opengraph-->  
+<span>fim opengraph plugin</span>
   
+<span>seo</span>  
   {% seo %}
+<span>fim seo</span>
+  
+<span>feed_meta</span>  
   {% feed_meta %}
-
-   <meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<span>fim feed_meta</span>
+  
+  <meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+  
+  <span>fonts</span>
   <!-- Fonts -->
   <!-- Optimização do google fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,10 +96,15 @@
   <!-- Fim da optimização do google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono)" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<span>fim fontes</span>
 
   <style>
     {% capture include_to_scssify %}
-      {% include main.scss %}
+    
+    <span>include main.scss</span>
+    {% include main.scss %}
+    <span>fim include main.scss</span>
+    
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
