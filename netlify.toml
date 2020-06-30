@@ -36,6 +36,8 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src 'self';"
+    X-Content-Type-Options = "nosniff"
 
     cache-control = '''
  	  max-age=0,
@@ -58,7 +60,7 @@
   
 [[redirects]]
   from = "https://nunogand.netlify.app"
-  to = "https://mycustomdomain.com"
+  to = "https://nunogand.com"
   status = 301
   force = true
 
