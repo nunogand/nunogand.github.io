@@ -1,11 +1,13 @@
+<!-- [1 Preemptively warm up the fonts’ origin] -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="$CSS&display=swap" />
-<link rel="stylesheet" href="$CSS&display=swap" media="print" onload="this.media='all'" />
 
+<!-- [2 Initiate a high-priority, asynchronous fetch for the CSS file. Works in most modern browsers] -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" />
+
+<!-- [3 Initiate a low-priority, asynchronous fetch that gets applied to the page only after it’s arrived. Works in all browsers with JavaScript enabled] -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" media="print" onload="this.media='all'" />
+
+<!-- [4 In the unlikely event that a visitor has intentionally disabled JavaScript, fall back to the original method] -->
 <noscript>
-<link rel="stylesheet" href="$CSS&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" /> 
 </noscript>
-
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" rel="stylesheet">
-  
