@@ -1,0 +1,13 @@
+{
+  "name": "nunogand",
+  "short_name": "Nunogand",
+  "description": "Apontamentos e recortes dispersos; coisas portanto....",
+  "start_url": "/?homescreen=1",
+  "background_color": "#000000",
+  "theme_color": "#0f4a73",
+  "icons": [{
+    "src": "/images/favicon/mstile-310x310.png",
+    "sizes": "310x310",
+    "type": "image/png"
+  }]
+}
