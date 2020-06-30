@@ -23,8 +23,3 @@ picture
   <img src="{{site.baseurl}}/images/teste_2.jpg" alt="">
 </picture>
 
-segundo teste só com o plugin
-1
-{% picture images/teste_1.jpg %}
-2
-{% picture images/teste_2.jpg %}
