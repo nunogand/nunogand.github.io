@@ -52,7 +52,7 @@
     default-src 'none'; 
     form-action 'none'; 
     frame-ancestors 'none'; 
-    report-uri https://e1dc81c90a316052f52367a36438f250.report-uri.com/r/d/csp/reportOnly;
+    report-uri https://ca60ff57ff1f004dc4b4fe7272ebce46.report-uri.com/r/d/csp/reportOnly;
     report-to report-uri;    
 '''
 
