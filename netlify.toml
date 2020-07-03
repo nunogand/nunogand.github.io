@@ -50,10 +50,11 @@
     
     Content-Security-Policy-Report-Only = '''
      default-src 'self';
-     script-src 'self' 'sha256-LZS6Jnmcutp0CPklqrSnns7v1DkdBwUZwlP20+BSD58=' www.google-analytics.com ...;
-     img-src 'self' data: nunogand.com *.google-analytics.com ...;
+     script-src 'self' 'sha256-1U3VYeX6Zo1ODHQoA5g5V+yXcGDsskvdnNhK7ZhCvH8=' www.google-analytics.com ;
+     img-src 'self' *.nunogand.com ;
      connect-src 'self';
-     style-src 'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com ...; 
+     font-src  'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com ...; 
+     style-src 'self' ; 
      child-src 'self' ;
      report-uri 'nunogand.com';
      worker-src 'self';'''
