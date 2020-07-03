@@ -29,24 +29,58 @@
 # Headers rule example
 # For more information see:- https://www.netlify.com/docs/netlify-toml-reference/
 
+# netlify.toml
+
 [[headers]]
-#   Define which paths this specific [[headers]] block will cover.
+  # Set the default header to the one we want for documents
   for = "/*"
-
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    #Content-Security-Policy = "default-src https: unsafe-inline" 
-    Content-Security-Policy= "frame-ancestors 'none'"
-#	 script-src 'self' www.google-analytics.com"
-	 
-    X-Content-Type-Options = "nosniff"
-
+    [headers.values]
+    #cache-control = "public,max-age=60"
     cache-control = '''
- 	  max-age=0,
- 	  no-cache,
-	  no-store,
-	  must-revalidate'''   
+ 	 max-age=0,
+ 	 no-cache,
+	 no-store,
+	 must-revalidate''' 
+    Referrer-Policy = "no-referrer-when-downgrade"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Feature-Policy = "camera 'none'; geolocation 'none'; microphone 'none'"
+    Strict-Transport-Security = "max-age=2592000; includeSubDomains"
+    Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
+    
+    Content-Security-Policy-Report-Only = '''
+     default-src 'self';
+     script-src 'self' 'sha256-i+rYvjE2MLQRpsO7Qygbp0RqJCgJE9pO2xyOIhf5LZE=' www.google-analytics.com ...;
+     img-src 'self' data: nunogand.com *.google-analytics.com ...;
+     connect-src 'self';
+     style-src 'self' 'unsafe-inline' 
+     child-src 'self' ;
+     worker-src 'self';'''
+
+#[[headers]]
+#  # Override cache duration for assets with periods in the filename (i.e. static assets)
+#  for = "/*.*"
+#    [headers.values]
+#    cache-control = "public,max-age=360000"
+
+#[[headers]]
+#   Define which paths this specific [[headers]] block will cover.
+#  for = "/*"
+#
+#  [headers.values]
+#    X-Frame-Options = "DENY"
+#    X-XSS-Protection = "1; mode=block"
+#    #Content-Security-Policy = "default-src https: unsafe-inline" 
+#    Content-Security-Policy= "frame-ancestors 'none'"
+#	 script-src 'self' www.google-analytics.com"
+#	 
+#    X-Content-Type-Options = "nosniff"
+
+#    cache-control = '''
+# 	  max-age=0,
+# 	  no-cache,
+#	  no-store,
+#	  must-revalidate'''   
 
 [build.processing]
   skip_processing = true
