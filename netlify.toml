@@ -45,7 +45,7 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Feature-Policy = "camera 'none'; geolocation 'none'; microphone 'none'"
-    Strict-Transport-Security = "max-age=2592000; includeSubDomains"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
     
     Content-Security-Policy-Report-Only = '''
