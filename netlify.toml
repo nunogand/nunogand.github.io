@@ -53,7 +53,7 @@
     form-action 'none'; 
     frame-ancestors 'none'; 
     report-uri https://ca60ff57ff1f004dc4b4fe7272ebce46.report-uri.com/r/d/csp/reportOnly;
-    report-to report-uri;    
+    report-to https://ca60ff57ff1f004dc4b4fe7272ebce46.report-uri.com/a/d/g;    
 '''
 
 #[[headers]]
