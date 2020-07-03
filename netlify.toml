@@ -52,7 +52,9 @@
     default-src 'none'; 
     form-action 'none'; 
     frame-ancestors 'none'; 
-    report-uri https://e1dc81c90a316052f52367a36438f250.report-uri.com/r/d/csp/reportOnly'''
+    report-uri https://e1dc81c90a316052f52367a36438f250.report-uri.com/r/d/csp/reportOnly;
+    report-to report-uri;    
+'''
 
 #[[headers]]
 #  # Override cache duration for assets with periods in the filename (i.e. static assets)
