@@ -55,7 +55,7 @@
      connect-src 'self';
      font-src  'self' fonts.googleapis.com fonts.gstatic.com ; 
      style-src 'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com ; 
-     child-src 'self' ;
+     child-src 'self' nunogand.*.*;
      report-uri 'nunogand.com';
      worker-src 'self';'''
 
