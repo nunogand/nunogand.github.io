@@ -49,15 +49,10 @@
     Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
     
     Content-Security-Policy-Report-Only = '''
-     default-src 'self';
-     script-src 'self' 'unsafe-inline' www.google-analytics.com ;
-     img-src 'self' *.nunogand.com ;
-     connect-src 'self';
-     font-src  'self' fonts.googleapis.com fonts.gstatic.com ; 
-     style-src 'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com ; 
-     child-src 'self' nunogand.github.io;
-     report-uri 'nunogand.com';
-     worker-src 'self';'''
+    default-src 'none'; 
+    form-action 'none'; 
+    frame-ancestors 'none'; 
+    report-uri https://e1dc81c90a316052f52367a36438f250.report-uri.com/r/d/csp/reportOnly'''
 
 #[[headers]]
 #  # Override cache duration for assets with periods in the filename (i.e. static assets)
