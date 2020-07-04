@@ -56,7 +56,8 @@
       frame-src https://maps.luftdaten.info https://nunogand.github.io https://nunogand.grafana.net; 
       img-src 'self'; 
       script-src 'unsafe-inline' https://www.google-analytics.com/analytics.js; 
-      style-src 'unsafe-inline' https://fonts.googleapis.com/    
+      style-src 'unsafe-inline' https://fonts.googleapis.com/
+      frame-ancestors https://nunogand.grafana.net
 '''
 
 #[[headers]]
