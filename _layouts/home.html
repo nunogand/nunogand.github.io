@@ -7,7 +7,7 @@ layout: default
       <a href="{{site.baseurl}}/">
       
         <picture>
-  <source srcset="{{site.baseurl}}/images/{% if site.author-image %}{{site.author-image ! append: ".webp"}}{% endif %}" type="image/webp">
+  <source srcset="{{site.baseurl}}/images/{% if site.author-image %}{{site.author-image | append: ".webp"}}{% endif %}" type="image/webp">
   <img src="{{site.baseurl}}/images/{% if site.author-image %}{{site.author-image}}{% endif %}" alt="{{site.author-name}}">
 </picture>
        <!-- 
