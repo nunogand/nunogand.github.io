@@ -1,7 +1,14 @@
-<meta name="application-name" content="nunogand"/>
+<meta name='title' content="{{ page.title }}">
+<meta name='description' content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+<meta name='robots' content="index,follow" />
+
+<meta name="application-name" content="nunogand | Dicas, truques, reportes e niquices dispersos que podem ou não vir a ser úteis."/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="{{site.baseurl}}/images/favicon/mstile-144x144.png" />
-<meta name="msapplication-square70x70logo" content="{{site.baseurl}}/images/favicon/mstile-70x70.png" />
-<meta name="msapplication-square150x150logo" content="{{site.baseurl}}/images/favicon/mstile-150x150.png" />
-<meta name="msapplication-wide310x150logo" content="{{site.baseurl}}/images/favicon/mstile-310x150.png" />
-<meta name="msapplication-square310x310logo" content="{{site.baseurl}}/images/favicon/mstile-310x310.png" />
+<meta name="msapplication-TileImage" content="{{site.baseurl}}images/favicon/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="{{site.baseurl}}images/favicon/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="{{site.baseurl}}images/favicon/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="{{site.baseurl}}images/favicon/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="{{site.baseurl}}images/favicon/mstile-310x310.png" />
+<meta name="msapplication-notification" content="frequency=30;polling-uri=https://notifications.buildmypinnedsite.com/?feed={{site.baseurl}}feed.xml&amp;id=1;polling-uri2=https://notifications.buildmypinnedsite.com/?feed={{site.baseurl}}feed.xml&amp;id=2;polling-uri3=https://notifications.buildmypinnedsite.com/?feed={{site.baseurl}}feed.xml&amp;id=3;polling-uri4=https://notifications.buildmypinnedsite.com/?feed={{site.baseurl}}feed.xml&amp;id=4;polling-uri5=https://notifications.buildmypinnedsite.com/?feed={{site.baseurl}}feed.xml&amp;id=5;cycle=1" />
