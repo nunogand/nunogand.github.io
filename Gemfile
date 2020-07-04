@@ -10,5 +10,5 @@ group :jekyll_plugins do
   gem 'jekyll-feed', '0.14.0'
   gem 'jekyll-seo-tag', '2.6.1'
   gem 'jekyll-paginate', '1.1.0'
-  gem 'jekyll-webp', '1.0.0'
+  #gem 'jekyll-webp', '1.0.0'
 end
