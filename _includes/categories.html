@@ -7,7 +7,7 @@
       <a class="c-categories__link" href="{{ site.baseurl }}/{{ cat_dir }}/{{ category | downcase | slugify }}/">
         {% for post in site.categories[category] limit: 1 %}
         {% assign empty-figure = nil %}
-        {% if post.image %}
+        {% if post.img %}
         <div class="c-categories__img">
           <figure style="background-image: url('{{ site.baseurl }}/images/{{ post.img }}');"></figure>
           <span class="c-categories__more">View all</span>
