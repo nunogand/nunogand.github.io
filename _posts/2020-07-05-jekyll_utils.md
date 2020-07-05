@@ -1,2 +1,16 @@
 
 https://scottw.com/blog/better-jekyll-excerpts/
+
+
+https://dev.to/m0nica/how-to-add-author-bio-to-posts-in-jekyll-3g1
+
+https://dev.to/jmau111/jekyll-stealth-mode-4pkc
+
+https://dev.to/michelc/jekyll-configuration-update-53j6
+
+https://dev.to/rpalo/jekyll-tags-the-easy-way
+
+https://codinfox.github.io/dev/2015/03/06/use-tags-and-categories-in-your-jekyll-based-github-pages/
+
+https://dev.to/adrienjoly/make-your-static-site-searchable-with-jekyll-algolia-edh
+
