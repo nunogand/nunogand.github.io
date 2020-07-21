@@ -12,7 +12,6 @@ custom_css:
 - sistema_solar.css
 ---
 
-<div class='description'>
 <h1>Sistema Solar</h1>
 <hr>
 <p>
@@ -23,15 +22,7 @@ Representação à escala (temporal) do Sistema Solar: 30 segundos corresponde a
 </p>
 
 <hr>
-<p class='author'>
-Feito
-<i class='fa fa-heart'></i>
- por nunogand
-</p>
-<p class='links'>
-<a class='fa fa-github-alt icon' href='https://github.com/nunogand' target='_blank'></a>
-</p>
-</div>
+
 <div class='Sistema-Solar'>
 <div class='Sol'></div>
 <div class='Mercurio'></div>
