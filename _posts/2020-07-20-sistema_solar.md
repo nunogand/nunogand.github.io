@@ -11,7 +11,7 @@ custom_js:
 custom_css:
 - sistema_solar.css
 ---
-
+<div class='body_custom'>
 <h1>Sistema Solar</h1>
 <hr>
 <p>
@@ -35,4 +35,5 @@ Representação à escala (temporal) do Sistema Solar: 30 segundos corresponde a
 <div class='Neptuno'></div>
 <div class='Plutao'></div>
 <div class='cintura-asteroides'></div>
+</div>
 </div>
