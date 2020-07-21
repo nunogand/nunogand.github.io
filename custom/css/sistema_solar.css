@@ -21,19 +21,19 @@
   box-sizing: border-box;
 }
 
-html, body_custom {
+html, body {
   height: 100%;
   width: 100%;
 }
 
-body_custom {
+#body_custom {
   font: normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #fff;
   background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
   background-attachment: fixed;
 }
-
+/*
 h1 {
   font-weight: 300;
   font-size: 2.5em;
@@ -91,8 +91,8 @@ code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   font-size: .9em;
 }
-
-.Sistema-Solar {
+*/
+#Sistema-Solar {
   margin: 0 auto;
   width: 100%;
   height: 100%;
