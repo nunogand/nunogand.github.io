@@ -11,7 +11,7 @@ custom_js:
 custom_css:
 - sistema_solar.css
 ---
-<div class='body_custom'>
+<div class='body_custom' id='custom'>
 <h1>Sistema Solar</h1>
 <hr>
 <p>
