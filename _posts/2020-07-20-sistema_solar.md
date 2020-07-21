@@ -11,19 +11,11 @@ custom_js:
 custom_css:
 - sistema_solar.css
 ---
-<div class='body_custom' id='custom'>
-<h1>Sistema Solar</h1>
-<hr>
-<p>
-Uma pequena experiência adaptada de muitas outras existentes na web :)
-</p>
-<p>
-Representação à escala (temporal) do Sistema Solar: 30 segundos corresponde a 1 ano.
-</p>
+<div id='body_custom'>
 
 <hr>
 
-<div class='Sistema-Solar'>
+<div class='Sistema-Solar' id='Sistema Solar">
 <div class='Sol'></div>
 <div class='Mercurio'></div>
 <div class='Venus'></div>
