@@ -15,7 +15,7 @@ custom_css:
 
 <hr>
 
-<div class='Sistema-Solar' id='Sistema-Solar">
+<div class='Sistema-Solar' id='Sistema-Solar'>
 <div class='Sol'></div>
 <div class='Mercurio'></div>
 <div class='Venus'></div>
