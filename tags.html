@@ -28,8 +28,7 @@ permalink: /tags/
   </ul>
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-  <div id="{{ this_word | cgi_escape }}">
-    <h2 id="{{ this_word | cgi_escape }}">{{ this_word }}</h2></div>
+     <h2 id="{{ this_word | cgi_escape }}">{{ this_word }}</h2>
     {% for post in site.tags[this_word] %}{% if post.title != null %}
     <div class="c-tag__item">
         <span>{% if post.image %}<img class="c-tag__image" src="{{"/images/" | prepend: site.baseurl | append : post.image}}" alt="{{post.title}}">{% else %}{% endif %} <a href="{{ post.url }}">{{ post.title }}</a></span>
