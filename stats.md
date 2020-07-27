@@ -9,8 +9,26 @@ description: "Página de estatística do site"
 ---
 <style>
 [v-cloak] {display: none}
+body {
+    background-color: #333;
+    color: #818181;
+    line-height: 1.66667;
+}
 h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; }
-
+table {
+    border-bottom: 1px solid #ededed;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 24px;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td, th {
+    border-top: 1px solid #ededed;
+    padding: 8px 10px;
+}
 
 p { color: #adb7bd; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
 
