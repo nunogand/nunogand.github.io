@@ -1,8 +1,12 @@
 ---
-layout: home
+layout: post
 title: Stats
+categories: [Webdesign]
+tags: [HTML, Webdesign, código]
+img: header_webdesign.jpg
+date: 2020-07-20
+description: "Página de estatística do site"
 ---
-
 <style>
 [v-cloak] {display: none}
 </style>
