@@ -4,7 +4,7 @@ title: Stats
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 img: header_webdesign.jpg
-date: 2020-07-20
+date: {{ site.time }}
 description: "Página de estatística do site"
 ---
 <style>
