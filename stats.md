@@ -10,9 +10,6 @@ description: "Página de estatística do site"
 <style>
 [v-cloak] {display: none}
 </style>
-
-{::nomarkdown}
-{% raw %}
 <div id="app" v-cloak="" markdown="0">
 	<table>
 		<tr>
@@ -78,8 +75,6 @@ description: "Página de estatística do site"
     </table>
 
 </div>
-{% endraw %}
-{:/nomarkdown}
 
 <p>
 <a href="https://jekyllrb.com">Jekyll</a> {{ jekyll.version }}.
