@@ -9,6 +9,19 @@ description: "Página de estatística do site"
 ---
 <style>
 [v-cloak] {display: none}
+h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; }
+
+
+p { color: #adb7bd; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
+
+
+a { color: #fe921f; text-decoration: underline; }
+
+
+a:hover { color: #ffffff }
+
+
+.date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 <div id="app" v-cloak="" markdown="0">
 	<table>
@@ -19,13 +32,13 @@ description: "Página de estatística do site"
 		<tr>
 		<td>Primeiro artigo:</td>
 		<td>
-		    <a :href="firstPost.url">{{firstPost.title}}</a> publicado {{firstPost.age}} em {{firstPost.date}}
+		    <a href="firstPost.url">{{firstPost.title}}</a> publicado {{firstPost.age}} em {{firstPost.date}}
 		</td>
 		</tr>
 		<tr>
 		<td>Último artigo:</td>
 		<td>
-    		<a :href="lastPost.url">{{lastPost.title}}</a> publicado {{lastPost.age}} em {{lastPost.date}}
+    		<a href="lastPost.url">{{lastPost.title}}</a> publicado {{lastPost.age}} em {{lastPost.date}}
 		</td>
 		</tr>
 		<tr>
