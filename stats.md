@@ -38,7 +38,9 @@ a:hover { color: #ffffff }
 
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
+
 <div id="app" v-cloak="" markdown="0">
+	{{ site.time }}
 	<table>
 		<tr>
 			<td width="30%">Total de artigos:</td>
@@ -65,7 +67,7 @@ a:hover { color: #ffffff }
 		<td>{{avgWords | number}}</td>
 		</tr>
 	</table>
-{{ site.time }}
+
     <h3>Artigos por ano</h3>
     <table>
         <tr>
