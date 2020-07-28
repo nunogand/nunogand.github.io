@@ -103,7 +103,7 @@ a:hover { color: #ffffff }
             <td>{{tag.size | number}}</td>
         </tr>
     </table>
-{{ site.time }}
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
