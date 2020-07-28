@@ -10,8 +10,6 @@ description: "Página de estatística do site"
 <style>
 [v-cloak] {display: none}
 body {
-    background-color: #333;
-    color: #818181;
     line-height: 1.66667;
 }
 h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; }
