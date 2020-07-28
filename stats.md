@@ -4,7 +4,6 @@ title: Stats
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 img: header_webdesign.jpg
-date: {{ site.time }}
 description: "Página de estatística do site"
 ---
 <style>
@@ -66,7 +65,7 @@ a:hover { color: #ffffff }
 		<td>{{avgWords | number}}</td>
 		</tr>
 	</table>
-
+{{ site.time }}
     <h3>Artigos por ano</h3>
     <table>
         <tr>
