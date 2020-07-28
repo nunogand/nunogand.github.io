@@ -40,7 +40,7 @@ a:hover { color: #ffffff }
 </style>
 
 <div id="app" v-cloak="" markdown="0">
-	{{ site.time }}
+
 	<table>
 		<tr>
 			<td width="30%">Total de artigos:</td>
