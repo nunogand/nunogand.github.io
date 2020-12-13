@@ -44,5 +44,5 @@ for f in *.txt; do
 done
 {% endhighlight %}
 
-Podia ter feito isto manualmnte? Sim. Mas desta forma foi (muito) mais rápido.
+Podia ter feito isto manualmente? Sim. Mas desta forma foi (muito) mais rápido.
 
