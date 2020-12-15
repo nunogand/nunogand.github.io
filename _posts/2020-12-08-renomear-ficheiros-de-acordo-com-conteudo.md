@@ -7,9 +7,9 @@ categories: [Linux]
 tags: [linux, UNIX]
 img: ubuntu_logo.png
 ---
-A meio de outro projecto surgiu a dúvida: como renomear mais de 500 ficheiros de texto produzidos por um scrapper de forma a que o nome de cada ficheiro reflita o conteúdo - neste caso um número de ordem. um número - se trans
+A meio de outro projecto surgiu a tarefa: renomear mais de 500 ficheiros de texto - no caso produzidos pelo BeautifulSoup - de forma a que o nome de cada ficheiro reflita o conteúdo - neste caso um número ordenado. 
 
-Em primeiro lugar, o formato do ficheiro (no caso com conteúdo em YML)
+Em primeiro lugar, o formato do ficheiro (no caso não de texto mas sim com conteúdo YML)
 {% highlight console %}
 ---
 Z: a
@@ -24,9 +24,9 @@ R: i
 ---
 {% endhighlight %}
 
-No caso pretendo renomear todos os ficheiros de acordo com a lógica 12345.txt -> b.txt
+Pretende-se renomear todos os ficheiros de acordo com a lógica 12345.txt -> b.txt
 
-Oneliner:
+Script oneliner (sed e cut):
 {% highlight console %}
 for f in *.txt; do d="$(sed -n 2p "$f" | cut --delimiter=" " -f 2).txt"; if [ ! -f "$d" ]; then mv "$f" "$d"; else echo "Ficheiro '$d' já existe! Ignorado '$f'"; fi; done
 {% endhighlight %}
@@ -44,5 +44,7 @@ for f in *.txt; do
 done
 {% endhighlight %}
 
-Podia ter feito isto manualmente? Sim. Mas desta forma foi (muito) mais rápido.
+A receita funciona independentemente do número de ficheiros envolvidos.
+
+Podia ter feito isto manualmente? Não...
 
