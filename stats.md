@@ -39,81 +39,77 @@ a:hover { color: #ffffff }
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
-<div id="app" v-cloak="" markdown="0">
-
+{% raw %}
+<div id="app" v-cloak="">
 	<table>
 		<tr>
-			<td width="30%">Total de artigos:</td>
-			<td width="70%">{{totalPosts | number}}</td>
+			<td width="30%">Total Posts:</td>
+			<td width="70%">{{totalPosts}}</td>
 		</tr>
 		<tr>
-		<td>Primeiro artigo:</td>
+		<td>First Post:</td>
 		<td>
-		    <a href="firstPost.url">{{firstPost.title}}</a> publicado {{firstPost.age}} em {{firstPost.date}}
+		<a :href="firstPost.url">{{firstPost.title}}</a> published {{firstPost.age}} on {{firstPost.date}}
 		</td>
 		</tr>
 		<tr>
-		<td>Último artigo:</td>
+		<td>Last Post:</td>
 		<td>
-    		<a href="lastPost.url">{{lastPost.title}}</a> publicado {{lastPost.age}} em {{lastPost.date}}
+		<a :href="lastPost.url">{{lastPost.title}}</a> published {{lastPost.age}} on {{lastPost.date}}
 		</td>
 		</tr>
 		<tr>
-		<td>Total de palavras escritas:</td>
-		<td>{{totalWords | number}}</td>
+		<td>Total Words Written:</td>
+		<td>{{totalWords}}</td>
 		</tr>
 		<tr>
-		<td>Número médio de palavras por artigo:</td>
-		<td>{{avgWords | number}}</td>
+		<td>Average Words per Post:</td>
+		<td>{{avgWords}}</td>
 		</tr>
 	</table>
 
-    <h3>Artigos por ano</h3>
+    <h3>Posts Per Year</h3>
     <table>
         <tr>
-            <td>Ano</td>
-            <td>Número de artigos</td>
+            <td>Year</td>
+            <td>Number of Posts</td>
         </tr>
         <tr v-for="year in sortedYears">
             <td>{{year}}</td>
-            <td>{{years[year] | number}}</td>
+            <td>{{years[year]}}</td>
         </tr>
     </table>
 
-    <h3>Artigos por Categoria</h3>
+    <h3>Posts Per Category</h3>
     <table>
         <tr>
-            <td>Categoria</td>
-            <td>Número de Artigos</td>
+            <td>Category</td>
+            <td>Number of Posts</td>
         </tr>
         <tr v-for="cat in sortedCats">
             <td>{{cat.name}}</td>
-            <td>{{cat.size | number}}</td>
+            <td>{{cat.size}}</td>
         </tr>
     </table>
 
-    <h3>Artigos por Tag</h3>
+    <h3>Posts Per Tag</h3>
     <table>
         <tr>
             <td>Tag</td>
-            <td>Número de artigos</td>
+            <td>Number of Posts</td>
         </tr>
         <tr v-for="tag in sortedTags">
             <td>{{tag.name}}</td>
-            <td>{{tag.size | number}}</td>
+            <td>{{tag.size}}</td>
         </tr>
     </table>
 
 </div>
+{% endrawx %}
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-Vue.filter('number', s =>  {
-  if(!window.Intl) return s;
-  return new Intl.NumberFormat().format(s);
-});
-
 new Vue({
 	el:'#app',
 	data:{
@@ -138,6 +134,7 @@ new Vue({
 		fetch('/stats.json')
 		.then(res => res.json())
 		.then(res => {
+			console.log(res);
 			this.totalPosts = res.totalPosts;
 			
 			this.firstPost = {
