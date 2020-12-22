@@ -105,7 +105,7 @@ a:hover { color: #ffffff }
     </table>
 
 </div>
-{% endrawx %}
+{% endraw %}
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
