@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Stats
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
