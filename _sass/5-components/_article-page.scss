@@ -16,7 +16,7 @@
   position: relative;
   background-color: rgba(220,235,245,0.2);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   &:after {
     content: "";
@@ -124,7 +124,7 @@
     width: 100%;
     min-height: 180px;
     background-color: rgba(220,235,245,0.2);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
   }

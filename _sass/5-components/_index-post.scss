@@ -32,7 +32,8 @@
     min-height: 180px;
     border-radius: 10px 0 0 10px;
     background-color: rgba(220,235,245,0.2);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
   }
   .c-post-content {

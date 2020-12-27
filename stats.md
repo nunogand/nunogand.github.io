@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Stats
+layout: page
+title: Números do site
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 img: header_webdesign.jpg
@@ -11,7 +11,7 @@ description: "Página de estatística do site"
 body {
     line-height: 1.66667;
 }
-h1 { color: #ffffff; font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; }
+
 table {
     border-bottom: 1px solid #ededed;
     font-size: 16px;
@@ -39,42 +39,41 @@ a:hover { color: #ffffff }
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
-
 {::nomarkdown}
-{% raw %}
+
 <div id="app" v-cloak="" markdown="0">
 	<table>
 		<tr>
-			<td width="30%">Total Posts:</td>
+			<td width="30%">Número de Artigos:</td>
 			<td width="70%">{{totalPosts | number}}</td>
 		</tr>
 		<tr>
-		<td>First Post:</td>
+		<td>Primeiro artigo:</td>
 		<td>
-		    <a :href="firstPost.url">{{firstPost.title}}</a> published {{firstPost.age}} on {{firstPost.date}}
+		    <a :href="firstPost.url">{{firstPost.title}}</a> publicado {{firstPost.age}} em {{firstPost.date}}
 		</td>
 		</tr>
 		<tr>
-		<td>Last Post:</td>
+		<td>Artigo mais recente:</td>
 		<td>
-    		<a :href="lastPost.url">{{lastPost.title}}</a> published {{lastPost.age}} on {{lastPost.date}}
+    		<a :href="lastPost.url">{{lastPost.title}}</a> publicado {{lastPost.age}} em {{lastPost.date}}
 		</td>
 		</tr>
 		<tr>
-		<td>Total Words Written:</td>
+		<td>Número total de palavras:</td>
 		<td>{{totalWords | number}}</td>
 		</tr>
 		<tr>
-		<td>Average Words per Post:</td>
+		<td>Número médio de palavras por artigo:</td>
 		<td>{{avgWords | number}}</td>
 		</tr>
 	</table>
 
-    <h3>Posts Per Year</h3>
+    <h3>Artigos por ano</h3>
     <table>
         <tr>
-            <td>Year</td>
-            <td>Number of Posts</td>
+            <td>Ano</td>
+            <td>Número de artigos</td>
         </tr>
         <tr v-for="year in sortedYears">
             <td>{{year}}</td>
@@ -82,11 +81,11 @@ a:hover { color: #ffffff }
         </tr>
     </table>
 
-    <h3>Posts Per Category</h3>
+    <h3>Artigos por categoria</h3>
     <table>
         <tr>
-            <td>Category</td>
-            <td>Number of Posts</td>
+            <td>Categoria</td>
+            <td>Número de artigos</td>
         </tr>
         <tr v-for="cat in sortedCats">
             <td>{{cat.name}}</td>
@@ -94,11 +93,11 @@ a:hover { color: #ffffff }
         </tr>
     </table>
 
-    <h3>Posts Per Tag</h3>
+    <h3>Artigos por Tag</h3>
     <table>
         <tr>
             <td>Tag</td>
-            <td>Number of Posts</td>
+            <td>Número de Artigos</td>
         </tr>
         <tr v-for="tag in sortedTags">
             <td>{{tag.name}}</td>
@@ -107,11 +106,12 @@ a:hover { color: #ffffff }
     </table>
 
 </div>
-{% endraw %}
-{:/nomarkdown}
 
-<p>
-Running <a href="https://jekyllrb.com">Jekyll</a> {{ jekyll.version }}.
+
+{:/}
+
+<p style="text-align:right">
+Running <a href="https://jekyllrb.com">Jekyll</a> 4.2.0
 </p>
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
