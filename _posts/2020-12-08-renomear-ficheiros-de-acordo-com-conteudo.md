@@ -46,5 +46,15 @@ done
 
 A receita funciona independentemente do número de ficheiros envolvidos.
 
+Exercício parecido: tenho 2 ficheiros com o mesmo nome mas extensões diferente: uma foto e um ficheiro txt com informações sobre a foto. Pretendo renomear o ficheiro .JPG de acordo com o conteúde de uma determinada linha do ficheiro .TXT
+
+Oneliner:
+{% highlight console %}
+for f in *.txt; do d="$(sed -n 3p "$f" |cut -d'"' -f 4).jpg"; if [ ! -f "$d" ]; then mv ${f%.*}.jpg "$d"; else echo "Ficheiro '$d' já existe! Ignorado '$f'"; fi; done
+{% endhighlight %}
+
+_d="$(sed -n 3p "$f" |cut -d'"' -f 4).jpg"_ cria o nome de ficheiro final a partir do texto do primeiro ficheiro
+_mv ${f%.*}.jpg "$d"_ a única dificuldade do scrip; a expressão _${f%.*}.jpg_ pega no ficheiro original e substitui a extensão pela extensão que quero renomear.
+
 Podia ter feito isto manualmente? Não...
 
