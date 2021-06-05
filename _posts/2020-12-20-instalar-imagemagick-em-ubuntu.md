@@ -7,7 +7,7 @@ categories: [Linux]
 tags: [linux, UNIX]
 img: ubuntu_logo.png
 ---
-De acordo com as instruções oficiais[ImageMagick - Install from source](https://imagemagick.org/script/install-source.php), a instalação em Ubuntu do pacote ImageMagick deveria ser algo tão simples como:
+De acordo com as instruções oficiais [ImageMagick - Install from source](https://imagemagick.org/script/install-source.php), a instalação em Ubuntu do pacote ImageMagick deveria ser algo tão simples como:
 
 {% highlight console %}
 git clone https://github.com/ImageMagick/ImageMagick.git ImageMagick-7.0.10
