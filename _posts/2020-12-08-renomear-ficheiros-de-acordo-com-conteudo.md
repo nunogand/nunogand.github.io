@@ -46,7 +46,7 @@ done
 
 A receita funciona independentemente do número de ficheiros envolvidos.
 
-Exercício parecido: tenho 2 ficheiros com o mesmo nome mas extensões diferente: uma foto e um ficheiro txt com informações sobre a foto. Pretendo renomear o ficheiro .JPG de acordo com o conteúde de uma determinada linha do ficheiro .TXT
+Exercício parecido: tenho 2 ficheiros com o mesmo nome mas extensões diferente: uma foto e um ficheiro .txt com informações sobre a foto. Pretendo renomear o ficheiro .JPG de acordo com o conteúdo de uma determinada linha do ficheiro .TXT
 
 Oneliner:
 {% highlight console %}
