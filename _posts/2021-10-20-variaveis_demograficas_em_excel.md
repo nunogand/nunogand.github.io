@@ -2,7 +2,7 @@
 layout: post
 title: Variáveis demográficas em Excel
 description: Determinação de vários indicadores demográficos a partir de listagem de utentes
-date: 2018-12-10
+date: 2021-10-20
 categories: [Excel]
 tags: [Excel]
 img: header_excel.png
