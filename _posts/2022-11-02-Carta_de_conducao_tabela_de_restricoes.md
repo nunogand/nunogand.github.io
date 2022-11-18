@@ -9,7 +9,6 @@ img: header_legal.jpg
 published: true
 ---
 
-# Códigos harmonizados da União Europeia e códigos nacionais de restrições e adaptações
 
 Os códigos  1 a 99 correspondem a códigos harmonizados da União Europeia e os códigos 100 e seguintes correspondem a códigos  
 nacionais válidos unicamente dentro do território português.
