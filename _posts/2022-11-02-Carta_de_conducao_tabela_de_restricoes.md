@@ -150,7 +150,7 @@ nacionais válidos unicamente dentro do território português.
 50 — Restringido a um número de quadro/chassis do veículo específico.  
 
 51 — Restringido a uma chapa de matrícula de veículo específica.
-
+<br/><br/><br/><br/>
 ## Códigos nacionais
 ### Relativos ao condutor por motivos médicos e ou psicológicos
 
