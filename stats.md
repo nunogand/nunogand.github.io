@@ -108,7 +108,7 @@ a:hover { color: #ffffff }
 </div>
 
 
-{% endrawx %}
+{% endraw %}
 
 <p style="text-align:right">
 Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.1
