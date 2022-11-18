@@ -8,6 +8,8 @@ description: "Página de estatística do site"
 ---
 <style>
 [v-cloak] {display: none}
+
+
 body {
     line-height: 1.66667;
 }
@@ -39,9 +41,9 @@ a:hover { color: #ffffff }
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
+{::nomarkdown}
 {% raw %}
-
-<div id="app" v-cloak="">
+<div id="app" v-cloak="" markdown="0">
 	<table>
 		<tr>
 			<td width="30%">Número de Artigos:</td>
@@ -109,6 +111,7 @@ a:hover { color: #ffffff }
 
 
 {% endraw %}
+{:/nomarkdown}
 
 <p style="text-align:right">
 Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.1
