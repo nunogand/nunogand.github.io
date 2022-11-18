@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem 'bundler', '2.2.3'
-gem 'jekyll', '4.2.0'
+gem 'bundler', '2.3.26'
+gem 'jekyll', '4.3.1'
 gem 'html-proofer', '3.15.3'
 gem 'sassc', '2.4.0'
 
