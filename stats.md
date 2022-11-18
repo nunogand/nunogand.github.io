@@ -39,9 +39,9 @@ a:hover { color: #ffffff }
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
-{::nomarkdown}
+{% raw %}
 
-<div id="app" v-cloak="" markdown="0">
+<div id="app" v-cloak="">
 	<table>
 		<tr>
 			<td width="30%">Número de Artigos:</td>
@@ -108,20 +108,15 @@ a:hover { color: #ffffff }
 </div>
 
 
-{:/}
+{% endrawx %}
 
 <p style="text-align:right">
-Running <a href="https://jekyllrb.com">Jekyll</a> 4.2.0
+Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.1
 </p>
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-Vue.filter('number', s =>  {
-  if(!window.Intl) return s;
-  return new Intl.NumberFormat().format(s);
-});
-
 new Vue({
 	el:'#app',
 	data:{
@@ -146,6 +141,7 @@ new Vue({
 		fetch('/stats.json')
 		.then(res => res.json())
 		.then(res => {
+			console.log(res);
 			this.totalPosts = res.totalPosts;
 			
 			this.firstPost = {
