@@ -6,9 +6,8 @@ tags: [HTML, Webdesign, código]
 img: header_webdesign.jpg
 description: "Página de estatística do site"
 ---
-<style>
-[v-cloak] {display: none}
 
+<style>
 
 body {
     line-height: 1.66667;
@@ -35,76 +34,110 @@ p { color: #adb7bd; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16
 a { color: #fe921f; text-decoration: underline; }
 
 
-a:hover { color: #ffffff }
-
-
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
 
-<div id="app" v-cloak="" markdown="0">
+{% assign totalWords = 0 %}
+{% assign dateOb = '' %}
+
+{% for post in site.posts %}
+ {% assign postWords = post.content | number_of_words %}
+ {% assign totalWords = totalWords | plus:  postWords %}
+ {% assign pd = post.date | date: "%Y-%m-%d" %}
+  {% unless forloop.first %}
+ {% assign dateOb = dateOb | append: "," %}
+  {% endunless %}
+ {% assign dateOb = dateOb | append: pd %}
+{% endfor %}
+
+{% assign avgWords = totalWords | divided_by: site.posts.size %}
+
+
+<div id="stats"  >
 	<table>
 		<tr>
 			<td width="30%">Número de Artigos:</td>
-			<td width="70%">{{totalPosts | number}}</td>
+			<td width="70%">{{site.posts.size | number}}</td>
 		</tr>
 		<tr>
 		<td>Primeiro artigo:</td>
 		<td>
-		    <a :href="firstPost.url">{{firstPost.title}}</a> publicado {{firstPost.age}} em {{firstPost.date}}
+		    <a href="{{site.posts.last.url}}">{{site.posts.last.title}}</a> publicado em {{site.posts.last.date | date: "%Y-%m-%d"}}
 		</td>
 		</tr>
 		<tr>
 		<td>Artigo mais recente:</td>
 		<td>
-    		<a :href="lastPost.url">{{lastPost.title}}</a> publicado {{lastPost.age}} em {{lastPost.date}}
+    		<a href="{{site.posts.first.url}}">{{site.posts.first.title}}</a> publicado em {{site.posts.first.date | date: "%Y-%m-%d"}}
 		</td>
 		</tr>
 		<tr>
 		<td>Número total de palavras:</td>
-		<td>{{totalWords | number}}</td>
+		<td>{{ totalWords | number }}</td>
 		</tr>
 		<tr>
 		<td>Número médio de palavras por artigo:</td>
 		<td>{{avgWords | number}}</td>
 		</tr>
+		<tr>
+		<td>Número de categorias:</td>
+		<td>{{ site.categories.size }}</td>
+		</tr>
+		<tr>
+		<td>Número de tags:</td>
+		<td>{{ site.tags.size }}</td>
+		</tr>
 	</table>
-
+<br>
     <h3>Artigos por ano</h3>
-    <table>
-        <tr>
-            <td>Ano</td>
-            <td>Número de artigos</td>
-        </tr>
-        <tr v-for="year in sortedYears">
-            <td>{{year}}</td>
-            <td>{{years[year] | number}}</td>
-        </tr>
-    </table>
 
+
+{% assign counter = 0 %}
+{% for post in site.posts %}
+  {% assign thisyear = post.date | date: " %Y" %}
+  {% assign prevyear = post.previous.date | date: " %Y" %}
+  {% assign counter = counter | plus: 1 %}
+  {% if thisyear != prevyear %}
+    <li>{{ thisyear }} ({{ counter }})</li>
+    {% assign counter = 0 %}
+  {% endif %}
+{% endfor %}
+
+
+
+  
+<br>
     <h3>Artigos por categoria</h3>
-    <table>
-        <tr>
-            <td>Categoria</td>
-            <td>Número de artigos</td>
-        </tr>
-        <tr v-for="cat in sortedCats">
-            <td>{{cat.name}}</td>
-            <td>{{cat.size | number}}</td>
-        </tr>
-    </table>
 
-    <h3>Artigos por Tag</h3>
-    <table>
-        <tr>
-            <td>Tag</td>
-            <td>Número de Artigos</td>
-        </tr>
-        <tr v-for="tag in sortedTags">
-            <td>{{tag.name}}</td>
-            <td>{{tag.size | number}}</td>
-        </tr>
-    </table>
+
+
+
+<ul class="c-tag__list">
+    {% for category in site.categories %}
+			{% assign cat = category[0] %}
+			{% unless forloop.first %}{% endunless %}
+
+
+<li><a href="" class="c-tag">{{ cat }} <span>({{site.categories[cat].size}})</span></a></li>
+
+
+		{% endfor %}
+    
+</ul>
+<br>
+
+
+<h3>Artigos por <a href="/tags/index.html">Tags</a></h3>
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tag_words = site_tags | split:',' | sort %}
+
+<ul class="c-tag__list">
+  {% for item in (0..site.tags.size) %}{% unless forloop.last %}
+    {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+    <li><a href="/tags/index#{{ this_word | cgi_escape }}" class="c-tag">{{ this_word }} <span>({{ site.tags[this_word].size }})</span></a></li>
+  {% endunless %}{% endfor %}
+  </ul>
 
 </div>
 
@@ -112,87 +145,3 @@ a:hover { color: #ffffff }
 <p style="text-align:right">
 Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.1
 </p>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script>
-new Vue({
-	el:'#app',
-	data:{
-		totalPosts:0,
-		firstPost:{
-			title:"",
-			date:"",
-			url:""
-		},
-		lastPost:{
-			title:"",
-			date:"",
-			url:""
-		},
-		totalWords:0,
-		avgWords:0,
-        years:{},
-        cats:[], 
-        tags:[]
-	},
-	created:function() {
-		fetch('/stats.json')
-		.then(res => res.json())
-		.then(res => {
-			console.log(res);
-			this.totalPosts = res.totalPosts;
-			
-			this.firstPost = {
-				title:res.firstPost.title,
-				date:res.firstPost.published,
-				url:res.firstPost.url,
-				age:moment(res.firstPost.published).fromNow()
-			};
-
-			this.lastPost = {
-				title:res.lastPost.title,
-				date:res.lastPost.published,
-				url:res.lastPost.url,
-				age:moment(res.lastPost.published).fromNow()
-			};
-
-			this.totalWords = res.totalWords;
-			this.avgWords = res.averageWordsPerPost;
-
-            let dates = res.dates.split(',');
-            // process res.dates on the client site
-            dates.forEach(d => {
-                let year = new Date(d).getFullYear();
-                if(!this.years[year]) Vue.set(this.years,year,0);
-                Vue.set(this.years,year, this.years[year]+1);
-            });
-
-            this.cats = res.postsPerCategory;
-            this.tags = res.postsPerTag;
-
-		}).catch(e => {
-            console.error(e);
-        });
-	},
-    computed:{
-        sortedCats:function() {
-            return this.cats.sort((a,b) => {
-                if(a.name < b.name) return -1;
-                if(a.name > b.name) return 1;
-                return 0;
-            });
-        },
-        sortedTags:function() {
-            return this.tags.sort((a,b) => {
-                if(a.name < b.name) return -1;
-                if(a.name > b.name) return 1;
-                return 0;
-            });
-        },
-        sortedYears:function() {
-            return Object.keys(this.years).sort();
-        }
-    }
-});
-</script>
