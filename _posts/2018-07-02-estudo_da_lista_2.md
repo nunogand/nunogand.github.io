@@ -4,7 +4,7 @@ title: "Estudo da lista de utentes 2"
 description: "Criação das tabelas em excel"
 categories: [PowerBi]
 tags: [PowerBi, código]
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 Fcheiros extraídos via MIM@UF:
 * P01.01.L01. Inscritos > Utente

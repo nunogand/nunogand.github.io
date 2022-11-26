@@ -5,7 +5,7 @@ description: "Listagem talvez não exaustiva dos comandos Excel em Inglês e Por
 date: 2017-11-23 22:10:10
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 ---
 Listagem talvez não exaustiva dos comandos Excel em Inglês e Português - útil para aquela fórmula que encontramos em inglês mas precisamos de usar num sistema em português.
 

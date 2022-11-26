@@ -5,7 +5,7 @@ description: "Uma lista, apanhada daqui e dali, de tudo o que pode figurar dentr
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 date: 2017-11-08
-img: header_webdesign.jpg
+img: header_webdesign.webp
 ---
 
 # HEAD
@@ -270,7 +270,7 @@ Below are the link relations which are not recommended for use:
 <meta property="og:url" content="https://example.com/page.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Content Title">
-<meta property="og:image" content="https://example.com/image.jpg">
+<meta property="og:image" content="https://example.com/image.webp">
 <meta property="og:description" content="Description Here">
 <meta property="og:site_name" content="Site Name">
 <meta property="og:locale" content="en_US">
@@ -307,7 +307,7 @@ Below are the link relations which are not recommended for use:
 <meta name="twitter:url" content="https://example.com/page.html">
 <meta name="twitter:title" content="Content Title">
 <meta name="twitter:description" content="Content description less than 200 characters">
-<meta name="twitter:image" content="https://example.com/image.jpg">
+<meta name="twitter:image" content="https://example.com/image.webp">
 <!-- Mais informações: https://dev.twitter.com/cards/getting-started -->
 <!-- Valide: https://dev.twitter.com/docs/cards/validation/validator -->
 ```
@@ -321,7 +321,7 @@ Below are the link relations which are not recommended for use:
 <link href="https://plus.google.com/+YourPage" rel="publisher">
 <meta itemprop="name" content="Content Title">
 <meta itemprop="description" content="Content description less than 200 characters">
-<meta itemprop="image" content="https://example.com/image.jpg">
+<meta itemprop="image" content="https://example.com/image.webp">
 ```
 
 ### OEmbed
@@ -423,7 +423,7 @@ Below are the link relations which are not recommended for use:
 <meta name="msapplication-task" content="name=Check Order Status;action-uri=./orderStatus.aspx?src=IE9;icon-uri=./favicon.ico">
 <meta name="msapplication-task-seperator" content="1">
 <meta name="msapplication-TileColor" content="#FF3300">
-<meta name="msapplication-TileImage" content="path/to/tileimage.jpg">
+<meta name="msapplication-TileImage" content="path/to/tileimage.webp">
 <meta name="msapplication-window" content="width=1024;height=768">
 ```
 

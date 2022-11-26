@@ -6,7 +6,7 @@ categories: [Raspberry]
 date: 2019-03-18
 tags: [Raspberry, JDownloader]
 comments: false
-img: header_raspi.jpg
+img: header_raspi.webp
 ---
 
 Instalação do JDownloader em dispositivos ARM.

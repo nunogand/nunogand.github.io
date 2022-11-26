@@ -5,7 +5,7 @@ description: "Procedimento para renomear ficheiros de texto de acordo com partes
 date:   2020-12-08 16:10:07
 categories: [Linux]
 tags: [linux, UNIX]
-img: ubuntu_logo.png
+img: ubuntu_logo.webp
 ---
 A meio de outro projecto surgiu a tarefa: renomear mais de 500 ficheiros de texto - no caso produzidos pelo BeautifulSoup - de forma a que o nome de cada ficheiro reflita o conteúdo - neste caso um número ordenado. 
 
@@ -46,16 +46,16 @@ done
 
 A receita funciona independentemente do número de ficheiros envolvidos.
 
-Exercício parecido: tenho 2 ficheiros com o mesmo nome mas extensões diferente: uma foto e um ficheiro .txt com informações sobre a foto. Pretendo renomear o ficheiro .JPG de acordo com o conteúdo de uma determinada linha do ficheiro .TXT
+Exercício parecido: tenho 2 ficheiros com o mesmo nome mas extensões diferente: uma foto e um ficheiro .txt com informações sobre a foto. Pretendo renomear o ficheiro .webp de acordo com o conteúdo de uma determinada linha do ficheiro .TXT
 
 Oneliner:
 {% highlight console %}
-for f in *.txt; do d="$(sed -n 3p "$f" |cut -d'"' -f 4).jpg"; if [ ! -f "$d" ]; then mv ${f%.*}.jpg "$d"; else echo "Ficheiro '$d' já existe! Ignorado '$f'"; fi; done
+for f in *.txt; do d="$(sed -n 3p "$f" |cut -d'"' -f 4).webp"; if [ ! -f "$d" ]; then mv ${f%.*}.webp "$d"; else echo "Ficheiro '$d' já existe! Ignorado '$f'"; fi; done
 {% endhighlight %}
 
-_d="$(sed -n 3p "$f" |cut -d'"' -f 4).jpg"_ cria o nome do ficheiro final a partir do texto do primeiro ficheiro;
+_d="$(sed -n 3p "$f" |cut -d'"' -f 4).webp"_ cria o nome do ficheiro final a partir do texto do primeiro ficheiro;
 
-_mv ${f%.*}.jpg "$d"_ a única dificuldade do scrip; a expressão _${f%.*}.jpg_ pega no ficheiro original e substitui a extensão pela extensão que quero renomear.
+_mv ${f%.*}.webp "$d"_ a única dificuldade do scrip; a expressão _${f%.*}.webp_ pega no ficheiro original e substitui a extensão pela extensão que quero renomear.
 
 Podia ter feito isto manualmente? Não...
 

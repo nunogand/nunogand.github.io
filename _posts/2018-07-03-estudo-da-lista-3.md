@@ -5,7 +5,7 @@ description: "Importação das tabelas para PowerBI"
 categories: [PowerBi]
 tags: [PowerBi, código]
 comments: false
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 Procedimentos para importar os dados da tabela excel para o PowerBI:
 1 obter dados - excel - ligar

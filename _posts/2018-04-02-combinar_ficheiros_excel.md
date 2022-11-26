@@ -5,7 +5,7 @@ description: Exemplo de script VBA que permite combinar vários ficheiros excel 
 date: 2018-04-02
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 published: true
 ---
 Imaginemos que temos um grande número de ficheiros excel e que, por um motivo ou outro, queremos combinar num só. Este script permite "transformar" cada ficheiro individual numa folha do ficheiro "master". Ou algo assim... em vez de termos vários ficheiros, ficamos com um único ficheiro com várias folhas.

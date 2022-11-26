@@ -5,7 +5,7 @@ description: "Experiência em DAX para seleccionar valores a partir de um slicer
 date: 2017-12-30 08:10:10
 categories: [PowerBi]
 tags: [PowerBi, código, DAX]
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 
 1. Criar uma tabela com todas as condições.

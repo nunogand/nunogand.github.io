@@ -6,7 +6,7 @@ categories: [Raspberry]
 date: 2018-10-25
 tags: [Raspberry, Servidor, IOT]
 comments: false
-img: header_raspi.jpg
+img: header_raspi.webp
 ---
 
 # Princípios básicos para proteger um servidor baseado em Raspbian.

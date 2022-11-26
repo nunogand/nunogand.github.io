@@ -5,7 +5,7 @@ description: "Amostragem."
 date: 2019-04-10 08:10:10
 categories: [PowerBi]
 tags: [PowerBi, código, DAX]
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 
 ### Tipos de amostragem

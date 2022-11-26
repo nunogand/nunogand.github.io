@@ -4,7 +4,7 @@ title: Leituras do sensor de partículas atmosféricas
 description: Gráficos Grafana
 date: 2019-08-15
 categories: [Raspberry, Arduino]
-img: esp8266.jpg
+img: esp8266.webp
 tags: [Raspberry, Arduino]
 comments: false
 ---

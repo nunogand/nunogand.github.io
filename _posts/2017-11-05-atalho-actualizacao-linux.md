@@ -5,7 +5,7 @@ description: "Criação de um simples atalho para evitar ter que estar sempre a 
 date: 2017-10-14 18:07:19
 categories: [Linux]
 tags: [linux, Ubuntu, drivers]
-img: ubuntu_logo.png
+img: ubuntu_logo.webp
 ---
 Isto não é exactamente um script mas antes um atalho que junta vários comandos sequenciais para actualizar o Ubuntu.
 

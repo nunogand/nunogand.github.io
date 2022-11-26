@@ -6,7 +6,7 @@ description: With a clamor of bells that set the swallows soaring, the Festival 
 date: 2018-02-01 08:10:10
 categories: [Sci-Fi]
 tags: [Sci-Fi]
-img: planets.jpg
+img: planets.webp
 ---
 
 The Ones Who Walk Away From Omelas - Ursula K Le Guin

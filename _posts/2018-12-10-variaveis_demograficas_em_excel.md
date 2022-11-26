@@ -5,7 +5,7 @@ description: Determinação de vários indicadores demográficos a partir de lis
 date: 2018-12-10
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 published: true
 ---
 Assumindo listagem de utentes conforme:

@@ -5,7 +5,7 @@ description: "Exercício CSS"
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 date: 2020-06-08
-img: header_webdesign.jpg
+img: header_webdesign.webp
 ---
 
 <iframe src="https://nunogand.github.io/graficos/solar.html" height="800" width="100%" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>

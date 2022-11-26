@@ -5,7 +5,7 @@ description: Importar vários ficheiros com Power Query utilizando valores do ca
 date: 2020-02-24
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 published: true
 ---
 

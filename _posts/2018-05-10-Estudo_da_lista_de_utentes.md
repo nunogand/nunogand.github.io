@@ -5,7 +5,7 @@ description: "Estrutura dos ficheiros para estudo da lista"
 categories: [PowerBi]
 tags: [PowerBi]
 comments: false
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 
 Estrutura base da pasta de ficheiros

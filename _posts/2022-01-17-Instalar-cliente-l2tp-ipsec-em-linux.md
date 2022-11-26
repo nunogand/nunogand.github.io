@@ -5,7 +5,7 @@ description: "Instalação do suporte a ligações VPN L2TP/IPsec em Ubuntu"
 date:   2022-01-17 04:12:00
 categories: [Linux]
 tags: [linux, UNIX]
-img: ubuntu_logo.png
+img: ubuntu_logo.webp
 ---
 Apesar do Ubuntu trazer por defeito um cliente para ligações VPN o mesmo não suporta **L2TP/IPsec**. É possível contudo adicionar essa funcionalidade ocm um plugin para o efeito.
 

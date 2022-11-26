@@ -5,7 +5,7 @@ description: Determinação de vários indicadores demográficos a partir de lis
 date: 2021-10-20
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 published: true
 ---
 E como em todo o pano cai a nóda, passado todo este tempo encontrei um bug nas fórmulas... mais precisamente no indice de Sundbarg

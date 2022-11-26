@@ -5,7 +5,7 @@ description: "Procedimento para remover kernels não em uso (Ubuntu 17.10)"
 date:   2017-11-12 22:07:19
 categories: [Linux]
 tags: [linux, Ubuntu, kernel]
-img: ubuntu_logo.png
+img: ubuntu_logo.webp
 ---
 Após algum tempo surgiu a dúvida de como remover as versões antigas do kernel do Ubuntu que vão ficando após cada actualização. nada que o Google não resolva.
 Em primeiro lugar, listar todos os kernels em uso com o comando

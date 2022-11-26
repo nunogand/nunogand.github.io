@@ -5,7 +5,7 @@ description: "Instalação de ImageMagick em Ubuntu - não é tão simples como 
 date:   2020-12-20 08:10:00
 categories: [Linux]
 tags: [linux, UNIX]
-img: ubuntu_logo.png
+img: ubuntu_logo.webp
 ---
 De acordo com as instruções oficiais [ImageMagick - Install from source](https://imagemagick.org/script/install-source.php), a instalação em Ubuntu do pacote ImageMagick deveria ser algo tão simples como:
 

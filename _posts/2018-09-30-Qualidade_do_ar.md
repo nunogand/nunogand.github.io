@@ -4,7 +4,7 @@ title: Qualidade do ar
 description: Evolução da concentração atmosférica de partículas PM 10 e PM 2.5
 date: 2018-09-30
 categories: [Raspberry, Arduino]
-img: chart.png
+img: chart.webp
 tags: [Raspberry, Arduino]
 comments: false
 ---

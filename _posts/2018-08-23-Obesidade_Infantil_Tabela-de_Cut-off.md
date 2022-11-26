@@ -5,7 +5,7 @@ description: Tabela de cut-offs para classificar Obesidade Infantil - [24-216] m
 date: 2018-08-23 18:00:19
 categories: [Obesidade]
 tags: [Obesidade Infantil]
-img: obesidade.jpg
+img: obesidade.webp
 comments: false
 ---
 

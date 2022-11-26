@@ -5,7 +5,7 @@ description: Códigos harmonizados da União Europeia e códigos nacionais de re
 date: 2022-11-02
 categories: [Legal]
 tags: [Leis]
-img: header_legal.jpg
+img: header_legal.webp
 published: true
 ---
 

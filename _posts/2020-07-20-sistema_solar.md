@@ -5,7 +5,7 @@ description: "Exercício CSS"
 categories: [Webdesign]
 tags: [HTML, Webdesign, código]
 date: 2020-07-20
-img: header_webdesign.jpg
+img: header_webdesign.webp
 custom_js:
 - sistema_solar.js
 custom_css:

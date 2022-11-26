@@ -5,7 +5,7 @@ description: Exemplo prático da utilização da função PROCV com duas listage
 date: 2018-02-08
 categories: [Excel]
 tags: [Excel]
-img: header_excel.png
+img: header_excel.webp
 ---
 Imaginemos duas listas de utentes, A e B. A primeira pode ser por exemplo a listagem de utente com o Diagnóstico A e a segunda com o diagnóstico B.
 Como obter os elementos em A que possuam a patologia B?

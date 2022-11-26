@@ -4,7 +4,7 @@ title: "Fontes gratuitas de imagens para utilização em sites"
 description: "Uma lista, em constante actualização, apanhada daqui e dali, de alguns recursos interessantes"
 categories: [Webdesign]
 tags: [HTML, código]
-img: header_webdesign.jpg
+img: header_webdesign.webp
 ---
 # SVG
 [Undraw.co](https://undraw.co)   

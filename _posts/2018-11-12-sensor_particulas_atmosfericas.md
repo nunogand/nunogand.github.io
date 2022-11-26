@@ -4,7 +4,7 @@ title: Construção do sensor de partículas atmosféricas
 description: Instruções para construção do sensor a utilizar no projecto Luftdaten usando BME280 e WemosD1
 date: 2018-11-13
 categories: [Raspberry, Arduino]
-img: esp8266.jpg
+img: esp8266.webp
 tags: [Raspberry, Arduino]
 comments: false
 ---
@@ -30,6 +30,6 @@ Ligações:
 | 5V | -> | 5V |
 
 Ou algo como isto:
-![sensor](/images/sensor.jpg "Sensor")
+![sensor](/images/sensor.webp "Sensor")
 
 O software é instalado seguindo as instruções em Luftdaten

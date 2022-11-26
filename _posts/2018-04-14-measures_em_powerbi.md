@@ -5,7 +5,7 @@ description: "Listagem de Measures utilizadas para o estudo demográfico da list
 categories: [PowerBi]
 tags: [PowerBi, código, DAX]
 comments: false
-img: header_powerbi.jpg
+img: header_powerbi.webp
 ---
 
 Aquando do estudo da lista:
