@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Códigos harmonizados da União Europeia e códigos nacionais de restrições e adaptações referentes à Carta de Condução
-description: Códigos harmonizados da União Europeia e códigos nacionais de restrições e adaptações referentes à Carta de Condução
+description: Códigos das restrições da carta de condução portuguesa
 date: 2022-11-02
 categories: [Legal]
 tags: [Leis]
