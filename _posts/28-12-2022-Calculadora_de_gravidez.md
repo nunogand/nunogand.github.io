@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Calculadora da duração do tempo de gravidez com datas ideais para realização de MCDTs
-description: Calculadora de gravidez: calcular os intervalos de tempo adequados para o seguimento da gravidez.
+description: "Calculadora de gravidez - calcular os intervalos de tempo adequados para o seguimento da gravidez."
 date: 2022-11-02
 categories: [Medicina]
 tags: [Medicina, Calculadora]
