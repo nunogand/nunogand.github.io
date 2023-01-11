@@ -110,7 +110,7 @@ td {
 }
 </style>
 
-<p>Seleccione a data da última menstruação e carregue no botão para calcular os intervalos de tempo adequados para o seguimento da gravidez:</p>
+Seleccione a data da última menstruação e carregue no botão para calcular os intervalos de tempo adequados para o seguimento da gravidez:
 <form>
   <label for="day1">Data:</label><br>
   <input type="date" id="day1" name="day1"><P>
