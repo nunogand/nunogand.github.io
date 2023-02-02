@@ -16,7 +16,7 @@ h3 {
 
 
 .rwd-table {
-  margin: 1em 0;
+  margin: 0 auto;
   min-width: 300px;
 }
 .rwd-table tr {
