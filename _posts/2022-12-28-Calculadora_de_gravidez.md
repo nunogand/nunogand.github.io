@@ -108,7 +108,7 @@ td {
   height: 30px;
   /* Height of the footer */
 }
-
+</style>
 
 <main>
 Seleccione a data da última menstruação e carregue no botão para calcular os intervalos de tempo adequados para o seguimento da gravidez:
