@@ -23,8 +23,10 @@ body {
   color: #b9b9b9;
 }
   
-  c-wrap-content{
-  background-color: #91ced4;}
+c-wrap-content {
+  background-color: #91ced4;
+  }
+
 h4 {
   color: #f0a500;
 }
