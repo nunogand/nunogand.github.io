@@ -21,8 +21,8 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   color: #b9b9b9;
-  background-color: #91ced4;
 }
+  
   c-wrap-content{
   background-color: #91ced4;}
 h4 {
@@ -229,9 +229,7 @@ select option {
 
 
 /*tabela*/
-body {
-  background-color: #91ced4;
-}
+
 body * {
   box-sizing: border-box;
 }
