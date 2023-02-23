@@ -25,7 +25,7 @@ body {
   
 .calc {
  background-color: #91ced4;
- width: max-content;
+ padding: 10px;
   }
 
 .calc h4 {
