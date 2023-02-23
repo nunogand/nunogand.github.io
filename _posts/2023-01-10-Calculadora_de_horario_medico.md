@@ -25,7 +25,7 @@ body {
   
 c-wrap-content {
   background-color: #91ced4;
-  }
+  }!important
 
 h4 {
   color: #f0a500;
