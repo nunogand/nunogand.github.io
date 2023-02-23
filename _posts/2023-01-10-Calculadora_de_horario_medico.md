@@ -23,11 +23,12 @@ body {
   color: #b9b9b9;
 }
   
-c-wrap-content {
-  background-color: #91ced4;
-  }!important
+.calc {
+ background-color: #91ced4;
+ width: max-content;
+  }
 
-h4 {
+.calc h4 {
   color: #f0a500;
 }
 input,
@@ -393,7 +394,7 @@ table tr:nth-child(2n+1) {
   
 </style>
 
-<main>
+<main class="calc">
   
 <div class="container">
   <form>
