@@ -612,7 +612,7 @@ table tr:nth-child(2n+1) {
 
       <tr>
          <td><i class="fa fa-venus"></i><p>Planeamento Familiar</td>
-         <td>${results[3]}</td>
+         <td>${(parseFloat(results[3].toFixed(0))}</td>
          <td>${(parseFloat(results[3]/44).toFixed(1))}</td>
          <td>${(hoursToHHMM((results[3]/44*inputs[14])/60))}</td>
          <td>Assume 1 consulta/ano e uma taxa de cobertura de 60% de todas as mulheres entre os 14-54 anos.</td>
