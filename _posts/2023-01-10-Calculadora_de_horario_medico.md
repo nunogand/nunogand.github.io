@@ -394,7 +394,7 @@ table tr:nth-child(2n+1) {
   
 </style>
 
-<main class="calc">
+<div class="calc">
   
 <div class="container">
   <form>
@@ -544,7 +544,7 @@ table tr:nth-child(2n+1) {
   
   
   
-</main>
+</div>
 <script>
   function calculate() {
   
