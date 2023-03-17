@@ -1,13 +1,17 @@
 <!-- [1 Preemptively warm up the fonts’ origin] -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- [2 Initiate a high-priority, asynchronous fetch for the CSS file. Works in most modern browsers] -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" />
 
 <!-- [3 Initiate a low-priority, asynchronous fetch that gets applied to the page only after it’s arrived. Works in all browsers with JavaScript enabled] -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" media="print" onload="this.media='all'" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
 <!-- [4 In the unlikely event that a visitor has intentionally disabled JavaScript, fall back to the original method] -->
 <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,400,400italic|Roboto+Mono|Open+Sans:400,700&display=swap" /> 
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </noscript>
+
+
+
