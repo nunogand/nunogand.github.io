@@ -8,8 +8,6 @@ tags: [Medicina]
 img: calculator.webp
 published: true
 ---
-Variáveis demográficas
-
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
@@ -46,7 +44,7 @@ Variáveis demográficas
   </tr>
   <tr>
     <td class="tg-c3ow">ÍNDICE DE CRIANÇAS (0-4) POR MULHER EM IDADE FÉRTIL</td>
-    <td class="tg-0pky">=Relação entre o número de crianças até aos 4 anos e o número de mulheres em idade fértil</td>
+    <td class="tg-0pky">Relação entre o número de crianças até aos 4 anos e o número de mulheres em idade fértil</td>
   </tr>
   <tr>
     <td class="tg-c3ow">ÍNDICE DE DEPENDÊNCIA DE IDOSOS</td>
