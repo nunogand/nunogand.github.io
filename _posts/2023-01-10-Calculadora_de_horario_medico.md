@@ -607,7 +607,7 @@ table tr:nth-child(2n+1) {
          <td>${results[2]}</td>
          <td>${(parseFloat(results[2]/44).toFixed(1))}</td>
          <td>${(hoursToHHMM((results[2]/44*inputs[10])/60))}</td>
-         <td>Assume 1 consulta/ano/criança para todasa as idades >24 meses.</td>
+         <td>Assume 1 consulta/ano/criança para todas as idades >24 meses.</td>
       </tr>
 
       <tr>
