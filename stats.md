@@ -107,7 +107,7 @@ a { color: #fe921f; text-decoration: underline; }
 
 
   
-<br>
+<br><p>
     <h3>Artigos por categoria</h3>
 
 
@@ -126,6 +126,7 @@ a { color: #fe921f; text-decoration: underline; }
     
 </ul>
 <br>
+<p>
 
 
 <h3>Artigos por <a href="/tags/index.html">Tags</a></h3>
@@ -143,5 +144,5 @@ a { color: #fe921f; text-decoration: underline; }
 
 
 <p style="text-align:right">
-Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.1
+Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.3
 </p>
