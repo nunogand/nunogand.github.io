@@ -9,35 +9,34 @@ description: "Página de estatística do site"
 
 <div><blockquote id="error-chart" style="display: none"></blockquote></div>
 
-Those graphs were made for test in the article .
-I decided it would be delightful to have them handy so here they are in their own private page!
+Alguns gráficos que mostram a evolução da página.
 
-### General stats
+### Estatísticas gerais
 
-The main statistic populated automatically from this blog. 
+Os principais numeros gerados automaticamente. 
 
 <table class="center">
   <tr>
-    <th>Total of posts</th>
+    <th>Total de artigos</th>
     <td id="TotalPosts"></td>
   </tr>
   <tr>
-    <th>Total of tags</th>
+    <th>Tags</th>
     <td id="TotalTags"></td>
   </tr>
   <tr>
-    <th>Total of words</th>
+    <th>Palavras</th>
     <td id="TotalWords"></td>
   </tr>
   <tr>
-    <th>Average of words</th>
+    <th>Média de palavras</th>
     <td id="AvgWords"></td>
   </tr>
 </table>
 
-Having it on a table is nice, but graphs are way more stylish!
+Tabelas são ok... Gráficos são muito ok!
 
-### Months' articles distribution
+### Distribuição de artigos por mês
 
 Let's see which month of the year I'm the most productive over the years:
 
@@ -46,7 +45,7 @@ Let's see which month of the year I'm the most productive over the years:
 It does have a curve from the more to less active! The busiest months aren't necessarily the ones I would have expected.
 Can't always be writing, apparently. 😛
 
-### Hot topics of the years
+### Temas quentes por ano
 
 To check the evolution of the topics happening over the years:
 
@@ -67,7 +66,7 @@ Besides, bringing a use case for a radar type of graph, this one also displays t
 Too many tags could mean that they need to be consolidated.
 As I write randomly about things that I come across, the content is a bit diverse.
 
-### Content growth
+### Crescimento do conteúdo
 
 Another view of the blog's activity, this time accounting for the average number of words (the number of word is
 divided, so it would fit in the chart).
@@ -78,7 +77,7 @@ Some topic may need fewer words than others, as long as you keep writing and mak
 Most of the articles are either a memory help for me, or an exercise to better understand the subject.
 It's never perfect, I often come back to old articles to fix typos and try to improve them.
 
-### Publishing history
+### Historial de publicações
 
 Let's dive with this chart at the number of articles published over the years.
 It's a good indicator to see the actual blogging activity on the site.
