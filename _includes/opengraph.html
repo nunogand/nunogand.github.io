@@ -23,10 +23,10 @@
   <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
   <meta content="{{ site.url }}/about/" property="article:author">
 {% endif %}
-{% if page.image %}
-  <meta content="{{ site.url }}/images/{{ page.image }}" property="og:image">
+{% if page.img %}
+  <meta content="{{ site.url }}/images/{{ page.img }}" property="og:image">
 {% else %}
-  <meta content="{{ site.url }}/images/" property="og:image">
+  <meta content="{{ site.url }}/images/logo_main.png" property="og:image">
 {% endif %}
 {% if page.categories %}
   {% for category in page.categories limit:1 %}
