@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Blog stats
-subtitle: "Where all the graphs wash ashore"
-permalink: /stats/
-feature-img: "assets/img/pexels/wave.png"
-icon: "fas fa-chart-pie"
-excluded: true
+title: Números do site
+categories: [Webdesign]
+tags: [HTML, Webdesign, código]
+img: header_webdesign.jpg
+description: "Página de estatística do site"
 ---
 
 <div><blockquote id="error-chart" style="display: none"></blockquote></div>
