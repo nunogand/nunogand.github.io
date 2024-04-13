@@ -90,4 +90,4 @@ For now, it is steadily growing, as long as I have topics that fuels my motivati
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js" integrity="sha256-uVEHWRIr846/vAdLJeybWxjPNStREzOlqLMXjW/Saeo=" crossorigin="anonymous"></script>
-<script src="{{ 'assets/js/stats.js' | relative_url }}"></script>
+<script src="{{ 'custom/data/stats.js' | prepend: site.baseurl }}"></script>
