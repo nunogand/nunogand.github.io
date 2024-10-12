@@ -16,15 +16,13 @@ published: true
 *:after {
   box-sizing: border-box;
 }
-body {
-  padding: 1em;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  }
   
 .calc {
  background-color: #d1e8ee;
  padding: 10px;
+  padding: 1em;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
   }
 
 .calc h4 {
