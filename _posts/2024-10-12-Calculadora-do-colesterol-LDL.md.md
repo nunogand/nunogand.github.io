@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calculadora do Colesterol LDL
+title: Calculadora do valor de Colesterol LDL
 description: "Calculadora do Colesterol LDL que implementa a fórmula de Martin‐Hopkins e que, de acordo com os estudos efectuados, oferece valores estimados de cLDL com menor margem de erro face à clássica formula de Friedewald"
 date: 2024-10-12
 categories: [Medicina]
@@ -241,6 +241,11 @@ select option {
 .referencia {
   font-size: 0.8em
 }
+
+  .caixa {
+    outline: 2px solid #ccc;
+   outline-offset:7px; 
+}
 </style>
 
 
@@ -273,14 +278,16 @@ select option {
       </div>
     </div>
     
-    <div class="row">
+   <div class="row">
+      <div class="caixa">
       <h4>Resultados cLDL (mg/dL) - Martin‐Hopkins</h4>
-      <div id="result"></div>
+      <div id="result"></div></div>
     </div>
     
     <div class="row">
+      <div class="caixa">
       <h4>Resultados cLDL (mg/dL) - Friedewald</h4>
-      <div id="result_Friedewald"></div>
+      <div id="result_Friedewald"></div></div>
     </div>
     
     
