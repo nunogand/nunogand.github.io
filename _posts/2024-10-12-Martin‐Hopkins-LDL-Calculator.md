@@ -18,7 +18,7 @@ custom_css:
   <form>
     
     <div class="row">
-    <h4>Valores (mg/dL)</h4>
+    <h4>Values (mg/dL)</h4>
       <div class="col-half">
         <div class="input-group input-group-icon">
           <input type="text" placeholder="Total Cholesterol (mg/dL)" id="totalCholesterol">
