@@ -20,8 +20,7 @@ body {
   padding: 1em;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  color: #b9b9b9;
-}
+  }
   
 .calc {
  background-color: #d1e8ee;
