@@ -244,7 +244,6 @@ select option {
 
   .caixa {
     outline: 2px solid #ccc;
-   outline-offset:7px; 
 }
 </style>
 
@@ -283,7 +282,7 @@ select option {
       <h4>Resultados cLDL (mg/dL) - Martin‐Hopkins</h4>
       <div id="result"></div></div>
     </div>
-    
+    <br>
     <div class="row">
       <div class="caixa">
       <h4>Resultados cLDL (mg/dL) - Friedewald</h4>
