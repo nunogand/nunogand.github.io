@@ -319,7 +319,7 @@ JAMA., 310 (2013), pp. 2061-2068
 http://dx.doi.org/10.1001/jama.2013.280532
   
   
-</div></div></div>
+</div>
 
 <script>
 // Tabela de pesquisa f(TG) 
