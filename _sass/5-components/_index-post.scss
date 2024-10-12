@@ -1,7 +1,8 @@
+@use 'sass:color';
 /* ===============
 	POST
 =============== */
-
+@use "sass:color" as posts;
 .c-posts {
   width: 100%;
   display: flex;
@@ -67,8 +68,8 @@
   background-color: $primary-color;
   outline: none;
   &:hover {
-    background-color: darken($primary-color, 15%);
-  }
+    background-color: color.adjust($primary-color, $lightness: -15%);
+    }
 }
 
 @media only screen and (max-width: 1200px) {

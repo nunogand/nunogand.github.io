@@ -1,7 +1,7 @@
 /* ===============
 	ARTICLE PAGE
 =============== */
-
+@use "sass:color";
 .c-article {
   width: 100%;
   margin: 20px 0;
@@ -72,7 +72,7 @@
       background-color: rgba(115, 138, 160, 0.60);
       color: $white-color;
       &:hover {
-        background-color: darken(rgba(115, 138, 160, 0.60), 15%);
+        background-color: color.adjust(rgba(115, 138, 160, 0.60), $lightness: -15%);
       }
       &:last-child {
         margin-right: 0;

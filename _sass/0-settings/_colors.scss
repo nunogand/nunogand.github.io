@@ -1,7 +1,7 @@
 /* ===============
 	COLORS
 =============== */
-
+@use "sass:color";
 $primary-color: #42b983;
 $secondary-color: #cfcfdd;
 $alternate-color: #404040;
@@ -40,7 +40,7 @@ $heading-font-color: #404040;
 
 // Links
 $link-color: $primary-color;
-$link-color-hover: darken($link-color, 15%);
+$link-color-hover: color.adjust($link-color, $lightness: -15%);
 
 
 // Border
