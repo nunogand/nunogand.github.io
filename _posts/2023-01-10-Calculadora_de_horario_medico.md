@@ -498,7 +498,7 @@ table tr:nth-child(2n+1) {
       </div>
     </div>
     <div class="row">
-      <h4>Carga horária <u>semanal</u> (h)</h4>
+      <h4>Carga horária <em>semanal</em> (h)</h4>
       <div class="col-half">
         <div class="input-group input-group-icon">
           <input type="text" placeholder="Horário de trabalho" id="p">
