@@ -7,6 +7,7 @@ categories: [Medicina]
 tags: [Medicina, Calculadora]
 img: calculator.webp
 published: true
+subtitle: Baseado num exemplo publicado no site da ARS-Norte
 ---
 <style>
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
