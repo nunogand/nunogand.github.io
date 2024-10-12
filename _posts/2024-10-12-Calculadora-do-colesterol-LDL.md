@@ -299,7 +299,7 @@ select option {
 </div> 
   
   <div class="row"><br>
-      <h4>Instruções</h4>
+      <h4>Racional</h4>
       <div class="input-group">
         <label>Apesar de existirem vários métodos para a determinação da concentração de LDL, muitos laboratórios clínicos estimam o valor de cLDL sendo a fórmula de Friedewald o método mais comummente usada.
 
