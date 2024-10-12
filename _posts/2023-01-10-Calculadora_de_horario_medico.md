@@ -24,7 +24,7 @@ body {
 }
   
 .calc {
- background-color: #91ced4;
+ background-color: #d1e8ee;
  padding: 10px;
   }
 
