@@ -64,7 +64,7 @@ custom_css:
 </div> 
   
   <div class="row"><br>
-      <h4>Rational</h4>
+      <h4>Rationale</h4>
       <div class="input-group">
         <label>lthough there are several methods for determining LDL concentration, many clinical laboratories estimate the LDL-C value, with the Friedewald formula being the most commonly used method.
 
