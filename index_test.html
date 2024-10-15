@@ -1,0 +1,44 @@
+---
+layout: home
+---
+
+{% if paginator.page %}
+  {% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
+  {% assign currentPage = paginator.page %}
+{% else %}
+  {% assign offset = 0 %}
+  {% assign currentPage = 1 %}
+{% endif %}
+
+{% include header.html %}
+<div class="c-posts o-opacity" data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
+  {% for post in site.posts limit:site.paginate offset:offset %}
+  <article class="c-post">
+    {% if post.img %}
+    <a class="c-post-thumbnail o-opacity" style="background-image: url({{"/images/" | prepend: site.baseurl | append : post.img}})"
+        href="{{post.url | prepend: site.baseurl}}" aria-label="thumbnail do post"></a>
+    {% else %} {% endif %}
+    <div class="c-post-content">
+      <h4 class="c-post-title">
+        <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
+      </h4>
+       {% if post.description %}
+<p>{{post.description | strip_html | truncatewords: 15 }}
+      {% else %}
+      <p>{{ post.content | strip_html | truncatewords: 15 }}</p> {% endif %}
+      {% include data.html %}
+     
+      <!-- <span class="c-post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span> -->
+      <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
+          plus: 250 | divided_by: 250 | append: " minuto(s) de leitura" }}{% endunless %}</span>
+    </div>
+  </article> <!-- /.c-post -->
+  {% endfor %}
+</div> <!-- /.c-posts -->
+
+{% assign postCount = site.posts | size %}
+{% assign postsCovered = site.paginate | plus:offset %}
+{% if postsCovered < postCount %}
+  <button class="c-load-more c-btn c-btn--middle">Carregar mais artigos</button>
+{% endif %}
+{% include categories.html %}
