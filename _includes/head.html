@@ -25,12 +25,16 @@
 {% include fonts.html %}
 
 <!-- style -->    
-    <style>
+
+  <style type="text/css">
+       
     {% capture include_to_scssify %}
     {% include main.scss %}
     {% endcapture %}
     {{ include_to_scssify | scssify }}
+    
   </style>
+
 <!-- style e JS custom -->        
   {% if page.custom_css %}
     {% for css in page.custom_css %}
