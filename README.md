@@ -1,43 +1,86 @@
-<h1>Um tema minimalista e responsivo, baseado em no tema Flexton e com algumas adições de forma a ser disponibilizado via Netlify</h1>
+# Nuno's Personal Website
 
-<p>Minimalismo e funcionalidade. Basicamente é isto.</p>
-<p>Usei o aspecto gráfico do Flexton, embora seja simples alterar as cores básicas do design.</p>
+![GitHub stars](https://img.shields.io/github/stars/nunogand/nunogand.github.io?style=social)
+![GitHub forks](https://img.shields.io/github/forks/nunogand/nunogand.github.io?style=social)
+![License](https://img.shields.io/github/license/nunogand/nunogand.github.io)
 
-<h2>Demo</h2>
+> The source code for my personal website, built with Jekyll and the Minimal Mistakes theme. It serves as a digital portfolio, blog, and a hub for my projects.
 
-O demo é o próprio site [Demo](https://nunogand.com/)
+## 🌐 Live Demo
 
-<h2>Características</h2>
+Check out the live site here: **[https://nunogand.github.io/](https://nunogand.github.io/)**
 
-<ul>
-	<li>100% responsivo</li>
- 	<li>Optimizado para smartphones</li>
-	<li>HTML5</li>
-	<li>Inclui pesquisa do site</li>
-	<li>Página de contacto</li>
-	<li>Partilha de posts</li>
-	<li>Suporta Mail Chimp</li>
-	<li>Suporta comentários Disqus</li>
-	<li>Social Media</li>
-	<li>Frmulário de contacto - FormsPree</li>
-	<li>Evil Icons</li>
-	<li>Google Fonts</li>
-</ul>
+## 🛠️ Built With
 
-<h2>Créditos</h2>
+This project is powered by:
 
-<p>Entre outros.</p>
+*   **[Jekyll](https://jekyllrb.com/)** - A simple, blog-aware, static site generator.
+*   **[Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)** - A flexible, feature-rich Jekyll theme.
+*   **[GitHub Pages](https://pages.github.com/)** - For effortless, free hosting directly from the repository.
 
-<ul>
-  <li><a href="https://fonts.google.com/">Google Fonts</a> (Volkhov, Open Sans).</li>
-  <li><a href="http://evil-icons.io/">Evil Icons</a></li>
-  <li><a href="http://fitvidsjs.com/">FitVids.js</a></li>
-  <li><a href="https://jquery.com/">jQuery.com</a></li>
-  <li><a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple-Jekyll-Search</a></li>
-  </ul>
+## 🚀 Getting Started
 
-<h2>Utilização</h2>
+To get a local copy up and running, follow these simple steps. This is useful if you want to fork the theme or contribute.
 
-Fazer o fork do tema...
-[Deployment Methods](https://jekyllrb.com/docs/deployment-methods/).
+### Prerequisites
 
+Make sure you have a full Ruby development environment installed on your system. This includes:
+
+*   Ruby (version 3.0 or newer recommended)
+*   RubyGems
+*   GCC and Make
+
+You can check your versions with:
+```sh
+ruby -v
+gem -v
+```
+
+### Installation
+
+1.  **Clone the repository**
+    ```sh
+    git clone https://github.com/nunogand/nunogand.github.io.git
+    ```
+2.  **Navigate to the project directory**
+    ```sh
+    cd nunogand.github.io
+    ```
+3.  **Install Jekyll and dependencies**
+    ```sh
+    bundle install
+    ```
+4.  **Run the local development server**
+    ```sh
+    bundle exec jekyll serve
+    ```
+5.  **Open your browser**
+    Navigate to `http://localhost:4000` to see the site in action.
+
+## ⚙️ Configuration
+
+The site's main configuration is in the `_config.yml` file. You can edit this file to change site settings like the title, description, author details, and social links.
+
+For more advanced theme customization, refer to the [Minimal Mistakes documentation](https://mmistakes.github.io/minimal-mistakes/docs/).
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/nunogand/nunogand.github.io/issues).
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## 📧 Contact
+
+Nuno Gand - [@nunogand](https://github.com/nunogand)
+
+Project Link: [https://github.com/nunogand/nunogand.github.io](https://github.com/nunogand/nunogand.github.io)
