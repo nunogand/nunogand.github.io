@@ -27,7 +27,7 @@ layout: home
     {% else %}
     {% endif %}
         <div class="c-article__date">
-          <span>
+          <span><time>
           <!--  {{page.date | date: '%Y, %b %d'}} -->
           {% assign m = page.date | date: "%-m" %}
       {{ page.date | date: "%-d" }}
@@ -46,7 +46,7 @@ layout: home
   {% when '12' %}Dezembro
 {% endcase %}
 {{ page.date | date: "%Y" }}
-          </span>
+          </time></span>
         </div>
       </header>
       {{content | markdownify}}
@@ -84,10 +84,10 @@ layout: home
         {% endif %}
         {% endfor %}
         </div>
-      </div> <!-- /.c-recent-post -->
+      </div> <!-- .c-recent-post -->
       {% if site.disqus-identifier %}
         {% include disqus-comments.html %}
       {% endif %}
-    </div> <!-- /.c-wrap-content -->
-  </div> <!-- /.c-article__content -->
-</article> <!-- /.c-article-page -->
+    </div> <!-- .c-wrap-content -->
+  </div> <!-- .c-article__content -->
+</article> <!-- .c-article-page -->
