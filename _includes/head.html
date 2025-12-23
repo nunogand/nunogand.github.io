@@ -1,20 +1,17 @@
+<head>
 <meta charset='utf-8'>
 <meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1">
-
-<head>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="./manifest.json" crossorigin="use-credentials" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="./manifest.json" crossorigin="use-credentials" />
+<!-- SEO via jekyll-seo-tag plugin -->
+{% seo %}
+  
 <!-- Meta Tags -->
 {% include meta.html %}
 
 <!-- Opengraph via Liquid Tags -->
 {% include opengraph.html %}
 
-<!-- SEO via jekyll-seo-tag plugin -->
-{% seo %}
-    
 <!-- jekyll-feed Plugin https://github.com/jekyll/jekyll-feed -->
 {% feed_meta %}
     
