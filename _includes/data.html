@@ -1,4 +1,4 @@
-<span class="c-post-date"><time>
+<time class="c-post-date"datetime="{{ post.date }}">
 {% assign m = post.date | date: "%-m" %}
       {{ post.date | date: "%-d" }}
 {% case m %}
@@ -15,4 +15,4 @@
   {% when '11' %}Novembro
   {% when '12' %}Dezembro
 {% endcase %}
-{{ post.date | date: "%Y" }}&nbsp;&nbsp;&nbsp;—&nbsp;</time></span>
+{{ post.date | date: "%Y" }}&nbsp;&nbsp;&nbsp;—&nbsp;</time>
