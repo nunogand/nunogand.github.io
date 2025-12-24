@@ -23,7 +23,7 @@ layout: home
       <header class="c-article__header">
         <h1 class="c-article__title">{{page.title}}</h1>
         <div class="c-article__date">
-          <span><time>
+          <time datetime="{{page.date}}">
           <!--  {{page.date | date: '%Y, %b %d'}} -->
           {% assign m = page.date | date: "%-m" %}
       {{ page.date | date: "%-d" }}
@@ -42,7 +42,7 @@ layout: home
   {% when '12' %}Dezembro
 {% endcase %}
 {{ page.date | date: "%Y" }}
-         </time> </span>
+         </time>
         </div>
       </header>
       {{content | markdownify}}
