@@ -27,7 +27,7 @@ layout: home
     {% else %}
     {% endif %}
         <div class="c-article__date">
-          <span><time>
+          <time datetime="{{page.date}}">
           <!--  {{page.date | date: '%Y, %b %d'}} -->
           {% assign m = page.date | date: "%-m" %}
       {{ page.date | date: "%-d" }}
@@ -46,7 +46,7 @@ layout: home
   {% when '12' %}Dezembro
 {% endcase %}
 {{ page.date | date: "%Y" }}
-          </time></span>
+          </time>
         </div>
       </header>
       {{content | markdownify}}
