@@ -25,40 +25,50 @@ layout: default
     <p class="c-author__about">{{site.about-author | strip_html | truncatewords: 50}}</p>
   </div>
 
-  <div class="c-sidebar-footer">
+  <footer class="c-sidebar-footer">
     <div class="c-social">
-      <div class="c-social__title">Ligações</div>
-      <ul class="c-social__list u-lists-reset">
+    <nav aria-label="Redes sociais">
+	 <div class="c-social__title">Ligações</div>
+	   <ul class="c-social__list u-lists-reset" role="list">
         {% if site.social-twitter %}
-          <li class="c-social__item"><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank" role="img" aria-label="Twitter link"><div data-icon='ei-sc-twitter' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank" rel="noopener noreferrer" role="img" aria-label="Twitter link">
+			  <span aria-hidden="true" data-icon='ei-sc-twitter' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-facebook %}
-          <li class="c-social__item"><a href="https://facebook.com/{{ site.social-facebook }}" role="img" aria-label="Facebook link" target="_blank" rel="noreferrer"><div data-icon='ei-sc-facebook' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://facebook.com/{{ site.social-facebook }}" role="img" aria-label="Facebook link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true" data-icon='ei-sc-facebook' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-github %}
-          <li class="c-social__item"><a href="https://github.com/{{site.social-github}}" role="img" target="_blank" aria-label="Github link" rel="noreferrer"><div data-icon='ei-sc-github' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://github.com/{{site.social-github}}" role="img" target="_blank" aria-label="Github link" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-github' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-pinterest %}
-          <li class="c-social__item"><a href="https://pinterest.com/{{site.social-pinterest}}" role="img" aria-label="Pinterest Link" target="_blank" rel="noreferrer"><div data-icon='ei-sc-pinterest' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://pinterest.com/{{site.social-pinterest}}" role="img" aria-label="Pinterest Link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-pinterest' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-instagram %}
-          <li class="c-social__item"><a href="https://instagram.com/{{ site.social-instagram }}" role="img" aria-label="Instagram link" target="_blank" rel="noreferrer"><div data-icon='ei-sc-instagram' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://instagram.com/{{ site.social-instagram }}" role="img" aria-label="Instagram link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-instagram' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-youtube %}
-          <li class="c-social__item"><a href="https://youtube.com/{{ site.social-youtube }}" role="img" aria-label="Youtube link" target="_blank" rel="noreferrer"><div data-icon='ei-sc-youtube' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://youtube.com/{{ site.social-youtube }}" role="img" aria-label="Youtube link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-youtube' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-vk %}
-          <li class="c-social__item"><a href="https://vk.com/{{ site.social-vk }}" role="img" target="_blank" aria-label="Vk link" rel="noreferrer"><div data-icon='ei-sc-vk' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://vk.com/{{ site.social-vk }}" role="img" target="_blank" aria-label="Vk link" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-vk' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
         {% if site.social-linkedin %}
-          <li class="c-social__item"><a href="https://in.linkedin.com/in/{{site.social-linkedin}}" role="img" aria-label="LinkedIn link" target="_blank" rel="noreferrer"><div data-icon='ei-sc-linkedin' data-size='s'></div></a></li>
+          <li class="c-social__item"><a href="https://in.linkedin.com/in/{{site.social-linkedin}}" role="img" aria-label="LinkedIn link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"  data-icon='ei-sc-linkedin' data-size='s'></span>
+		  </a></li>
         {% else %}
         {% endif %}
          <li class="c-social__item"><a href="https://nunogand.com/stats" aria-label="Stats"><div role="img" data-icon='ei-trophy' data-size='s'></div></a></li>
@@ -83,10 +93,10 @@ layout: default
       </ul>
     </div>
     <div class="c-copyright">
-      <p>&copy; {{ site.time | date: '%Y' }} {{site.author-name}}. Powered by <a href="http://jekyllrb.com/">&nbsp;Jekyll</a>.</p>
-      <p>Criado em <time>{{ site.time }}</time></p>
+      <p>&copy; {{ site.time | date: '%Y' }} {{site.author-name}}. Powered by <a href="http://jekyllrb.com/" rel="noopener">&nbsp;Jekyll</a>.</p>
+      <p>Criado em <time datetime={{ site.time }}>{{ site.time }}</time></p>
     </div>
-  </div>
+  </footer>
 </aside> <!-- .c-sidebar -->
 
 <main class="c-content">
