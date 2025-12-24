@@ -7,12 +7,12 @@ logo: https://www.nunogand.com/images/logo_main.png
 lang: pt-PT
 
 # Author
-author-name:    nunogand
-author-image:   logo_main.png
-author-job:     Coisas...
-author-email:   nunogand@gmail.com # Add your email for contant form.
+author-name: nunogand
+author-image: logo_main.webp
+author-job:  Coisas...
+author-email: nunogand@gmail.com # Add your email for contant form.
 author-twitter: nunogand # Add your twitter account
-about-author:   Apontamentos e recortes dispersos que me facilitam a vida. 
+about-author: Apontamentos e recortes dispersos que me facilitam a vida. 
 
 # Social settings
 twitter:
