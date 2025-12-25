@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas de crescimento - Standards OMS (0-24 meses)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js e adaptações -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script>
+        // Configurar Tailwind para fontes e tema
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Cor primária padrão (substituída via JS para género)
+                        primary: '#3498db',
+                        secondary: '#2ecc71',
+                        accent: '#e74c3c',
+                        // Paletas de género
+                        boy: {
+                            primary: '#3b82f6',   // blue-500
+                            bg: '#eff6ff',        // blue-50
+                            border: '#bfdbfe'     // blue-200
+                        },
+                        girl: {
+                            primary: '#ec4899',   // pink-500
+                            bg: '#fdf2f8',        // pink-50
+                            border: '#fbcfe8'     // pink-200
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* garantir que o gráfico preencha o container e seja responsivo */
+        #chartContainer {
+            position: relative;
+            height: 400px;
+            /* altura de base */
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            #chartContainer {
+                height: 500px;
+            }
+        }
+        /* customizar a interpretação dos resultados */
+        .result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-left-width: 5px;
+            border-radius: 0.375rem;
+        }
+        .percentile {
+            font-weight: 700;
+            width: 120px;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+        .interpretation {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen p-4 sm:p-6 lg:p-10 transition-colors duration-500" id="mainBody">
+    <div class="container bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-2xl max-w-5xl mx-auto">
+        <header class="mb-8">
+            <h1 id="appTitle"
+                class="text-3xl sm:text-4xl font-extrabold text-blue-600 text-center transition-colors duration-300">
+                Tabelas de crescimento (0-24 Meses)
+            </h1>
+            <p class="text-center text-gray-500 mt-2"></p>
+        </header>
+        <!-- Seção de Entrada de Dados -->
+        <div id="inputSection"
+            class="input-section bg-blue-50 p-6 rounded-lg shadow-inner mb-8 transition-colors duration-300 border border-blue-100">
+            <h2 id="inputTitle"
+                class="text-xl font-semibold mb-4 text-blue-600 border-b border-blue-200 pb-2 transition-colors duration-300">
+                Registar nova medição</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Sexo</label>
+                    <select id="gender" onchange="handleGenderChange()"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                        <option value="male">Rapaz</option>
+                        <option value="female">Rapariga</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Idade (Meses, 0-24)</label>
+                    <input type="number" id="age" min="0" max="24" step="0.1" placeholder="ex: 12.5"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                <div>
+                    <label for="weight" class="block text-sm font-medium text-gray-700 mb-1">Peso (kg)</label>
+                    <input type="number" id="weight" min="0" step="0.01" placeholder="ex: 9.5"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                <div>
+                    <label for="height" class="block text-sm font-medium text-gray-700 mb-1">Comprimento (cm)</label>
+                    <input type="number" id="height" min="0" step="0.1" placeholder="ex: 75.0"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+            </div>
+            <button id="actionButton" onclick="addMeasurement()"
+                class="mt-6 w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-150 shadow-md">
+                <span id="addButtonText">Adicionar medição e atualizar gráfico</span>
+            </button>
+        </div>
+        <!-- Histórico de medições -->
+        <div class="history-section mb-8">
+            <h2 id="historyTitle"
+                class="text-xl font-semibold mb-4 text-blue-600 border-b border-blue-200 pb-2 transition-colors duration-300">
+                Histórico de medições (<span id="measurementCount">0</span> Registos)</h2>
+            <div id="historyTableContainer" class="overflow-x-auto">
+                <table id="historyTable" class="min-w-full divide-y divide-gray-200 rounded-lg hidden">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Idade (Meses)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Peso (kg)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Comprimento (cm)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pctl. Peso</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pctl. Comp.</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody" class="bg-white divide-y divide-gray-200">
+                        <!-- Linhas adicionadas pelo JavaScript -->
+                    </tbody>
+                </table>
+                <p id="noDataMessage" class="text-center text-gray-500 py-4">Sem medições adicionadas. Inicie
+                    introduzindo dados abaixo.</p>
+            </div>
+        </div>
+        <!-- Seção de Gráficos -->
+        <div id="chartSection" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500 transition-colors duration-300"
+                id="chartCard1">
+                <h2 id="chartTitle1"
+                    class="text-xl font-semibold mb-4 text-blue-600 border-b border-blue-200 pb-2 transition-colors duration-300">
+                    Peso e idade (kg)</h2>
+                <div id="chartContainer">
+                    <canvas id="weightChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500 transition-colors duration-300"
+                id="chartCard2">
+                <h2 id="chartTitle2"
+                    class="text-xl font-semibold mb-4 text-blue-600 border-b border-blue-200 pb-2 transition-colors duration-300">
+                    Comprimento e idade (cm)</h2>
+                <div id="chartContainer">
+                    <canvas id="heightChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- Resultados (Interpretação das últimas avaliações) -->
+        <div id="resultsDiv"
+            class="hidden bg-blue-50 p-6 rounded-lg shadow-lg border-l-4 border-blue-500 transition-colors duration-300">
+            <h2 id="resultsTitle" class="text-2xl font-bold mb-4 text-blue-800 transition-colors duration-300">
+                Interpretação mais recente do crescimento</h2>
+            <div id="resultContent" class="space-y-4 text-gray-700">
+                <!-- Resultados de interpretação serão inseridos aqui dinamicamente -->
+            </div>
+        </div>
+        <!-- Mensagem de Erro -->
+        <div id="errorMessage"
+            class="hidden mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-md" role="alert">
+            <!-- Mensagens de erro serão inseridas aqui dinamicamente -->
+        </div>
+    </div>
+    <script>
+        // --- Armazenamento de Dados ---
+        let measurements = []; // Armazena todas as medições registadas
+        let weightChart;
+        let heightChart;
+        // Dados dos Padrões de Crescimento OMS (MGRS Verificado)
+        // Estrutura: [Idade (meses), Z-3, Z-2, Z-1, Mediana, Z+1, Z+2, Z+3]
+        const whoData = {
+            'male': {
+                'weight': [
+                    [0, 2.1, 2.5, 2.9, 3.3, 3.9, 4.4, 5.0], [1, 2.9, 3.4, 3.9, 4.5, 5.1, 5.8, 6.6],
+                    [2, 3.8, 4.3, 4.9, 5.6, 6.3, 7.1, 8.0], [3, 4.4, 5.0, 5.7, 6.4, 7.2, 8.0, 9.0],
+                    [4, 4.9, 5.6, 6.2, 7.0, 7.8, 8.7, 9.7], [5, 5.3, 6.0, 6.7, 7.5, 8.4, 9.3, 10.4],
+                    [6, 5.7, 6.4, 7.1, 7.9, 8.8, 9.8, 10.9], [7, 5.9, 6.7, 7.4, 8.3, 9.2, 10.3, 11.4],
+                    [8, 6.2, 6.9, 7.7, 8.6, 9.6, 10.7, 11.9], [9, 6.4, 7.1, 7.9, 8.9, 9.9, 11.0, 12.3],
+                    [10, 6.6, 7.4, 8.2, 9.2, 10.2, 11.4, 12.7], [11, 6.8, 7.6, 8.4, 9.4, 10.5, 11.7, 13.0],
+                    [12, 6.9, 7.7, 8.6, 9.6, 10.8, 12.0, 13.3], [13, 7.1, 7.9, 8.8, 9.9, 11.0, 12.3, 13.7],
+                    [14, 7.2, 8.1, 9.0, 10.1, 11.3, 12.6, 14.0], [15, 7.4, 8.3, 9.2, 10.3, 11.5, 12.8, 14.3],
+                    [16, 7.5, 8.4, 9.4, 10.5, 11.7, 13.1, 14.6], [17, 7.7, 8.6, 9.6, 10.7, 12.0, 13.4, 14.9],
+                    [18, 7.8, 8.8, 9.8, 10.9, 12.2, 13.7, 15.3], [19, 8.0, 8.9, 10.0, 11.1, 12.5, 13.9, 15.6],
+                    [20, 8.1, 9.1, 10.1, 11.3, 12.7, 14.2, 15.9], [21, 8.2, 9.2, 10.3, 11.5, 12.9, 14.5, 16.2],
+                    [22, 8.4, 9.4, 10.5, 11.8, 13.2, 14.7, 16.5], [23, 8.5, 9.5, 10.7, 12.0, 13.4, 15.0, 16.8],
+                    [24, 8.6, 9.7, 10.8, 12.2, 13.6, 15.3, 17.1]
+                ],
+                'height': [
+                    [0, 44.2, 46.1, 48.0, 49.9, 51.8, 53.7, 55.6], [1, 48.9, 50.8, 52.8, 54.7, 56.7, 58.6, 60.6],
+                    [2, 52.4, 54.4, 56.4, 58.4, 60.4, 62.4, 64.4], [3, 55.3, 57.3, 59.4, 61.4, 63.5, 65.5, 67.6],
+                    [4, 57.6, 59.7, 61.8, 63.9, 66.0, 68.0, 70.1], [5, 59.6, 61.7, 63.8, 65.9, 68.0, 70.1, 72.2],
+                    [6, 61.2, 63.3, 65.5, 67.6, 69.8, 71.9, 74.0], [7, 62.7, 64.8, 67.0, 69.2, 71.3, 73.5, 75.7],
+                    [8, 64.0, 66.2, 68.4, 70.6, 72.8, 75.0, 77.2], [9, 65.2, 67.5, 69.7, 72.0, 74.2, 76.5, 78.7],
+                    [10, 66.4, 68.7, 71.0, 73.3, 75.6, 77.9, 80.1], [11, 67.6, 69.9, 72.2, 74.5, 76.9, 79.2, 81.5],
+                    [12, 68.6, 71.0, 73.4, 75.7, 78.1, 80.5, 82.9], [13, 69.6, 72.1, 74.5, 76.9, 79.3, 81.8, 84.2],
+                    [14, 70.6, 73.1, 75.6, 78.0, 80.5, 83.0, 85.5], [15, 71.6, 74.1, 76.6, 79.1, 81.7, 84.2, 86.7],
+                    [16, 72.5, 75.0, 77.6, 80.2, 82.8, 85.4, 88.0], [17, 73.3, 76.0, 78.6, 81.2, 83.9, 86.5, 89.2],
+                    [18, 74.2, 76.9, 79.6, 82.3, 85.0, 87.7, 90.4], [19, 75.0, 77.7, 80.5, 83.2, 86.0, 88.8, 91.5],
+                    [20, 75.8, 78.6, 81.4, 84.2, 87.0, 89.8, 92.6], [21, 76.5, 79.4, 82.3, 85.1, 88.0, 90.9, 93.8],
+                    [22, 77.2, 80.2, 83.1, 86.0, 89.0, 91.9, 94.9], [23, 78.0, 81.0, 83.9, 86.9, 89.9, 92.9, 95.9],
+                    [24, 78.7, 81.7, 84.8, 87.8, 90.9, 93.9, 97.0]
+                ]
+            },
+            'female': {
+                'weight': [
+                    [0, 2.0, 2.4, 2.8, 3.2, 3.7, 4.2, 4.8], [1, 2.7, 3.2, 3.6, 4.2, 4.8, 5.5, 6.2],
+                    [2, 3.4, 3.9, 4.5, 5.1, 5.8, 6.6, 7.5], [3, 4.0, 4.5, 5.2, 5.8, 6.6, 7.5, 8.5],
+                    [4, 4.4, 5.0, 5.7, 6.4, 7.3, 8.2, 9.3], [5, 4.8, 5.4, 6.1, 6.9, 7.8, 8.8, 10.0],
+                    [6, 5.1, 5.7, 6.5, 7.3, 8.2, 9.3, 10.6], [7, 5.3, 6.0, 6.8, 7.6, 8.6, 9.8, 11.1],
+                    [8, 5.6, 6.3, 7.0, 7.9, 9.0, 10.2, 11.6], [9, 5.8, 6.5, 7.3, 8.2, 9.3, 10.5, 12.0],
+                    [10, 5.9, 6.7, 7.5, 8.5, 9.6, 10.9, 12.4], [11, 6.1, 6.9, 7.7, 8.7, 9.9, 11.2, 12.8],
+                    [12, 6.3, 7.0, 7.9, 8.9, 10.1, 11.5, 13.1], [13, 6.4, 7.2, 8.1, 9.2, 10.4, 11.8, 13.4],
+                    [14, 6.6, 7.4, 8.3, 9.4, 10.6, 12.1, 13.7], [15, 6.7, 7.6, 8.5, 9.6, 10.9, 12.4, 14.1],
+                    [16, 6.9, 7.7, 8.7, 9.8, 11.1, 12.6, 14.4], [17, 7.0, 7.9, 8.9, 10.0, 11.4, 12.9, 14.7],
+                    [18, 7.2, 8.1, 9.1, 10.2, 11.6, 13.2, 15.0], [19, 7.3, 8.2, 9.2, 10.4, 11.8, 13.5, 15.3],
+                    [20, 7.5, 8.4, 9.4, 10.6, 12.1, 13.7, 15.6], [21, 7.6, 8.6, 9.6, 10.9, 12.3, 14.0, 15.9],
+                    [22, 7.8, 8.7, 9.8, 11.1, 12.5, 14.3, 16.2], [23, 7.9, 8.9, 10.0, 11.3, 12.8, 14.6, 16.5],
+                    [24, 8.1, 9.0, 10.2, 11.5, 13.0, 14.8, 16.8]
+                ],
+                'height': [
+                    [0, 43.6, 45.4, 47.3, 49.1, 51.0, 52.9, 54.7], [1, 47.8, 49.8, 51.7, 53.7, 55.6, 57.6, 59.5],
+                    [2, 51.0, 53.0, 55.0, 57.1, 59.1, 61.1, 63.2], [3, 53.5, 55.6, 57.7, 59.8, 61.9, 64.0, 66.1],
+                    [4, 55.6, 57.8, 59.9, 62.1, 64.3, 66.4, 68.6], [5, 57.4, 59.6, 61.8, 64.0, 66.2, 68.5, 70.7],
+                    [6, 58.9, 61.2, 63.5, 65.7, 68.0, 70.3, 72.5], [7, 60.3, 62.7, 65.0, 67.3, 69.6, 71.9, 74.2],
+                    [8, 61.7, 64.1, 66.4, 68.7, 71.1, 73.5, 75.8], [9, 62.9, 65.3, 67.7, 70.1, 72.6, 75.0, 77.4],
+                    [10, 64.1, 66.5, 69.0, 71.5, 73.9, 76.4, 78.9], [11, 65.2, 67.7, 70.3, 72.8, 75.3, 77.8, 80.3],
+                    [12, 66.3, 68.9, 71.4, 74.0, 76.6, 79.2, 81.7], [13, 67.3, 70.0, 72.6, 75.2, 77.8, 80.5, 83.1],
+                    [14, 68.3, 71.0, 73.7, 76.4, 79.1, 81.7, 84.4], [15, 69.3, 72.0, 74.8, 77.5, 80.2, 83.0, 85.7],
+                    [16, 70.2, 73.0, 75.8, 78.6, 81.4, 84.2, 87.0], [17, 71.1, 74.0, 76.8, 79.7, 82.5, 85.4, 88.2],
+                    [18, 72.0, 74.9, 77.8, 80.7, 83.6, 86.5, 89.4], [19, 72.8, 75.8, 78.8, 81.7, 84.7, 87.6, 90.6],
+                    [20, 73.7, 76.7, 79.7, 82.7, 85.7, 88.7, 91.7], [21, 74.5, 77.5, 80.6, 83.7, 86.7, 89.8, 92.9],
+                    [22, 75.2, 78.4, 81.5, 84.6, 87.7, 90.8, 94.0], [23, 76.0, 79.2, 82.3, 85.5, 88.7, 91.9, 95.0],
+                    [24, 76.7, 80.0, 83.2, 86.4, 89.6, 92.9, 96.1]
+                ]
+            }
+        };
+        // --- Tratamento do Tema ---
+        function handleGenderChange() {
+            const gender = document.getElementById('gender').value;
+            const isMale = gender === 'male';
+            // Definições de cores
+            const bluePrimary = 'text-blue-600';
+            const blueBorder = 'border-blue-200';
+            const blueBg = 'bg-blue-50';
+            const blueBtn = 'bg-blue-600';
+            const blueBtnHover = 'hover:bg-blue-700';
+            const blueBorderThick = 'border-blue-500';
+            const pinkPrimary = 'text-pink-600';
+            const pinkBorder = 'border-pink-200';
+            const pinkBg = 'bg-pink-50';
+            const pinkBtn = 'bg-pink-600';
+            const pinkBtnHover = 'hover:bg-pink-700';
+            const pinkBorderThick = 'border-pink-500';
+            // Elementos a estilizar
+            const appTitle = document.getElementById('appTitle');
+            const inputSection = document.getElementById('inputSection');
+            const inputTitle = document.getElementById('inputTitle');
+            const actionButton = document.getElementById('actionButton');
+            const historyTitle = document.getElementById('historyTitle');
+            const chartCard1 = document.getElementById('chartCard1');
+            const chartCard2 = document.getElementById('chartCard2');
+            const chartTitle1 = document.getElementById('chartTitle1');
+            const chartTitle2 = document.getElementById('chartTitle2');
+            const resultsDiv = document.getElementById('resultsDiv');
+            const resultsTitle = document.getElementById('resultsTitle');
+            // Função auxiliar para trocar classes
+            const swap = (el, addClasses, removeClasses) => {
+                if (!el) return;
+                // Tratar múltiplas classes separadas por espaços
+                removeClasses.split(' ').forEach(c => el.classList.remove(c));
+                addClasses.split(' ').forEach(c => el.classList.add(c));
+            };
+            if (isMale) {
+                swap(appTitle, bluePrimary, pinkPrimary);
+                swap(inputSection, `${blueBg} border-blue-100`, `${pinkBg} border-pink-100`);
+                swap(inputTitle, `${bluePrimary} ${blueBorder}`, `${pinkPrimary} ${pinkBorder}`);
+                swap(actionButton, `${blueBtn} ${blueBtnHover}`, `${pinkBtn} ${pinkBtnHover}`);
+                swap(historyTitle, `${bluePrimary} ${blueBorder}`, `${pinkPrimary} ${pinkBorder}`);
+                swap(chartCard1, blueBorderThick, pinkBorderThick);
+                swap(chartTitle1, `${bluePrimary} ${blueBorder}`, `${pinkPrimary} ${pinkBorder}`);
+                swap(chartCard2, blueBorderThick, pinkBorderThick);
+                swap(chartTitle2, `${bluePrimary} ${blueBorder}`, `${pinkPrimary} ${pinkBorder}`);
+                swap(resultsDiv, `${blueBg} ${blueBorderThick}`, `${pinkBg} ${pinkBorderThick}`);
+                swap(resultsTitle, 'text-blue-800', 'text-pink-800');
+            } else {
+                swap(appTitle, pinkPrimary, bluePrimary);
+                swap(inputSection, `${pinkBg} border-pink-100`, `${blueBg} border-blue-100`);
+                swap(inputTitle, `${pinkPrimary} ${pinkBorder}`, `${bluePrimary} ${blueBorder}`);
+                swap(actionButton, `${pinkBtn} ${pinkBtnHover}`, `${blueBtn} ${blueBtnHover}`);
+                swap(historyTitle, `${pinkPrimary} ${pinkBorder}`, `${bluePrimary} ${blueBorder}`);
+                swap(chartCard1, pinkBorderThick, blueBorderThick);
+                swap(chartTitle1, `${pinkPrimary} ${pinkBorder}`, `${bluePrimary} ${blueBorder}`);
+                swap(chartCard2, pinkBorderThick, blueBorderThick);
+                swap(chartTitle2, `${pinkPrimary} ${pinkBorder}`, `${bluePrimary} ${blueBorder}`);
+                swap(resultsDiv, `${pinkBg} ${pinkBorderThick}`, `${blueBg} ${blueBorderThick}`);
+                swap(resultsTitle, 'text-pink-800', 'text-blue-800');
+            }
+            // Voltar a renderizar os gráficos para atualizar cores
+            initCharts(gender);
+        }
+        // --- Funções Principais de Cálculo ---
+        /**
+        
+                 * Encontra o valor do Z-score (ex: Mediana, +2DP) para uma dada idade e tipo de medição.
+        
+                 * Usa interpolação linear para idades não inteiras.
+        
+                 */
+        function getWhoValue(gender, type, ageMonths, zIndex) {
+            const data = whoData[gender][type];
+            const lowerAge = Math.floor(ageMonths);
+            const upperAge = Math.ceil(ageMonths);
+            if (lowerAge < 0 || upperAge > 24) return null;
+            // Encontrar dados para lowerAge
+            const lowerData = data.find(d => d[0] === lowerAge);
+            // Encontrar dados para upperAge
+            const upperData = data.find(d => d[0] === upperAge);
+            if (!lowerData || !upperData) return null;
+            // Tratar correspondência exata de idade (ou se lower e upper são iguais)
+            if (lowerAge === upperAge) {
+                return lowerData[zIndex];
+            }
+            // Interpolação linear para idade fracionária
+            const lowerVal = lowerData[zIndex];
+            const upperVal = upperData[zIndex];
+            const ratio = ageMonths - lowerAge;
+            return lowerVal + (upperVal - lowerVal) * ratio;
+        }
+        /**
+        
+                 * Estima o percentil para uma dada medição usando interpolação de Z-score.
+        
+                 * @returns {number | null} Percentil estimado (0-100) ou null.
+        
+                 */
+        function getPercentile(gender, type, ageMonths, measurement) {
+            const zScores = [-3, -2, -1, 0, 1, 2, 3];
+            const percentiles = [0.13, 2.3, 15.9, 50, 84.1, 97.7, 99.87]; // Distribuição normal cumulativa aproximada
+            let closestLowerIndex = -1;
+            let closestUpperIndex = -1;
+            // Encontrar as duas linhas de Z-score mais próximas que enquadram a medição
+            for (let i = 0; i < zScores.length; i++) {
+                // O índice do Z-score nos dados OMS começa em 1, o índice de zScores começa em 0
+                const whoIndex = i + 1;
+                const standardValue = getWhoValue(gender, type, ageMonths, whoIndex);
+                if (standardValue === null) return null;
+                if (measurement < standardValue) {
+                    closestUpperIndex = i;
+                    break;
+                } else {
+                    closestLowerIndex = i;
+                }
+            }
+            // Tratar extremos (abaixo de Z-3 ou acima de Z+3)
+            if (closestLowerIndex === -1 && closestUpperIndex === 0) {
+                // A medição está abaixo de Z-3. 
+                // Vamos realizar extrapolação usando Z-3 (índice 0) e Z-2 (índice 1)
+                closestLowerIndex = 0;
+                closestUpperIndex = 1;
+            } else if (closestUpperIndex === -1 && closestLowerIndex === 6) {
+                // A medição está acima de Z+3.
+                // Vamos realizar extrapolação usando Z+2 (índice 5) e Z+3 (índice 6)
+                closestLowerIndex = 5;
+                closestUpperIndex = 6;
+            } else if (closestLowerIndex === -1 && closestUpperIndex === -1) {
+                // Backup se algo correr mal, tratando essencialmente como muito baixo
+                closestLowerIndex = 0; closestUpperIndex = 1;
+            }
+            // Usar os dois pontos mais próximos para interpolação/extrapolação
+            let idxLower = closestLowerIndex;
+            let idxUpper = closestUpperIndex;
+            // Obter os valores padrão e percentis para os dois pontos de limite
+            const valLower = getWhoValue(gender, type, ageMonths, idxLower + 1);
+            const valUpper = getWhoValue(gender, type, ageMonths, idxUpper + 1);
+            const percentileLower = percentiles[idxLower];
+            const percentileUpper = percentiles[idxUpper];
+            if (valLower === valUpper) return percentileLower; // Evitar divisão por zero
+            // Interpolação/extrapolação linear
+            const interpolatedPercentile = percentileLower + (measurement - valLower) / (valUpper - valLower) * (percentileUpper - percentileLower);
+            // Fixar o resultado entre 0.01 e 99.99
+            return Math.max(0.01, Math.min(99.99, Math.round(interpolatedPercentile * 10) / 10));
+        }
+        /**
+        
+                 * Converte um percentil numa string de classificação padrão.
+        
+                 * @returns {string} Classificação
+        
+                 */
+        function getClassification(p) {
+            if (p < 3) return 'Muito Baixo (<< 3º)';
+            if (p < 15) return 'Baixo (3º-15º)';
+            if (p <= 85) return 'Saudável/Normal (15º-85º)';
+            if (p <= 97) return 'Alto (85º-97º)';
+            return 'Muito Alto (>> 97º)';
+        }
+        // --- Funções de Gestão de UI/Dados ---
+        /**
+        
+                 * Adiciona um novo ponto de medição ao histórico, atualiza os gráficos e exibe o resultado mais recente.
+        
+                 */
+        function addMeasurement() {
+            const gender = document.getElementById('gender').value;
+            const ageInput = document.getElementById('age').value;
+            const weightInput = document.getElementById('weight').value;
+            const heightInput = document.getElementById('height').value;
+            const age = parseFloat(ageInput);
+            const weight = parseFloat(weightInput);
+            const height = parseFloat(heightInput);
+            const errorMessageDiv = document.getElementById('errorMessage');
+            errorMessageDiv.innerHTML = '';
+            errorMessageDiv.style.display = 'none';
+            // 1. Validação
+            const errors = [];
+            if (isNaN(age) || age < 0 || age > 24) errors.push('Por favor, introduza uma idade válida em meses (0 a 24).');
+            if (isNaN(weight) || weight <= 0) errors.push('Por favor, introduza um peso válido em quilogramas (kg).');
+            if (isNaN(height) || height <= 0) errors.push('Por favor, introduza um comprimento/altura válido em centímetros (cm).');
+            if (errors.length > 0) {
+                errorMessageDiv.innerHTML = errors.map(e => `<p>${e}</p>`).join('');
+                errorMessageDiv.style.display = 'block';
+                return;
+            }
+            // 2. Calcular percentis para o novo ponto
+            const weightPercentile = getPercentile(gender, 'weight', age, weight);
+            const heightPercentile = getPercentile(gender, 'height', age, height);
+            // 3. Armazenar a nova medição
+            const newMeasurement = {
+                age: age,
+                weight: weight,
+                height: height,
+                weightPercentile: weightPercentile,
+                heightPercentile: heightPercentile
+            };
+            // Verificar e remover medições duplicadas exatas na mesma idade para manter os dados organizados
+            const existingIndex = measurements.findIndex(m => m.age === age);
+            if (existingIndex !== -1) {
+                measurements[existingIndex] = newMeasurement;
+            } else {
+                measurements.push(newMeasurement);
+            }
+            // 4. Ordenar medições por idade
+            measurements.sort((a, b) => a.age - b.age);
+            // 5. Atualizar UI
+            updateHistoryTable(gender);
+            initCharts(gender);
+            displayLatestInterpretation(newMeasurement, gender);
+            // Limpar campos de entrada após adição bem-sucedida (opcional)
+            document.getElementById('age').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+        }
+        /**
+        
+                 * Atualiza a tabela mostrando todas as medições registadas.
+        
+                 */
+        function updateHistoryTable(gender) {
+            const tbody = document.getElementById('historyTableBody');
+            const table = document.getElementById('historyTable');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const countSpan = document.getElementById('measurementCount');
+            countSpan.textContent = measurements.length;
+            if (measurements.length === 0) {
+                table.classList.add('hidden');
+                noDataMessage.classList.remove('hidden');
+                document.getElementById('resultsDiv').classList.add('hidden');
+                return;
+            }
+            table.classList.remove('hidden');
+            noDataMessage.classList.add('hidden');
+            tbody.innerHTML = '';
+            measurements.forEach((m, index) => {
+                const weightClass = getClassification(m.weightPercentile);
+                const heightClass = getClassification(m.heightPercentile);
+                const row = tbody.insertRow();
+                row.className = 'hover:bg-gray-100 transition duration-100';
+                // Idade
+                row.insertCell().textContent = m.age.toFixed(1);
+                // Peso
+                const weightCell = row.insertCell();
+                weightCell.textContent = m.weight.toFixed(2);
+                // Comprimento/Altura
+                const heightCell = row.insertCell();
+                heightCell.textContent = m.height.toFixed(1);
+                // Percentil de Peso
+                const wPctlCell = row.insertCell();
+                wPctlCell.className = getPercentileColorClass(m.weightPercentile);
+                wPctlCell.textContent = `${m.weightPercentile.toFixed(1)}%`;
+                // Percentil de Comprimento
+                const hPctlCell = row.insertCell();
+                hPctlCell.className = getPercentileColorClass(m.heightPercentile);
+                hPctlCell.textContent = `${m.heightPercentile.toFixed(1)}%`;
+                // Ação (Botão de Eliminar)
+                const actionCell = row.insertCell();
+                actionCell.className = 'px-6 py-4 whitespace-nowrap text-right text-sm font-medium';
+                // Garantir que o botão corresponde ao tema
+                const btnHover = gender === 'male' ? 'hover:text-red-700' : 'hover:text-pink-700';
+                actionCell.innerHTML = `<button onclick="deleteMeasurement(${m.age}, '${gender}')" class="text-red-500 ${btnHover} transition duration-150">Eliminar</button>`;
+            });
+        }
+        /**
+        
+                 * Elimina uma medição pela sua idade e atualiza a UI.
+        
+                 */
+        function deleteMeasurement(ageToDelete, gender) {
+            measurements = measurements.filter(m => m.age !== ageToDelete);
+            // Voltar a renderizar
+            updateHistoryTable(gender);
+            initCharts(gender);
+            // Ocultar interpretação se não restarem medições, caso contrário mostrar a última
+            if (measurements.length === 0) {
+                document.getElementById('resultsDiv').classList.add('hidden');
+            } else {
+                const latest = measurements[measurements.length - 1];
+                displayLatestInterpretation(latest, gender);
+            }
+        }
+        /**
+        
+                 * Função auxiliar para aplicar classes de cor baseadas no intervalo de percentil.
+        
+                 */
+        function getPercentileColorClass(p) {
+            if (p < 3 || p > 97) return 'text-red-600 font-bold';
+            if (p < 15 || p > 85) return 'text-yellow-600 font-semibold';
+            return 'text-green-600';
+        }
+        /**
+        
+                 * Exibe a interpretação para a medição mais recente.
+        
+                 */
+        function displayLatestInterpretation(measurement, gender) {
+            const resultsDiv = document.getElementById('resultsDiv');
+            const resultContent = document.getElementById('resultContent');
+            const isMale = gender === 'male';
+            const age = measurement.age;
+            const weight = measurement.weight;
+            const height = measurement.height;
+            const weightPercentile = measurement.weightPercentile;
+            const heightPercentile = measurement.heightPercentile;
+            const genderText = isMale ? 'boy' : 'girl';
+            let interpretation = '';
+            const weightClass = getClassification(weightPercentile);
+            let weightColor = weightPercentile < 15 || weightPercentile > 85
+                ? 'bg-red-100 border-red-400 text-red-800'
+                : 'bg-green-100 border-green-400 text-green-800';
+            // Interpretação do peso
+            interpretation += `<div class="result-item ${weightColor}">`;
+            interpretation += `<div class="percentile">Pctl. Peso: ${weightPercentile.toFixed(1)}%</div>`;
+            interpretation += `<div class="interpretation">Aos ${age.toFixed(1)} meses, o peso do seu bebé (${weight.toFixed(2)} kg) é **${weightClass}**.</div>`;
+            interpretation += '</div>';
+            const heightClass = getClassification(heightPercentile);
+            let heightColor = heightPercentile < 15 || heightPercentile > 85
+                ? 'bg-red-100 border-red-400 text-red-800'
+                : 'bg-green-100 border-green-400 text-green-800';
+            // Interpretação da altura
+            interpretation += `<div class="result-item ${heightColor}">`;
+            interpretation += `<div class="percentile">Pctl. Comp.: ${heightPercentile.toFixed(1)}%</div>`;
+            interpretation += `<div class="interpretation">Aos ${age.toFixed(1)} meses, o comprimento do seu bebé (${height.toFixed(1)} cm) é **${heightClass}**.</div>`;
+            interpretation += '</div>';
+            // Avaliação geral
+            const themeBg = isMale ? 'bg-blue-100' : 'bg-pink-100';
+            const themeText = isMale ? 'text-blue-900' : 'text-pink-900';
+            const themeBorder = isMale ? 'border-blue-400' : 'border-pink-400';
+            interpretation += `<div class="result-item ${themeBg} ${themeBorder} ${themeText}">`;
+            interpretation += '<div class="percentile">Próximos Passos</div>';
+            interpretation += '<div class="interpretation">';
+            if (weightPercentile >= 15 && weightPercentile <= 85 && heightPercentile >= 15 && heightPercentile <= 85) {
+                interpretation += 'O crescimento do seu bebé está bem ritmos e dentro da gama **Saudável/Normal** de acordo com os padrões OMS.';
+            } else {
+                interpretation += 'Se as medições do seu bebé estiverem consistentemente fora da gama Normal (percentil 15º-85º), considere discutir o padrão de crescimento com o seu pediatra.';
+            }
+            interpretation += '</div>';
+            interpretation += '</div>';
+            resultContent.innerHTML = interpretation;
+            resultsDiv.classList.remove('hidden');
+        }
+        /**
+        
+                 * Inicializa ou atualiza as instâncias Chart.js com todos os dados registados.
+        
+                 */
+        function initCharts(gender = document.getElementById('gender').value) {
+            const ctxWeight = document.getElementById('weightChart').getContext('2d');
+            const ctxHeight = document.getElementById('heightChart').getContext('2d');
+            const isMale = gender === 'male';
+            // Rótulos para Z-scores
+            const zLabels = ['Z-2 (3º)', 'Z-1 (15º)', 'Mediana (50º)', 'Z+1 (85º)', 'Z+2 (97º)'];
+            const zIndices = [2, 3, 4, 5, 6];
+            // Definições de cores baseadas no género
+            const colors = isMale ? {
+                median: 'rgba(59, 130, 246, 1)', // Azul
+                range: 'rgba(59, 130, 246, 0.25)',
+                rangeBorder: 'rgba(59, 130, 246, 0.4)',
+                userLine: 'rgba(239, 68, 68, 1)', // Linha vermelha para utilizador
+                userPoint: 'rgba(239, 68, 68, 1)'
+            } : {
+                median: 'rgba(236, 72, 153, 1)', // Rosa
+                range: 'rgba(236, 72, 153, 0.25)',
+                rangeBorder: 'rgba(236, 72, 153, 0.4)',
+                userLine: 'rgba(79, 70, 229, 1)', // Linha indigo para utilizador (contraste contra rosa)
+                userPoint: 'rgba(79, 70, 229, 1)'
+            };
+            // Função para preparar dados OMS padrão para um gráfico (peso ou comprimento)
+            const prepareStandardData = (type) => {
+                const data = whoData[gender][type];
+                const datasets = [];
+                // Adicionar linhas de Z-score
+                zIndices.forEach((zIndex, i) => {
+                    const isMedian = zIndex === 4;
+                    datasets.push({
+                        label: zLabels[i],
+                        data: data.map(d => ({ x: d[0], y: d[zIndex] })),
+                        borderColor: isMedian ? colors.median : colors.rangeBorder,
+                        borderWidth: isMedian ? 3 : 1,
+                        borderDash: isMedian ? [] : [5, 5],
+                        fill: false,
+                        pointRadius: 0,
+                        tension: 0.4,
+                        segment: {
+                            borderColor: ctx => {
+                                const age = ctx.p0.parsed.x;
+                                if (age < 0 || age > 24) return 'transparent';
+                                return isMedian ? colors.median : colors.rangeBorder;
+                            }
+                        }
+                    });
+                });
+                return datasets;
+            };
+            // Preparar dados do utilizador para o gráfico (linha e pontos)
+            const prepareUserData = (type) => {
+                const userDataPoints = measurements
+                    .map(m => ({ x: m.age, y: type === 'weight' ? m.weight : m.height }))
+                    .sort((a, b) => a.x - b.x);
+                return [
+                    {
+                        label: 'Linha de Crescimento',
+                        data: userDataPoints,
+                        borderColor: colors.userLine,
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: false,
+                        tension: 0.2,
+                        order: 0,
+                        showLine: true,
+                        pointStyle: false,
+                    },
+                    {
+                        label: 'Medição Registada',
+                        data: userDataPoints,
+                        backgroundColor: colors.userPoint,
+                        borderColor: 'white',
+                        borderWidth: 2,
+                        pointRadius: 6,
+                        pointStyle: 'circle',
+                        showLine: false,
+                        order: 0,
+                    }
+                ];
+            };
+            const chartOptions = (title, unit) => ({
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            filter: function (item, chart) {
+                                return item.text.includes('Mediana') || item.text.includes('Registada') || item.text.includes('Crescimento');
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: (context) => `Idade: ${context[0].parsed.x.toFixed(1)} meses`,
+                            label: (context) => {
+                                if (context.dataset.label === 'Medição Registada') {
+                                    const m = measurements.find(m => m.age === context.parsed.x);
+                                    if (m) {
+                                        const pctl = title === 'Peso' ? m.weightPercentile : m.heightPercentile;
+                                        return `${context.parsed.y.toFixed(2)} ${unit} (${pctl.toFixed(1)}%)`;
+                                    }
+                                }
+                                return `${context.dataset.label}: ${context.parsed.y.toFixed(2)} ${unit}`;
+                            },
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: { display: true, text: 'Idade (Meses)' },
+                        min: 0, max: 24,
+                        ticks: { stepSize: 2 }
+                    },
+                    y: {
+                        title: { display: true, text: `${title} (${unit})` }
+                    }
+                },
+                animation: { duration: 0 } // Desativar animação para atualizações mais rápidas
+            });
+            // Destruir gráficos existentes se existirem
+            if (weightChart) weightChart.destroy();
+            if (heightChart) heightChart.destroy();
+            // Criar novos gráficos
+            weightChart = new Chart(ctxWeight, {
+                type: 'line',
+                data: {
+                    datasets: [...prepareStandardData('weight'), ...prepareUserData('weight')]
+                },
+                options: chartOptions('Peso', 'kg')
+            });
+            heightChart = new Chart(ctxHeight, {
+                type: 'line',
+                data: {
+                    datasets: [...prepareStandardData('height'), ...prepareUserData('height')]
+                },
+                options: chartOptions('Comprimento/Altura', 'cm')
+            });
+        }
+        // Inicializar gráficos e histórico quando a página carrega
+        window.onload = function () {
+            // Verificar se há dados guardados no localStorage
+            const savedMeasurements = localStorage.getItem('babyGrowthData');
+            const savedGender = localStorage.getItem('babyGender') || 'male';
+            if (savedMeasurements) {
+                measurements = JSON.parse(savedMeasurements);
+            }
+            document.getElementById('gender').value = savedGender;
+            // Aplicar o tema correto imediatamente
+            handleGenderChange();
+            updateHistoryTable(savedGender);
+            initCharts(savedGender);
+            if (measurements.length > 0) {
+                const latest = measurements[measurements.length - 1];
+                displayLatestInterpretation(latest, savedGender);
+            }
+            // Sobrescrever a função de guardar para também usar localStorage
+            const originalAddMeasurement = addMeasurement;
+            addMeasurement = function () {
+                originalAddMeasurement();
+                localStorage.setItem('babyGrowthData', JSON.stringify(measurements));
+                localStorage.setItem('babyGender', document.getElementById('gender').value);
+            }
+            const originalDeleteMeasurement = deleteMeasurement;
+            deleteMeasurement = function (age, gender) {
+                originalDeleteMeasurement(age, gender);
+                localStorage.setItem('babyGrowthData', JSON.stringify(measurements));
+                localStorage.setItem('babyGender', document.getElementById('gender').value);
+            }
+        };
+    </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-91FJ9T7X67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-91FJ9T7X67');
+</script>
+
+</body>
+</html>

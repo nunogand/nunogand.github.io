@@ -67,7 +67,6 @@ custom_css:
       <h4>Racional</h4>
       <div class="input-group">
         <label>Apesar de existirem vários métodos para a determinação da concentração de LDL, muitos laboratórios clínicos estimam o valor de cLDL sendo a fórmula de Friedewald o método mais comummente usada.
-
 A fórmula de Friedewald baseia‐se na subtração do colesterol não HDL pela variação de VLDL numa relação de 1:5 de acordo com os triglicéridos (Tgs). Esta proporção fixa traduz-se numa aproximação e leva a incorreções na estimativa de cLDL que poderão ter impacto na clínica e em decisões terapêuticas. Adicionalmente, com Tgs acima de 400mg/dL e disbetalipoproteinemias esta fórmula não pode ser aplicada.
 <p>
 Vários estudos têm descrito o facto da fórmula de Friedewald subestimar os resultados do cLDL sobretudo nos doentes com hipertrigliceridemia (Tgs ≥ 150mg/dL), diabetes mellitus, doença hepática alcoólica e doença renal crónica em diálise. A subestimação pode ser problemática, podendo levar ao adiar de cuidados preventivos e terapêuticos. <p>
@@ -83,4 +82,3 @@ http://dx.doi.org/10.1001/jama.2013.280532
   
   
 </div>
-

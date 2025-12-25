@@ -6,13 +6,10 @@ tags: [HTML, Webdesign, código]
 img: header_webdesign.jpg
 description: "Página de estatística do site"
 ---
-
 <style>
-
 body {
     line-height: 1.66667;
 }
-
 table {
     border-bottom: 1px solid #ededed;
     font-size: 16px;
@@ -27,20 +24,15 @@ td, th {
     border-top: 1px solid #ededed;
     padding: 8px 10px;
 }
-
 p { color: #adb7bd; font-family: 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0; }
 
-
 a { color: #fe921f; text-decoration: underline; }
-
 
 .date { background: #fe921f; color: #ffffff; display: inline-block; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase; }	
 </style>
 
-
 {% assign totalWords = 0 %}
 {% assign dateOb = '' %}
-
 {% for post in site.posts %}
  {% assign postWords = post.content | number_of_words %}
  {% assign totalWords = totalWords | plus:  postWords %}
@@ -50,9 +42,7 @@ a { color: #fe921f; text-decoration: underline; }
   {% endunless %}
  {% assign dateOb = dateOb | append: pd %}
 {% endfor %}
-
 {% assign avgWords = totalWords | divided_by: site.posts.size %}
-
 
 <div id="stats"  >
 	<table>
@@ -92,7 +82,6 @@ a { color: #fe921f; text-decoration: underline; }
 <br>
     <h3>Artigos por ano</h3>
 
-
 {% assign counter = 0 %}
 {% for post in site.posts %}
   {% assign thisyear = post.date | date: " %Y" %}
@@ -104,13 +93,9 @@ a { color: #fe921f; text-decoration: underline; }
   {% endif %}
 {% endfor %}
 
-
-
   
 <br><p>
     <h3>Artigos por categoria</h3>
-
-
 
 
 <ul class="c-tag__list">
@@ -118,9 +103,7 @@ a { color: #fe921f; text-decoration: underline; }
 			{% assign cat = category[0] %}
 			{% unless forloop.first %}{% endunless %}
 
-
 <li><a href="" class="c-tag">{{ cat }} <span>({{site.categories[cat].size}})</span></a></li>
-
 
 		{% endfor %}
     
@@ -128,20 +111,16 @@ a { color: #fe921f; text-decoration: underline; }
 <br>
 <p>
 
-
 <h3>Artigos por <a href="/tags/index.html">Tags</a></h3>
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 {% assign tag_words = site_tags | split:',' | sort %}
-
 <ul class="c-tag__list">
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
     <li><a href="/tags/index#{{ this_word | cgi_escape }}" class="c-tag">{{ this_word }} <span>({{ site.tags[this_word].size }})</span></a></li>
   {% endunless %}{% endfor %}
   </ul>
-
 </div>
-
 
 <p style="text-align:right">
 Running <a href="https://jekyllrb.com">Jekyll</a> 4.3.3

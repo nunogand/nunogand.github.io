@@ -8,9 +8,7 @@ tags: [Obesidade Infantil]
 img: obesidade.webp
 comments: false
 ---
-
 São apresentadas apenas as colunas de IMC equivalente a 18,5; 25; 30; 35
-
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;margin-left:auto;margin-right:auto;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#aaa;color:#333;background-color:#fff;}
@@ -2372,5 +2370,4 @@ São apresentadas apenas as colunas de IMC equivalente a 18,5; 25; 30; 35
     <td class="tg-s3bu">35</td>
   </tr>
 </table>
-
 **Fonte:** Cole, T. J. and Lobstein, T. (2012), Extended international BMI cut‐offs. Pediatric Obesity, 7: 284-294. doi:10.1111/j.2047-6310.2012.00064.x

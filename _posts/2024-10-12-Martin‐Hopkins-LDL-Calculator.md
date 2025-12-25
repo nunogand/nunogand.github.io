@@ -67,7 +67,6 @@ custom_css:
       <h4>Rationale</h4>
       <div class="input-group">
         <label>lthough there are several methods for determining LDL concentration, many clinical laboratories estimate the LDL-C value, with the Friedewald formula being the most commonly used method.
-
 The Friedewald formula is based on subtracting non-HDL cholesterol from the change in VLDL in a ratio of 1:5 according to triglycerides (Tgs). This fixed ratio is an approximation and leads to inaccuracies in the estimation of LDL-C which could have an impact on clinical practice and therapeutic decisions. In addition, with Tgs above 400mg/dL and dysbetalipoproteinemia, this formula cannot be applied.
 <p>
 Several studies have described the fact that the Friedewald formula underestimates cLDL results, especially in patients with hypertriglyceridemia (Tgs ≥ 150mg/dL), diabetes mellitus, alcoholic liver disease and chronic kidney disease on dialysis. Underestimation can be problematic and may lead to preventive and therapeutic care being postponed. <p>
@@ -83,4 +82,3 @@ http://dx.doi.org/10.1001/jama.2013.280532
   
   
 </div>
-

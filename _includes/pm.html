@@ -37,11 +37,9 @@
           ]});
       */
 
-
       // user's timezone offset
       var myOffset = new Date().getTimezoneOffset();
       //var myOffset = -180;
-
       // converts date format from JSON
       function getChartDate(d) {
         // get the data using javascript's date object (year, month, day, hour, minute, second)
@@ -49,7 +47,6 @@
         // offset in minutes is converted to milliseconds and subtracted so that chart's x-axis is correct
         return Date.UTC(d.substring(0, 4), d.substring(5, 7) - 1, d.substring(8, 10), d.substring(11, 13), d.substring(14, 16), d.substring(17, 19)) - (myOffset * 60000);
       }
-
       // Hide all series, via 'Hide All' button.  Then user can click on serries name in legent to show series of interest.      
       function HideAll() {
         for (var index = 0; index < dynamicChart.series.length; index++) // iterate through each series
@@ -60,9 +57,7 @@
           //window.console && console.log('Series Number:',index,' Name:',dynamicChart.series[index].name);
         }
         //});
-
       }
-
       //  This is where the chart is generated.
       $(document).ready(function() {
         //Add Channel Load Menu
@@ -91,10 +86,8 @@
         {
           channelKeys[channelIndex].loaded = false;
           loadThingSpeakChannel(channelIndex, channelKeys[channelIndex].channelNumber, channelKeys[channelIndex].key, channelKeys[channelIndex].fieldList);
-
         }
         //window.console && console.log('Channel Keys',channelKeys);
-
         // load the most recent 2500 points (fast initial load) from a ThingSpeak channel into a data[] array and return the data[] array
         function loadThingSpeakChannel(sentChannelIndex, channelNumber, key, sentFieldList) {
           var fieldList = sentFieldList;
@@ -181,7 +174,6 @@
                                 //window.console && console.log('update series name:',dynamicChart.series[chartSeriesName].name);
                                 //window.console && console.log('channel keys name:',channelKeys[channelIndex].fieldList[fieldIndex].name);
                               }
-
 
                             });
                           })(channelIndex);
@@ -331,7 +323,6 @@
             series: []
             //series: [{data:[[getChartDate("2013-06-16T00:32:40Z"),75]]}]      
           };
-
           // add all Channel data to the chart
           for (var channelIndex = 0; channelIndex < channelKeys.length; channelIndex++) // iterate through each channel
           {
@@ -354,10 +345,8 @@
           // set chart labels here so that decoding occurs properly
           //chartOptions.title.text = data.channel.name;
           chartOptions.xAxis.title.text = 'Date';
-
           // draw the chart
           dynamicChart = new Highcharts.StockChart(chartOptions);
-
           // update series number to account for the navigator series (The historical series at the bottom) which is the first series.
           for (var channelIndex = 0; channelIndex < channelKeys.length; channelIndex++) // iterate through each channel
           {
@@ -384,7 +373,6 @@
           }
         }
       });
-
       function loadOneChannel() {
         // load a channel selected in the popUp menu.
         var selectedChannel = document.getElementById("Channel Select");
@@ -392,7 +380,6 @@
         var channelIndex = selectedChannel.selectedIndex;
         loadChannelHistory(channelIndex, channelKeys[channelIndex].channelNumber, channelKeys[channelIndex].key, channelKeys[channelIndex].fieldList, 0, maxLoads);
       }
-
       // load next 8000 points from a ThingSpeak channel and addPoints to a series
       function loadChannelHistory(sentChannelIndex, channelNumber, key, sentFieldList, sentNumLoads, maxLoads) {
         var numLoads = sentNumLoads
@@ -450,13 +437,11 @@
           }
         });
       }
-
   </script>
     <title>Qualidade do ar</title>
     <div id="chart-container" style="height: 600px;"><br>Por favor aguarde...<br>
   </div>
   <div id="below chart">
-
 
     <button style="width: 89px; margin-top: -18px;" value="Hide All" name="Hide All Button" onclick="HideAll();">Esconder todos</button><button style="width: 162px; margin-top: -18px;" value="Load More Data" name="Load More Data" onclick="loadOneChannel();">Carregar mais dados</button>
     <select id="Channel Select">
@@ -480,7 +465,6 @@
         <option value="50">50 Loads</option>
       </select>
    
-
     <input id="Update" name="Update" type="checkbox" checked="checked"><span style="font-family: Lucida Grande;font-size:11px; color: #dddddd;">Actualizar gráfico</span>
     
   </div>

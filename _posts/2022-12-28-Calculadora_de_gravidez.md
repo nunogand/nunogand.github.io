@@ -14,7 +14,6 @@ h3 {
   display: inline;
 }
 
-
 .rwd-table {
   margin: 0 auto;
   min-width: 300px;
@@ -62,7 +61,6 @@ h3 {
     padding-right: 0;
   }
 }
-
 body {
   padding: 0 2em;
   font-family: Montserrat, sans-serif;
@@ -71,13 +69,11 @@ body {
   color: #444;
   background: #eee;
 }
-
 h1 {
   font-weight: normal;
   letter-spacing: -1px;
   color: #34495E;
 }
-
 .rwd-table {
   background: #34495E;
   color: #fff;
@@ -109,17 +105,13 @@ td {
   /* Height of the footer */
 }
 </style>
-
 <main>
 Seleccione a data da última menstruação e carregue no botão para calcular os intervalos de tempo adequados para o seguimento da gravidez:
-
 <form>
 <label for="day1">Data:</label><br>
 <input type="date" id="day1" name="day1"><br>
 <button type="button" onclick="calculateDates()">CALCULAR</button></form>
-
 <h3>Data prevista de parto: </h3><h3 id="day18"></h3>
-
 <table class="rwd-table" id="result">
   <tr>
     <th>Trimestre</th>
@@ -146,7 +138,6 @@ Seleccione a data da última menstruação e carregue no botão para calcular os
      <td data-th="Desde" id="day6"></td>
      <td data-th="Até" id="day7"></td>
   </tr>
-
     <tr>
     <td data-th="Trimestre" rowspan="3">2º Trimestre</td>
     <td data-th="MCDT">Ecografia</td>
@@ -180,11 +171,9 @@ Seleccione a data da última menstruação e carregue no botão para calcular os
   
   
 </table>
-
 <small id="footer">
 De acordo com as orientações registadas no SDM.
 </small>
-
 </main>
 <script>
     function calculateDates() {
@@ -192,7 +181,6 @@ De acordo com as orientações registadas no SDM.
     var day1 = new Date(document.getElementById("day1").value);
     
     var days = [0, 77, 97, 0, 97, 77, 97, 133, 160, 168, 202, 168, 224, 210, 244, 217, 265, 280];
-
     for (var i = 1; i <= 18; i++) {
         var date = new Date(day1.getTime());
         date.setDate(date.getDate() + days[i-1]);

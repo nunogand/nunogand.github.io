@@ -1,6 +1,5 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 @use 'sass:color';
 /* ===============
 	POST
@@ -62,7 +61,6 @@
     }
   }
 }
-
 .c-load-more {
   padding: 20px;
   margin: 20px auto 40px;
@@ -75,7 +73,6 @@
     background-color: color.adjust(colors.$primary-color, $lightness: -15%);
     }
 }
-
 @media only screen and (max-width: 1200px) {
   .c-post {
     width: 48%;
@@ -95,7 +92,6 @@
     }
   }
 }
-
 @media only screen and (max-width: 480px) {
   .c-post {
     width: 100%;

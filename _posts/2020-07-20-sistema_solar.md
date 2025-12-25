@@ -12,9 +12,7 @@ custom_css:
 - sistema_solar.css
 ---
 <div id='body_custom'>
-
 <hr>
-
 <div class='Sistema-Solar' id='Sistema-Solar'>
 <div class='Sol'></div>
 <div class='Mercurio'></div>

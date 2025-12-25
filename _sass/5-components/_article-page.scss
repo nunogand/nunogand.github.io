@@ -1,6 +1,5 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 /* ===============
 	ARTICLE PAGE
 =============== */
@@ -9,12 +8,10 @@
   width: 100%;
   margin: 20px 0;
 }
-
 .c-wrap-content {
   padding: 20px;
   background-color: colors.$white-color;
 }
-
 .c-article__image {
   position: relative;
   background-color: rgba(220,235,245,0.2);
@@ -27,7 +24,6 @@
     padding-top: 56%;
   }
 }
-
 .c-article__header {
   margin-bottom: 20px;
   text-align: center;
@@ -35,7 +31,6 @@
     margin-bottom: 10px;
   }
 }
-
 .c-article__date {
   span {
     font-size: 13px;
@@ -43,7 +38,6 @@
     color: colors.$gray;
   }
 }
-
 .c-article__footer {
   margin: 30px 0 0;
   padding-bottom: 30px;
@@ -83,7 +77,6 @@
     }
   }
 }
-
 .c-recent-post {
   padding: 30px 0;
   .c-recent__title {
@@ -136,7 +129,6 @@
     font-size: 12px;
   }
 }
-
 @media only screen and (max-width: 1200px) {
   .c-recent-post {
     .c-recent__item {
@@ -145,13 +137,11 @@
     }
   }
 }
-
 @media only screen and (max-width: 900px) {
   .c-article {
     margin: 15px 0;
   }
 }
-
 @media only screen and (max-width: 480px) {
   .c-wrap-content {
     padding: 15px;

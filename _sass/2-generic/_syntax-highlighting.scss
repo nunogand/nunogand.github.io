@@ -1,14 +1,11 @@
 /*
   Syntax Highlighting
 */
-
 .highlight {
   background: #f7f7f7;
-
   .highlighter-rouge & {
     background: #eef;
   }
-
   .c     { color: #998; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
   .k     { font-weight: bold } // Keyword

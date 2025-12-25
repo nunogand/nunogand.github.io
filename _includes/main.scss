@@ -2,10 +2,8 @@
 @use '0-settings/global';
 @use '0-settings/colors';
 @use '0-settings/typography';
-
 // 1 TOOLS
 @use '1-tools/mixins';
-
 // 2 GENERIC
 @use '2-generic/normalize';
 @use '2-generic/reset';
@@ -13,7 +11,6 @@
 @use '2-generic/box-sizing';
 @use '2-generic/shared';
 @use '2-generic/syntax-highlighting';
-
 // 3 ELEMENTS
 @use '3-elements/page';
 @use '3-elements/headings';
@@ -23,11 +20,9 @@
 @use '3-elements/hr';
 @use '3-elements/pre';
 @use '3-elements/code';
-
 // 4 OBJECTS
 @use '4-objects/wrapper';
 @use '4-objects/animation';
-
 // 5 COMPONENTS
 @use '5-components/buttons';
 @use '5-components/sidebar';
@@ -41,6 +36,5 @@
 @use '5-components/newsletter';
 @use '5-components/disqus-comments';
 @use '5-components/scroll-top';
-
 // 6 TRUMPS
 @use '6-trumps/helpers';

@@ -9,10 +9,8 @@ img: header_powerbi.webp
 Fcheiros extraídos via MIM@UF:
 * P01.01.L01. Inscritos > Utente
 * P04.R03 problemas > ICPC (selecionar penúltimo mês)
-
 No excel abrir
 P01.01.L01. Inscritos > Utente
-
 * Seleccionar todas as linhas até à tabela e apagá-las
 * Seleccionar todos os dados: colocar o cursor na célula A1, clicar em Ctrl+Shift+End e ajustar até termos todas as células com dados seleccionadas
 * Converter em tabela: Inserir - Tabela; na janela de diálogo que surge clicar na opção: "A minha tabela tem cabeçalhos"
@@ -22,9 +20,7 @@ P01.01.L01. Inscritos > Utente
 Há várias formas de o fazer sendo que a mais simples é usar a função "Localizar e Substituir" (Ctrl+U)
   - primeiro Localizar " Anos" e deixar em branco o campo "Substituir por"
   - depois Localizar " Ano" e deixar em branco o campo "Substituir por"
-
 Temos a nossa tabela feita; gravar como "utentes.xlsx"
-
 P04.R03 problemas > ICPC (selecionar penúltimo mês)
 * Seleccionar todas as linhas até à tabela e apagá-las
 * Seleccionar a última linha (Total) e apagá-la

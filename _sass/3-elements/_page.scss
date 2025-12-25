@@ -1,10 +1,8 @@
 @use "../0-settings/colors";
 @use "../0-settings/typography";
-
 /* ===============
 	PAGE
 =============== */
-
 body {
   font-family: typography.$base-font-family;
   font-size: typography.$base-font-size;
@@ -14,7 +12,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 *::selection {
   color: colors.$white-color;
   background-color: colors.$primary-color;

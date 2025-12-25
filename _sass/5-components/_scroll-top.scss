@@ -1,10 +1,8 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 /* ===============
 	SCROLL TOP
 =============== */
-
 .c-top {
   position: fixed;
   width: 40px;
@@ -16,11 +14,9 @@
 	right: -100px;
 	z-index: 10;
   opacity: .5;
-
   &--active {
     right: 15px;
   }
-
   &:hover {
     color: colors.$gray-dark;
 		opacity: 1;

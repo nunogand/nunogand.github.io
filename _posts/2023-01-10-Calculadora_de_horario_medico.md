@@ -25,7 +25,6 @@ subtitle: Baseado num exemplo publicado no site da ARS-Norte
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   }
-
 .calc h4 {
   color: #f0a500;
 }
@@ -228,11 +227,8 @@ select option {
   }
 }
 
-
-
   
 </style>
-
 <div class="calc">
   
 <div class="container">
@@ -377,7 +373,6 @@ select option {
   </div>
 </div>  
 </div>
-
 <p><!---RESULTS--></p>
 <div id="results"></div>  
   
@@ -393,7 +388,6 @@ select option {
     const input = Number(document.getElementById(String.fromCharCode(97 + i)).value);
     inputs.push(input);
   }
-
   const results = [
     inputs[1] * 6, 
     inputs[2] * 3,
@@ -403,7 +397,6 @@ select option {
     inputs[6] * 2,
     inputs[7] * 2    
   ];
-
   
   const gvr_cons_ano = results[2] + results[3] + results[4] + results[5] + results[6];
   const gvr_cons_sem = (gvr_cons_ano / 44);
@@ -425,7 +418,6 @@ select option {
          <th>Horas/semana</th>
          <th width="230">Comentários</th>
       </tr>
-
       <tr>
          <td><i class="fa fa-baby"></i><p>Saúde Infantil<br>1º ano</td>
          <td>${results[0]}</td>
@@ -448,7 +440,6 @@ select option {
          <td>${(hoursToHHMM((results[2]/44*inputs[10])/60))}</td>
          <td>Assume 1 consulta/ano/criança para todas as idades >24 meses.</td>
       </tr>
-
       <tr>
          <td><i class="fa fa-venus"></i><p>Planeamento Familiar</td>
          <td>${(parseFloat(results[3]).toFixed(0))}</td>
@@ -456,7 +447,6 @@ select option {
          <td>${(hoursToHHMM((results[3]/44*inputs[14])/60))}</td>
          <td>Assume 1 consulta/ano e uma taxa de cobertura de 60% de todas as mulheres entre os 14-54 anos.</td>
       </tr>
-
       <tr>
          <td><i class="fa fa-person-pregnant"></i> <p>Saúde Materna</td>
          <td>${results[4]}</td>
@@ -505,7 +495,6 @@ select option {
    </table>
 </div>
   `;
-
   document.getElementById('results').innerHTML = resultSection;
  
     
@@ -515,5 +504,4 @@ function hoursToHHMM(hours) {
     var m = String(Math.abs(Math.round((hours - h) * 60))).padStart(2, '0');
     return h + ':' + m;
 }
-
 </script>

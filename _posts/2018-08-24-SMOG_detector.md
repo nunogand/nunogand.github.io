@@ -9,7 +9,6 @@ tags: [Raspberry, Arduino]
 comments: false
 ---
 Depois de ler uma série de coisas em projectos como [HackAir](https://www.hackair.eu), [Opensensemap](https://opensensemap.org/) e [Luftdaten](https://luftdaten.info/)... why not?
-
 ### Lista de material
 - [Sensor Nova SDS011](https://pt.aliexpress.com/item/Nova-PM-sensor-SDS011-High-precision-laser-pm2-5-air-quality-detection-sensor-module-Super-dust/32606349048.html)
   - segundo o que se lê por aí actualmente é considerado o melhor sensor low-cost.

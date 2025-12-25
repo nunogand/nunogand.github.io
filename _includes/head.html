@@ -8,21 +8,16 @@
   
 <!-- Meta Tags -->
 {% include meta.html %}
-
 <!-- Opengraph via Liquid Tags -->
 {% include opengraph.html %}
-
 <!-- jekyll-feed Plugin https://github.com/jekyll/jekyll-feed -->
 {% feed_meta %}
     
 <!-- Favicon -->
 {% include favicon.html %}
-
 <!-- Fonts e optimização -->
 {% include fonts.html %}
-
 <!-- style -->    
-
   <style type="text/css">
        
     {% capture include_to_scssify %}
@@ -31,7 +26,6 @@
     {{ include_to_scssify | scssify }}
     
   </style>
-
 <!-- style e JS custom -->        
   {% if page.custom_css %}
     {% for css in page.custom_css %}
@@ -45,6 +39,5 @@
     {% endfor %}
   {% endif %}
 <!-- FIM style e JS custom -->        
-
 
 </head>

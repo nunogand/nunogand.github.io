@@ -1,10 +1,8 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 /* ===============
 	CATEGORIES
 =============== */
-
 .c-categories {
   width: 100%;
 }
@@ -14,13 +12,11 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 .c-categories__item {
   max-width: 25%;
   flex-basis: 25%;
   padding: 0 10px 20px;
 }
-
 .c-categories__link {
   height: 100%;
   display: flex;
@@ -51,7 +47,6 @@
     }
   }
 }
-
 .c-categories__img {
   position: relative;
   max-width: 100%;
@@ -95,7 +90,6 @@
     transition: global.$global-transition;
   }
 }
-
 .c-categories__container {
   text-align: center;
   .c-categories__header {
@@ -123,7 +117,6 @@
     }
   }
 }
-
 @media only screen and (max-width: 1200px) {
   .c-categories {
     .c-categories__item {
@@ -132,7 +125,6 @@
     }
   }
 }
-
 @media only screen and (max-width: 1050px) {
   .c-categories {
     .c-categories__item {
@@ -141,7 +133,6 @@
     }
   }
 }
-
 @media only screen and (max-width: 480px) {
   .c-categories {
     .c-categories__item {

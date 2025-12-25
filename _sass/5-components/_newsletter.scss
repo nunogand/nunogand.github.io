@@ -1,6 +1,5 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 /* ===============
 	NEWSLETTER
 =============== */
@@ -10,7 +9,6 @@
   margin: 0 auto;
   border-bottom: 1px solid colors.$border-color;
 }
-
 .c-newsletter__header {
   text-align: center;
   .c-newsletter__title {
@@ -22,7 +20,6 @@
     margin-bottom: 15px;
   }
 }
-
 .c-newsletter-form {
   width: 100%;
   max-width: 750px;
@@ -31,7 +28,6 @@
     display: flex;
   }
 }
-
 .c-newsletter__email {
   width: 70%;
   height: 40px;
@@ -44,7 +40,6 @@
     box-shadow: 0 4px 25px rgba(132,135,138,0.1);
   }
 }
-
 .c-newsletter__button {
   width: 30%;
   height: 40px;
@@ -58,7 +53,6 @@
     background-color: color.adjust(colors.$primary-color, $lightness: -15%);
   }
 }
-
 @media only screen and (max-width: 480px) {
   .c-newsletter__button {
     font-size: 13px;

@@ -5,7 +5,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: https://nunogand.com # the base hostname & protocol for your site, e.g. http://example.com
 logo: https://www.nunogand.com/images/logo_main.png
 lang: pt-PT
-
 # Author
 author-name: nunogand
 author-image: logo_main.webp
@@ -13,7 +12,6 @@ author-job:  Coisas...
 author-email: nunogand@gmail.com # Add your email for contant form.
 author-twitter: nunogand # Add your twitter account
 about-author: Apontamentos e recortes dispersos que me facilitam a vida. 
-
 # Social settings
 twitter:
   username: nunogand
@@ -27,17 +25,13 @@ social-instagram:
 social-youtube: nunogand
 social-vk:   
 social-linkedin:
-
 # Newsletter
 # mailchimp: # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
-
 # Google Analytics
 google-analytics: UA-109060453-1 # Add your identifier. For example UA-99631805-1
-
     
 # Comment Section (Disqus)
 disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
-
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
@@ -47,19 +41,15 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   #- jekyll-webp
-
 paginate: 7
 paginate_path: "/page/:num/"
-
 include:
   - _pages
 #  - _headers
-
 sass:
   sass_dir: _sass
   style: compressed
   quiet_deps: true
-
 # Exclude from processing.
 exclude:
   - Gemfile
@@ -70,7 +60,6 @@ timezone: Europe/Lisbon
 locale: pt-pt
 markdown: kramdown
 highlighter: rouge
-
 kramdown:
   input: GFM
   auto_ids: true
@@ -79,7 +68,6 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
 enable_coderay: false
-
 ############################################################
 # Site configuration for the WebP Generator Plugin
 # The values here represent the defaults if nothing is set
@@ -88,31 +76,23 @@ webp:
   
   # The quality of the webp conversion 0 to 100 (where 100 is least lossy)
   quality: 75
-
   # List of directories containing images to optimize, nested directories will only be checked if `nested` is true
   # By default the generator will search for a folder called `/img` under the site root and process all jpg, png and tiff image files found there.
   img_dir: ["/images"]
-
   # Whether to search in nested directories or not
   nested: true
-
   # add ".gif" to the format list to generate webp for animated gifs as well
   formats: [".jpeg", ".jpg", ".png", ".tiff"]
-
   # File extensions for animated gif files 
   gifs: [".gif"]
-
   # Set to true to always regenerate existing webp files
   regenerate: false
-
   # Local path to the WebP utilities to use (relative or absolute)
   # Omit or leave as nil to use the utilities shipped with the gem, override only to use your local install
   webp_path: nil
-
   # List of files or directories to exclude
   # e.g. custom or hand generated webp conversion files
   exclude: []
-
   # append '.webp' to filename after original extension rather than replacing it.
   # Default transforms `image.png` to `image.webp`, while changing to true transforms `image.png` to `image.png.webp`
   append_ext: true

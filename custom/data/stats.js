@@ -14,7 +14,6 @@ fetch('/custom/data/stats.json')
         document.getElementById('error-chart').style.display = "block";
     })
     .then(out => (document.getElementById('TotalPosts') ? fillInTable(out) : undefined));
-
 /**
  * @param {{totalPosts: string, totalTags: string, totalWords: string, averageWordsPerPost: string }} data - the posts
  */
@@ -24,7 +23,6 @@ function fillInTable(data) {
     document.getElementById('TotalWords').append(data.totalWords)
     document.getElementById('AvgWords').append(data.averageWordsPerPost)
 }
-
 function printStackedBar(out) {
     const tagYear = years(out).map(i => i.year)
     const tagPosts = processTags(out, tagYear);
@@ -33,13 +31,11 @@ function printStackedBar(out) {
         data: item.posts,
         backgroundColor: classic20[item.name] ?? classic20['grey'],
     }));
-
     new Chart(
         document.getElementById('stacked-bar-js').getContext('2d'),
         stackedBarConfig(tagYear, dataset, 'Tags stacked')
     );
 }
-
 function printDateStacked(out) {
     const yearMonths = years(out).map((item) => ({ year: item.year, months: groupByMonth(item.posts) }));
     const dataset = yearMonths.map(item => ({
@@ -47,13 +43,11 @@ function printDateStacked(out) {
         data: item.months.map(it => it.value),
         backgroundColor: Blues8[parseInt(item.year) % 8]
     }));
-
     new Chart(
         document.getElementById('stacked-bar-date-js').getContext('2d'),
         stackedBarConfig(MONTH_NUMBERS.map(it => monthToName(it)), dataset, 'Posts stacked')
     );
 }
-
 function stackedBarConfig(dates, dataset, title) {
     return {
         type: 'bar',
@@ -85,20 +79,17 @@ function stackedBarConfig(dates, dataset, title) {
         }
     };
 }
-
 function printBubble(out) {
     const dataset = years(out).map((item) => ({
         x: item.year,
         y: item.posts.length,
         r: Math.floor(item.posts.map(p => parseInt(p.words) / 50).reduce((a, b) => a + b) / item.posts.length)
     }));
-
     new Chart(
         document.getElementById('bubble-js').getContext('2d'),
         bubbleConfig(bubbleData(dataset))
     );
 }
-
 function bubbleData(dataset) {
     return {
         datasets: [{
@@ -108,7 +99,6 @@ function bubbleData(dataset) {
         }]
     };
 }
-
 function bubbleConfig(data) {
     return {
         type: 'bubble',
@@ -127,16 +117,13 @@ function bubbleConfig(data) {
         }
     };
 }
-
 function printMixed(out) {
     const yearPosts = years(out).map((item) => ({ date: item.year, posts: item.posts.length }));
-
     new Chart(
         document.getElementById('mixed-js').getContext('2d'),
         mixedConfig(mixedData(yearPosts))
     );
 }
-
 function mixedData(yearPosts) {
     let sum;
     return {
@@ -159,7 +146,6 @@ function mixedData(yearPosts) {
         }]
     };
 }
-
 function mixedConfig(data) {
     const max = Math.max(...data.datasets[1].data);
     const count = 1 + Math.floor((max + 4) / 5);
@@ -189,14 +175,12 @@ function mixedConfig(data) {
         }
     };
 }
-
 function printRadar(out) {
     new Chart(
         document.getElementById('radar-js').getContext('2d'),
         radarConfig(radarData(postsPerTag(tags(out))))
     );
 }
-
 function radarData(postsPerTag) {
     return {
         labels: postsPerTag.labels,
@@ -213,7 +197,6 @@ function radarData(postsPerTag) {
         }]
     }
 }
-
 function radarConfig(data) {
     return {
         type: 'radar',
@@ -226,14 +209,12 @@ function radarConfig(data) {
         },
     }
 }
-
 function printPie(out) {
     new Chart(
         document.getElementById('pie-js').getContext('2d'),
         pieData(postsPerTag(tags(out)))
     );
 }
-
 function pieData(postsPerTag) {
     return {
         type: 'doughnut',
@@ -247,7 +228,6 @@ function pieData(postsPerTag) {
         }
     };
 }
-
 /**
  *
  * @param {{ posts: [{date: string, words: string, tags: string}] }} data - the posts
@@ -257,7 +237,6 @@ function pieData(postsPerTag) {
 const processTags = (data, tagYear) => tags(data).sort()
     .reduce((acc, current) => reducePostsPerTagPerYear(current, tagYear, acc), [])
     .sort((a, b) => (b.name === 'other') - (a.name === 'other'));
-
 /**
  * @param {{tag: string, posts: Array}} current - current tag and posts
  * @param {[string]} tagYear - list of year
@@ -268,7 +247,6 @@ function reducePostsPerTagPerYear(current, tagYear, acc) {
     const tagName = processTagName(current);
     const tagPosts = processTagPosts(current, tagYear);
     const existingTag = acc.find(i => i.name === tagName);
-
     if (existingTag) {
         existingTag.posts = existingTag.posts.map((val, index) => (val + tagPosts[index]));
     } else {
@@ -276,7 +254,6 @@ function reducePostsPerTagPerYear(current, tagYear, acc) {
     }
     return acc;
 }
-
 /**
  * @param {{tag: string, posts: Array}} current - current tag and posts
  * @return {string}
@@ -285,7 +262,6 @@ const processTagName = (current) => {
     if (current.posts.length <= 3 || current.tag === 'misc') current.tag = 'other';
     return current.tag
 }
-
 /**
  * @param {{tag: string, posts: Array}} current - current tag and posts
  * @param {[string]} tagYear - list of year
@@ -298,7 +274,6 @@ const processTagPosts = (current, tagYear) => {
         current.posts.reduce((sum, post) => sum + (post.year === date ? post.posts.length : 0), 0)
     )
 }
-
 /**
  * @param {[{ tag: string, posts: Array }]} tags
  * @return {{size: Array, labels: Array}}
@@ -309,7 +284,6 @@ const postsPerTag = (tags) => {
         size: tags.map(item => item.posts.length)
     }
 }
-
 /**
  * @param {{ posts: [{date: string, words: string, tags: string}] }} data - the posts
  * @return {[{ tag: string, posts: Array }]} - posts per tag
@@ -318,14 +292,12 @@ const tags = (data) => Object.entries(data.posts.reduce((result, item) => ({
     ...result,
     [item.tags]: [...(result[item.tags] || []), item]
 }), {})).map(tag => ({ tag: tag[0], posts: tag[1] }));
-
 /**
  * @param {{ posts: [{date: string, words: string, tags: string}] }} data - the posts
  * @return {[{ year: string, posts: Array }]} - posts per year
  */
 const years = (data) => Object.entries(reduceDateToYear(data.posts))
     .map(year => ({ year: year[0], posts: year[1] }));
-
 /**
  * @param {[{date: string, words: string, tags: string}]} posts - the posts
  */
@@ -333,7 +305,6 @@ const reduceDateToYear = (posts) => posts.reduce((result, item) => ({
     ...result,
     [item.date.slice(0, -6)]: [...(result[item.date.slice(0, -6)] || []), item]
 }), {});
-
 /**
  * @param {[{date: string, words: string, tags: string}]} posts - the posts
  */
@@ -344,12 +315,9 @@ const groupByMonth = (posts ) => {
         value: months.filter(month => month === currentMonth).length
     }));
 }
-
 const monthToName = (monthNumber) => new Date(2021, parseInt(monthNumber) - 1, 27)
     .toLocaleString('default', { month: 'short' })
-
 const MONTH_NUMBERS = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-
 const getRandomColorHex = () => {
     let hex = '0123456789ABCDEF', color = '#';
     for (let i = 1; i <= 6; i++) {
@@ -357,7 +325,6 @@ const getRandomColorHex = () => {
     }
     return color;
 }
-
 const colors = {
     'agile': 'rgba(107, 91, 149, 0.85)',
     'linux': 'rgba(255,  99,  132, 0.85)',
@@ -379,7 +346,6 @@ const colors = {
     'kafka': 'rgba(147,  85,  41, 0.85)',
     'css': 'rgba(183,  107,  163, 0.85)',
 }
-
 const classic20 = {
     'js': '#2385ca',
     'react': '#2c92da',
@@ -403,5 +369,4 @@ const classic20 = {
     'kubernetes': '#17becf',
     '-': '#9edae5'
 };
-
 const Blues8 = ['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#08519c', '#08306b'];

@@ -8,9 +8,7 @@ tags: [Raspberry, JDownloader]
 comments: false
 img: header_raspi.webp
 ---
-
 Instalação do JDownloader em dispositivos ARM.
-
 Script:
 ```
     1 - Criar a pasta para instalar o JDownloader

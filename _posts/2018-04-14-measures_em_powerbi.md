@@ -7,11 +7,8 @@ tags: [PowerBi, código, DAX]
 comments: false
 img: header_powerbi.webp
 ---
-
 Aquando do estudo da lista:
-
 Listagem das Measures usadas:
-
 Indice de Burgdofer
 ```SQL
 Burgdofer =
@@ -28,7 +25,6 @@ IF (
     )
 )
 ```
-
 Indice de Sundbarg
 ```SQL
 Sundbarg =
@@ -48,7 +44,6 @@ IF (
     )
 )
 ```
-
 Indice de Friz
 ```SQL
 Friz =
@@ -63,7 +58,6 @@ De notar que faz a chamada a ```[Friz_cal]```... pura preguiça
 Friz_cal =
 CALCULATE ( [População 0 a 19 anos] / [População 30 a 49 anos] * 100 )
 ```
-
 Grau de Envelhecimento de Sauvy
 ```SQL
 Grau de Envelhecimento de Sauvy =
@@ -75,20 +69,17 @@ IF (
     "N/A"
 )
 ```
-
 Indice de crianças (0-4) por mulher em idade fértil
 ```SQL
 Indice de crianças (0-4) por mulher em idade fértil =
 [População 0 a 4 anos] / [Mulheres em Idade fértil (15-49)]
 ```
-
 Indice de dependencia de idosos
 ```SQL
 Indice de dependencia de idosos =
 [População > 65 anos] / [População 15 a 64 anos]
     * 100
 ```
-
 Indice de Dependência Total
 ```SQL
 Indice de Dependência Total =
@@ -96,12 +87,9 @@ Indice de Dependência Total =
     / [População 15 a 64 anos]
     * 100
 ```
-
 ...no fundo, é ir repetindo sempre a mesma lógica
-
 As idades:
 É necessário criar a contagem do total de utentes com determinadas idades (agrupados)
-
 Mulheres em idade fértil
 ```SQL
 Mulheres em Idade fértil (15-49) =
@@ -115,7 +103,6 @@ CALCULATE (
     )
 )
 ```
-
 População entre 15 e 19 anos
 ```SQL
 População 15 a 19 anos =
@@ -128,7 +115,6 @@ CALCULATE (
     )
 )
 ```
-
 População com + de 65 anos
 ```SQL
 População > 65 anos =
@@ -141,4 +127,3 @@ CALCULATE (
 )
 ```
 ...and so on.
-

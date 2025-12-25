@@ -7,18 +7,13 @@ categories: [PowerBi]
 tags: [PowerBi, código, DAX]
 img: header_powerbi.webp
 ---
-
 1. Criar uma tabela com todas as condições.
-
 {% highlight Rust %}
 Condicoes =
 VALUES ( Tabela1[Condicao] )
 {% endhighlight %}
-
 2. Criar uma relação entre "Condicoes" e "Tabela1".
-
 3. Criar uma measure para as condições associadas.
-
 {% highlight Rust %}
 C_Associada =
 VAR todasCondicoes =
@@ -38,13 +33,10 @@ RETURN
         ALL ( Condicoes[Condicao] )
     )
 {% endhighlight %}
-
 4. Criar uma measure para establecer ranking.
-
 {% highlight Rust %}
 RankingUtente =
 RANKX ( ALL ( 'Tabela1'[Condicao] ), [Co-Cost],,, DENSE )
 {% endhighlight %}
-
 
 E basicamente é isto. Adaptado provavelmente da Community

@@ -8,16 +8,12 @@ tags: [linux, Ubuntu, drivers]
 img: ubuntu_logo.webp
 ---
 Isto não é exactamente um script mas antes um atalho que junta vários comandos sequenciais para actualizar o Ubuntu.
-
 Basicamente isto:
-
 {% highlight console %}
 alias update='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
 {% endhighlight %}
-
 Esta solução não é permanente. Em cada reboot o comando desaparece.
 Uma forma simples de o manter permanente é colocá-lo dentro do ficheiro **~/.bash_aliases** (em Ubuntu).
 {% highlight console %}
 nano ~/.bash_aliases
 {% endhighlight %}
-

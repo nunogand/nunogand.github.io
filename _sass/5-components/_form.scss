@@ -1,11 +1,9 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
 @use "../0-settings/typography";
-
 /* ===============
 	CATEGORIES
 =============== */
-
 .c-form-box {
   position: absolute;
   top: 0;
@@ -15,7 +13,6 @@
   background-color: colors.$white-color;
   z-index: 1;
 }
-
 .c-form-bnt__close {
   position: absolute;
   top: 0px;
@@ -29,7 +26,6 @@
     opacity: .8;
   }
 }
-
 .c-form {
   position: relative;
   width: 750px;
@@ -48,7 +44,6 @@
     color: colors.$text-color;
   }
 }
-
 .c-form__group {
   margin-bottom: 20px;
   label {
@@ -75,7 +70,6 @@
     border: none;
   }
 }
-
 .c-thank-you {
   p {
     position: relative;
@@ -100,7 +94,6 @@
     }
   }
 }
-
 @media only screen and (max-width: 900px) {
   .c-form-box {
     width: 100%;
@@ -108,7 +101,6 @@
     right: 0;
   }
 }
-
 @media only screen and (max-width: 480px) {
   .c-form-bnt__close {
     width: 25px;

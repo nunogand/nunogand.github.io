@@ -34,17 +34,14 @@ linux-image-extra-4.10.0-37-generic
 linux-image-extra-4.13.0-16-generic
 linux-image-generic
 {% endhighlight %}
-
 De seguida é necessário remover os pacotes individuais:
 {% highlight console %}
 sudo apt remove --purge linux-image-4.10.0-19-generic
 {% endhighlight %}
 e por aí fora por cada pacote que queiramos remover.
-
 No final fazer:
 {% highlight console %}
 sudo update-grub2
 sudo reboot
 {% endhighlight %}
-
 

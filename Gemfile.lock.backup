@@ -122,13 +122,11 @@ GEM
     webrick (1.8.1)
     yell (2.2.2)
     zeitwerk (2.6.12)
-
 PLATFORMS
   arm-linux
   arm-linux-gnueabihf
   arm-linux-musleabihf
   x86_64-linux
-
 DEPENDENCIES
   base64 (~> 0.2.0)
   bigdecimal (~> 3.1, >= 3.1.5)
@@ -142,6 +140,5 @@ DEPENDENCIES
   jekyll-webp (= 1.0.0)
   liquid-c (~> 4.0.1)
   sassc (= 2.4.0)
-
 BUNDLED WITH
    2.5.5

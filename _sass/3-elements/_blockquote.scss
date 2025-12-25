@@ -1,10 +1,8 @@
 @use "../0-settings/colors";
 @use "../0-settings/global";
-
 /* ===============
 	BLOCKQUOTE
 =============== */
-
 blockquote {
   padding-left: global.$base-spacing-unit;
   border-left: 3px solid colors.$primary-color;

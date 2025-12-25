@@ -7,9 +7,7 @@ tags: [PowerBi]
 comments: false
 img: header_powerbi.webp
 ---
-
 Estrutura base da pasta de ficheiros
-
 ```
 Estudo da Lista
 ├── Utentes_dados

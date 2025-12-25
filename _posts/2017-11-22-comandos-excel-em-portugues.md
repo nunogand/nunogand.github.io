@@ -8,7 +8,6 @@ tags: [Excel]
 img: header_excel.webp
 ---
 Listagem talvez não exaustiva dos comandos Excel em Inglês e Português - útil para aquela fórmula que encontramos em inglês mas precisamos de usar num sistema em português.
-
 | Função | Function | Descrição |
 |---------------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Funções de Suplemento e Automatização | Add-in and Automation functions |  |
@@ -372,8 +371,6 @@ Listagem talvez não exaustiva dos comandos Excel em Inglês e Português - úti
 | VALOR | VALUE | Converte um argumento de texto num número |
 
 
-
-
 | Função                                | Function                        | Descrição                                                                                                                                                                                                                                                                                                                                                              |
 |---------------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Funções de Suplemento e Automatização | Add-in and Automation functions |                                                                                                                                                                                                                                                                                                                                                                        |
@@ -735,4 +732,3 @@ Listagem talvez não exaustiva dos comandos Excel em Inglês e Português - úti
 | COMPACTAR                             | TRIM                            | Remove espaços do texto                                                                                                                                                                                                                                                                                                                                                |
 | MAIÚSCULAS                            | UPPER                           | Converte texto em maiúsculas                                                                                                                                                                                                                                                                                                                                           |
 | VALOR                                 | VALUE                           | Converte um argumento de texto num número                                                                                                                                                                                                                                                                                                                              |
-

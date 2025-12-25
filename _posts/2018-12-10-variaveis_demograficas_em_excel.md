@@ -9,13 +9,10 @@ img: header_excel.webp
 published: true
 ---
 Assumindo listagem de utentes conforme:
-
 |     A    |   B  |   C  |   D   |
 |:--------:|:----:|:----:|:-----:|
 | N Utente | Nome | Sexo | Idade |
 | 1234567 | Abcd | M/F | 123 |
-
-
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
@@ -88,5 +85,4 @@ Assumindo listagem de utentes conforme:
     <td class="tg-0pky">=CONTAR.SE(D:D;"<5")/CONTAR.SE.S(D:D;">14";D:D;"<50";C:C;"F")*100</td>
   </tr>
 </table>
-
 Fonte: [Estudo da lista de utentes - medidas](https://nunogand.com/2018/07/03/estudo-da-lista-medidas)

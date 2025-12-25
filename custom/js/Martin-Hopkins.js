@@ -5,7 +5,6 @@
   * Licensed under the MIT License.
   */
 
-
 // Tabela de pesquisa f(TG) 
 const lookupTable = [
     { range: "7-49", factors: { "<100": 3.5, "100-129": 3.4, "130-159": 3.3, "160-189": 3.3, "190-219": 3.2, ">220": 3.1 }},
@@ -39,7 +38,6 @@ const lookupTable = [
     { range: "293-399", factors: { "<100": 9.5, "100-129": 8.3, "130-159": 7.5, "160-189": 7.0, "190-219": 6.5, ">220": 5.9 }},
     { range: "400-13975", factors: { "<100": 11.9, "100-129": 10.0, "130-159": 8.8, "160-189": 8.1, "190-219": 7.5, ">220": 6.7 }}
 ];
-
 // Função para descobrir o factor de correcção em função do valor de Tg e n-HDL
 function findFactor(triglycerides, nonHDL) {
     let factor;
@@ -57,29 +55,23 @@ function findFactor(triglycerides, nonHDL) {
     }
     return factor || 5.0; // failsafe: 5.0 se sem match
 }
-
 // Função para determinar valor de LDL usando a fórmula Martin/Hopkins
 function calculateLDL() {
     // obter valores
     let totalCholesterol = parseFloat(document.getElementById("totalCholesterol").value);
     let hdl = parseFloat(document.getElementById("hdl").value);
     let triglycerides = parseFloat(document.getElementById("triglycerides").value);
-
     if (isNaN(totalCholesterol) || isNaN(hdl) || isNaN(triglycerides)) {
         document.getElementById("result").innerText = "Please enter valid values!";
         return;
     }
-
     // calcular n-HDL
     let nonHDL = totalCholesterol - hdl;
-
     // Obter f de correcção
     let factor = findFactor(triglycerides, nonHDL);
-
     // Aplicar a fórmula e já que estamos nisto calcular também com a fórmula de Friedewald
     let ldl = totalCholesterol - hdl - (triglycerides / factor);
     let ldl_f = totalCholesterol - hdl - (triglycerides / 5);
-
     // Display resultado
     document.getElementById("result").innerText = "cLDL (mg/dL): " + ldl.toFixed(1);
   

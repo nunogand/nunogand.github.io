@@ -1,7 +1,6 @@
 /* ===============
 	MIXINS
 =============== */
-
 // Screen reader text
 @mixin screen-reader() {
   clip: rect(1px, 1px, 1px, 1px);
@@ -11,7 +10,6 @@
   width: 1px;
   word-wrap: normal !important;
 }
-
 
 // Reset lists
 @mixin lists-reset() {
