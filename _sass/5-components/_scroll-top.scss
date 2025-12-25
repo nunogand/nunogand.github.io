@@ -1,3 +1,6 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+
 /* ===============
 	SCROLL TOP
 =============== */
@@ -7,9 +10,9 @@
   width: 40px;
   height: 40px;
 	bottom: 20px;
-  color: $gray-dark;
+  color: colors.$gray-dark;
 	cursor: pointer;
-	transition: $global-transition;
+	transition: global.$global-transition;
 	right: -100px;
 	z-index: 10;
   opacity: .5;
@@ -19,7 +22,7 @@
   }
 
   &:hover {
-    color: $gray-dark;
+    color: colors.$gray-dark;
 		opacity: 1;
   }
 }

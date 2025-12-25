@@ -11,14 +11,15 @@ layout: home
 {% endif %}
 
 {% include header.html %}
-<div class="c-posts o-opacity" data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
+<!-- .c-posts -->
+<section class="c-posts o-opacity" aria-label="Artigos" data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
   {% for post in site.posts limit:site.paginate offset:offset %}
-  <article class="c-post">
+  <article class="c-post" aria-labelledby="{{post.title}}">
     {% if post.img %}
     <a class="c-post-thumbnail o-opacity" style="background-image: url({{"/images/" | prepend: site.baseurl | append : post.img}})" 
-        href="{{post.url | prepend: site.baseurl}}" aria-label="post thumbnail" loading="lazy"></a>
+        href="{{post.url | prepend: site.baseurl}}" aria-label="Imagem de destaque do artigo: {{post.title}}" loading="lazy"></a>
     {% else %} {% endif %}
-    <div class="c-post-content">
+    <div class="c-post-content" id="{{post.title}}">
       <h4 class="c-post-title">
         <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
       </h4>
@@ -29,16 +30,19 @@ layout: home
       {% include data.html %}
      
       <!-- <span class="c-post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span> -->
-      <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
+      <span class="c-post-words" aria-label="Tempo de leitura: {% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
+          plus: 250 | divided_by: 250 | append: " minuto(s) de leitura" }}{% endunless %}">
+          {% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
           plus: 250 | divided_by: 250 | append: " minuto(s) de leitura" }}{% endunless %}</span>
     </div>
   </article> <!-- /.c-post -->
   {% endfor %}
-</div> <!-- /.c-posts -->
+</section> 
+<!-- /.c-posts -->
 
 {% assign postCount = site.posts | size %}
 {% assign postsCovered = site.paginate | plus:offset %}
 {% if postsCovered < postCount %}
-  <button class="c-load-more c-btn c-btn--middle">Carregar mais artigos</button>
+  <button type="button" class="c-load-more c-btn c-btn--middle" aria-label="Carregar mais artigos">Carregar mais artigos</button>
 {% endif %}
 {% include categories.html %}

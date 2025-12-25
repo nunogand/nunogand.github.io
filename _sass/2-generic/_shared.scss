@@ -1,3 +1,5 @@
+@use "../0-settings/global";
+
 /* ===============
 	SHARED
 =============== */
@@ -18,7 +20,7 @@ hr,
 table,
 fieldset, figure,
 pre {
-  margin-bottom: $base-spacing-unit;
+  margin-bottom: global.$base-spacing-unit;
 }
 
 
@@ -28,5 +30,5 @@ pre {
 
 ul, ol,
 dd {
-  margin-left: $base-spacing-unit;
+  margin-left: global.$base-spacing-unit;
 }

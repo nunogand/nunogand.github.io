@@ -2,7 +2,7 @@
 layout: home
 ---
 {% include header.html %}
-<div class="c-posts o-opacity">
+<section class="c-posts o-opacity" aria-label="Artigos">
   {% for post in site.categories[page.title] %}
   <article class="c-post">
     {% if post.img %}
@@ -20,5 +20,5 @@ layout: home
     </div>
   </article>
   {% endfor %}
-</div> <!-- /.c-posts -->
+</section> <!-- /.c-posts -->
 {% include categories.html %}

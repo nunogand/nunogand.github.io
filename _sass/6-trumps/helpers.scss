@@ -1,3 +1,5 @@
+@use "../1-tools/mixins";
+
 /* ===============
 	HELPERS
 =============== */
@@ -127,7 +129,7 @@
 
 // Lists Reset
 .u-lists-reset {
-	@include lists-reset();
+	@include mixins.lists-reset();
 }
 
 // Clearfix
@@ -140,5 +142,5 @@
 
 // Screen Reader Text
 .u-screen-reader-text {
-  @include screen-reader();
+  @include mixins.screen-reader();
 }

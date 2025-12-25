@@ -1,18 +1,21 @@
+@use "../0-settings/colors";
+@use "../0-settings/typography";
+
 /* ===============
 	PAGE
 =============== */
 
 body {
-  font-family: $base-font-family;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-  color: $text-color;
-  background-color: $background;
+  font-family: typography.$base-font-family;
+  font-size: typography.$base-font-size;
+  line-height: typography.$base-line-height;
+  color: colors.$text-color;
+  background-color: colors.$background;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 *::selection {
-  color: $white-color;
-  background-color: $primary-color;
+  color: colors.$white-color;
+  background-color: colors.$primary-color;
 }

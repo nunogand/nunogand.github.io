@@ -1,3 +1,6 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+
 /* ===============
 	HEADER
 =============== */
@@ -17,7 +20,7 @@
     position: absolute;
     top: 7px;
     left: 15px;
-    fill: $gray-lighter;
+    fill: colors.$gray-lighter;
   }
 }
 
@@ -31,16 +34,16 @@
     position: relative;
     width: 100%;
     padding: 10px 10px 10px 40px;
-    border: 1px solid $blue-lighter;
+    border: 1px solid colors.$blue-lighter;
     border-radius: 30px;
     outline: none;
-    color: $gray;
+    color: colors.$gray;
     &::placeholder {
-      color: $gray-lighter;
+      color: colors.$gray-lighter;
     }
     &:hover {
       box-shadow: 0 1px 0px rgba(132, 135, 138, 0.1);
-      transition: $global-transition;
+      transition: global.$global-transition;
     }
   }
   .c-search-results-list {
@@ -48,7 +51,7 @@
     width: 100%;
     margin: 10px 0 0;
     list-style-type: none;
-    background-color: $white-color;
+    background-color: colors.$white-color;
     z-index: 1;
     li {
       display: flex;
@@ -56,20 +59,20 @@
       align-items: center;
       margin: 0;
       padding: 20px 25px 0;
-      background-color: $white-color;
+      background-color: colors.$white-color;
       line-height: 1.4;
-      border-left: solid 1px $gray-lighten;
-      border-right: solid 1px $gray-lighten;
+      border-left: solid 1px colors.$gray-lighten;
+      border-right: solid 1px colors.$gray-lighten;
       &:first-child {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        border-top: solid 1px $gray-lighten;
+        border-top: solid 1px colors.$gray-lighten;
       }
       &:last-child {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         padding-bottom: 25px;
-        border-bottom: solid 1px $gray-lighten;
+        border-bottom: solid 1px colors.$gray-lighten;
       }
       a {
         font-size: 16px;
@@ -92,21 +95,21 @@
       font-size: 10px;
       text-transform: uppercase;
       white-space: nowrap;
-      border: 1px solid $blue-lighter;
+      border: 1px solid colors.$blue-lighter;
       box-shadow: 0 1px 0px rgba(132, 135, 138, 0.4);
       will-change: transform;
       transform: translateY(0px);
       cursor: pointer;
       &:hover {
-        color: $dark;
-        background-color: $white-color;
+        color: colors.$dark;
+        background-color: colors.$white-color;
       }
       &.is-active {
         box-shadow: 0 0 0 rgba(132, 135, 138, 0.5);
         transform: translateY(1px);
-        color: $secondary-color;
+        color: colors.$secondary-color;
         &:hover {
-          background-color: $background;
+          background-color: colors.$background;
         }
       }
       &:first-child {

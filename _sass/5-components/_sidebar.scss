@@ -1,3 +1,7 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+@use "../1-tools/mixins";
+
 /* ===============
 	SIDEBAR
 =============== */
@@ -14,7 +18,7 @@
   padding: 40px 20px 20px;
   text-align: center;
   box-shadow: 1px 1px 0 rgba(31, 35, 46, 0.15);
-  background-color: $white-color;
+  background-color: colors.$white-color;
 }
 
 .c-sidebar-author {
@@ -24,12 +28,12 @@
     margin: 0 auto 10px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: $secondary-color;
+    background-color: colors.$secondary-color;
     img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      transition: $global-transition;
+      transition: global.$global-transition;
       &:hover {
         transform: scale3d(0.90,0.90,1);
       }
@@ -42,7 +46,7 @@
         width: 18px;
         height: 18px;
         vertical-align: text-bottom;
-        fill: $white-color;
+        fill: colors.$white-color;
       }
     }
   }
@@ -57,7 +61,7 @@
   }
   .c-author__job {
     font-size: 90%;
-    color: $gray;
+    color: colors.$gray;
     margin: 5px 0 0;
 color: #8d7edc;
 text-transform: uppercase;
@@ -120,11 +124,11 @@ text-transform: uppercase;
       height: 27px;
       fill: #8d7edc;;
       vertical-align: middle;
-      transition: $global-transition;
+      transition: global.$global-transition;
       &:hover {
-        fill: $primary-color;
+        fill: colors.$primary-color;
         transform: scale(1.2);
-        transition: $global-transition;
+        transition: global.$global-transition;
       }
     }
   }
@@ -148,14 +152,14 @@ text-transform: uppercase;
   .c-sidebar-footer {
     .c-social {
       .c-social__title {
-        @include screen-reader();
+        @include mixins.screen-reader();
       }
     }
     .c-social__list {
       margin: 0;
     }
     .c-copyright {
-      @include screen-reader();
+      @include mixins.screen-reader();
     }
   }
 }
@@ -187,7 +191,7 @@ text-transform: uppercase;
   .c-sidebar-footer {
     .c-social {
       .c-social__title {
-        @include screen-reader();
+        @include mixins.screen-reader();
       }
     }
     .c-social__list {
@@ -198,7 +202,7 @@ text-transform: uppercase;
       }
     }
     .c-copyright {
-      @include screen-reader();
+      @include mixins.screen-reader();
     }
   }
 }

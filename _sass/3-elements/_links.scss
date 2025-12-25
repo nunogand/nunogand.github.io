@@ -1,14 +1,17 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+
 /* ===============
 	LINKS
 =============== */
 
 a {
     text-decoration: none;
-    color: $link-color;
-    transition: $global-transition;
+    color: colors.$link-color;
+    transition: global.$global-transition;
 
     &:hover {
-        color: $link-color-hover;
+        color: colors.$link-color-hover;
     }
 
 }

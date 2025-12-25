@@ -1,46 +1,46 @@
 // 0 SETTINGS
-@import '0-settings/global';
-@import '0-settings/colors';
-@import '0-settings/typography';
+@use '0-settings/global';
+@use '0-settings/colors';
+@use '0-settings/typography';
 
 // 1 TOOLS
-@import '1-tools/mixins';
+@use '1-tools/mixins';
 
 // 2 GENERIC
-@import '2-generic/normalize';
-@import '2-generic/reset';
-@import '2-generic/evil-icons';
-@import '2-generic/box-sizing';
-@import '2-generic/shared';
-@import '2-generic/syntax-highlighting';
+@use '2-generic/normalize';
+@use '2-generic/reset';
+@use '2-generic/evil-icons';
+@use '2-generic/box-sizing';
+@use '2-generic/shared';
+@use '2-generic/syntax-highlighting';
 
 // 3 ELEMENTS
-@import '3-elements/page';
-@import '3-elements/headings';
-@import '3-elements/images';
-@import '3-elements/links';
-@import '3-elements/blockquote';
-@import '3-elements/hr';
-@import '3-elements/pre';
-@import '3-elements/code';
+@use '3-elements/page';
+@use '3-elements/headings';
+@use '3-elements/images';
+@use '3-elements/links';
+@use '3-elements/blockquote';
+@use '3-elements/hr';
+@use '3-elements/pre';
+@use '3-elements/code';
 
 // 4 OBJECTS
-@import '4-objects/wrapper';
-@import '4-objects/animation';
+@use '4-objects/wrapper';
+@use '4-objects/animation';
 
 // 5 COMPONENTS
-@import '5-components/buttons';
-@import '5-components/sidebar';
-@import '5-components/content';
-@import '5-components/index-post';
-@import '5-components/article-page';
-@import '5-components/tags';
-@import '5-components/header';
-@import '5-components/categories';
-@import '5-components/form';
-@import '5-components/newsletter';
-@import '5-components/disqus-comments';
-@import '5-components/scroll-top';
+@use '5-components/buttons';
+@use '5-components/sidebar';
+@use '5-components/content';
+@use '5-components/index-post';
+@use '5-components/article-page';
+@use '5-components/tags';
+@use '5-components/header';
+@use '5-components/categories';
+@use '5-components/form';
+@use '5-components/newsletter';
+@use '5-components/disqus-comments';
+@use '5-components/scroll-top';
 
 // 6 TRUMPS
-@import '6-trumps/helpers';
+@use '6-trumps/helpers';

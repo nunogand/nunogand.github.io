@@ -1,3 +1,6 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+
 /* ===============
 	BUTTONS
 =============== */
@@ -11,17 +14,17 @@
   text-align: center;
   padding: 8px 15px;
   cursor: pointer;
-  transition: $global-transition;
+  transition: global.$global-transition;
 
   &--primary {
-    color: $white-color;
-    background-color: $primary-color;
+    color: colors.$white-color;
+    background-color: colors.$primary-color;
     background: linear-gradient(135deg, #33aaff 0%, #62d5ff 100%);
   }
 
   &--secondary {
-    color: $white-color;
-    background-color: $secondary-color;
+    color: colors.$white-color;
+    background-color: colors.$secondary-color;
     background: linear-gradient(135deg, #a2a2bd 0%,#cfcfdd 100%);
   }
 
@@ -48,8 +51,8 @@
   }
 
   &:hover {
-    color: $white-color;
-    transition: $global-transition;
+    color: colors.$white-color;
+    transition: global.$global-transition;
   }
 
   &:active {

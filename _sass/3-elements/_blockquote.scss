@@ -1,10 +1,13 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+
 /* ===============
 	BLOCKQUOTE
 =============== */
 
 blockquote {
-  padding-left: $base-spacing-unit;
-  border-left: 3px solid $primary-color;
+  padding-left: global.$base-spacing-unit;
+  border-left: 3px solid colors.$primary-color;
   font-family: 'Volkhov', 'Times New Roman', Times, serif;
   font-style: normal;
   font-size: 18px;

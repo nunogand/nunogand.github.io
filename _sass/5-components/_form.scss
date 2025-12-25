@@ -1,3 +1,7 @@
+@use "../0-settings/colors";
+@use "../0-settings/global";
+@use "../0-settings/typography";
+
 /* ===============
 	CATEGORIES
 =============== */
@@ -8,7 +12,7 @@
   width: calc(100% - 40px);
   min-height: 100vh;
   padding: 0 20px;
-  background-color: $white-color;
+  background-color: colors.$white-color;
   z-index: 1;
 }
 
@@ -19,7 +23,7 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  transition: $global-transition;
+  transition: global.$global-transition;
   &:hover {
     transform: scale(.8);
     opacity: .8;
@@ -36,12 +40,12 @@
     min-width: 0;
     border: 0;
     padding: 0;
-    font-family: $heading-font-family;
+    font-family: typography.$heading-font-family;
     text-transform: uppercase;
     text-align: center;
   }
   a {
-    color: $text-color;
+    color: colors.$text-color;
   }
 }
 
@@ -56,10 +60,10 @@
   textarea {
     width: 100%;
     padding: 10px 15px;
-    color: $text-color;
-    border: 1px solid $blue-lighter;
+    color: colors.$text-color;
+    border: 1px solid colors.$blue-lighter;
     outline: none;
-    transition: $global-transition;
+    transition: global.$global-transition;
     &:focus {
       box-shadow: 0 4px 25px rgba(132, 135, 138, 0.1);
     }
@@ -84,7 +88,7 @@
     font-weight: 700;
     margin: 40px auto 0;
     text-align: center;
-    color: $white-color;
+    color: colors.$white-color;
     background: linear-gradient(135deg, #55b5ad 0%,#5ec9c5 100%);
     .c-form-bnt__close {
       width: 25px;
@@ -92,7 +96,7 @@
       background: transparent;
     }
     a {
-      color: $white-color;
+      color: colors.$white-color;
     }
   }
 }

@@ -1,3 +1,5 @@
+@use "../0-settings/colors";
+
 /* ===============
 	TAGS
 =============== */
@@ -6,7 +8,7 @@
   width: 100%;
   padding: 20px;
   margin: 20px 0 40px;
-  background-color: $white-color;
+  background-color: colors.$white-color;
   h1 {
     text-align: center;
     margin-bottom: 0;
@@ -15,7 +17,7 @@
     font-size: 18px;
     text-transform: uppercase;
     margin: 30px 0;
-    color: $gray-dark;
+    color: colors.$gray-dark;
   }
 }
 
@@ -23,16 +25,16 @@
   list-style: none;
   padding: 0 0 40px;
   margin: 40px 0 0;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid colors.$border-color;
   li {
     display: inline-block;
     margin-right: 15px;
     a {
-      color: $text-color;
+      color: colors.$text-color;
       text-transform: uppercase;
       font-size: 12px;
       &:hover {
-        color: color.adjust($text-color, $lightness: -30%);
+        color: color.adjust(colors.$text-color, $lightness: -30%);
       }
     }
   }

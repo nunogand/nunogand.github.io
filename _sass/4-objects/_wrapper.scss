@@ -1,9 +1,11 @@
+@use "../0-settings/global";
+
 /* ===============
 	WPAPPER
 =============== */
 
 $base-wrapper-width: 1440px;
-$wrapper-offset: $base-spacing-unit;
+$wrapper-offset: global.$base-spacing-unit;
 
 .o-wrapper {
   max-width: $base-wrapper-width;
