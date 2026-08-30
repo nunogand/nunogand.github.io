@@ -1,6 +1,7 @@
 ---
 layout: post
-title: How to Solve the error: externally-managed-environment When Using pip in a Virtual Environment
+title: >
+    How to Solve the error: "externally-managed-environment" When Using pip in a Virtual Environment
 description: "How to Solve the error: externally-managed-environment When Using pip in a Virtual Environment"
 date: 2026-08-30
 categories: [Python]
@@ -11,9 +12,9 @@ published: true
 ---
 If you've created and activated a Python virtual environment (venv) but still get the dreaded:
 {% highlight console %}
----
+
 error: externally-managed-environment
----
+
 {% endhighlight %}
 
 when running pip, the issue may not be what you think.
@@ -26,9 +27,8 @@ In my case, the virtual environment was activated, but pip was still failing wit
 
 When you type:
 {% highlight console %}
----
 pip install some-package
----
+
 {% endhighlight %}
 your shell resolves the pip executable based on your PATH. If that pip points to a different Python installation, it may ignore the active virtual environment and use the system-managed Python instead.
 
@@ -39,9 +39,9 @@ That's when you can end up seeing the externally-managed-environment error, even
 Instead of invoking pip directly, use:
 
 {% highlight console %}
----
+
 python -m pip install some-package
----
+
 {% endhighlight %}
 
 By using python -m pip, you're explicitly telling Python to run the pip module associated with the currently active Python interpreter.
